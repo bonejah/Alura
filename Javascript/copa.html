@@ -1,0 +1,23 @@
+<meta charset = "UTF-8">
+
+<script>
+var pulaLinha = function(){
+	document.write("<br>");
+}
+
+var mostra = function(frase){
+	document.write(frase);
+	pulaLinha();
+	pulaLinha();
+}
+
+var anoDeCopa = parseInt(prompt("Informe o ano?"));
+var anoLimite = parseInt(prompt("Qual é o ano limite?"));
+
+while(anoDeCopa <= anoLimite ){
+	mostra(anoDeCopa + " tem copa!");
+	anoDeCopa = anoDeCopa + 4;
+}
+
+mostra("Ufa! Esses foram os anos de copa até " + anoLimite);
+</script>

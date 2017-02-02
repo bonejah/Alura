@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Serviço Calculo Prazo</title>
+</head>
+<body>
+	<h1>Cálculo Prazo</h1>
+	<h:form id="formCalculaPrazo">
+		<h:messages id="messages"/>
+		<fieldset>
+			<legend>Dados do Calculo do Prazo</legend>
+			<h:panelGroup>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Código do Serviço:" for="cdServico" />
+					<h:selectOneMenu value="#{servicoCalculaPrazoBean.calcPrazo.NCdServico}" id="cdServico">
+						<f:selectItem itemValue="0" itemLabel="------------"/>
+						<f:selectItems value="#{servicoCalculaPrazoBean.tiposCdServico}" var="tipoServico" itemValue="#{tipoServico.cdServico}" itemLabel="#{tipoServico.nmServico}" />
+					</h:selectOneMenu>						
+					<h:outputLabel value="Cep Origem:" for="cepOrigem" />
+					<h:inputText id="cepOrigem" value="#{servicoCalculaPrazoBean.calcPrazo.SCepOrigem}" required="true" requiredMessage="Cep Origem obrigatório"
+						validatorMessage="Cep Origem não pode ser superior a 8 digitos">
+						<f:validateLength maximum="8"/>
+						<f:ajax event="blur" render="messages"/>
+					</h:inputText>
+					<h:outputLabel value="Cep Destino" for="cepDestino" />
+					<h:inputText id="cepDestino" value="#{servicoCalculaPrazoBean.calcPrazo.SCepDestino}" required="true" requiredMessage="Cep Destino obrigatório"
+						validatorMessage="Cep Destino não pode ser superior a 8 digitos">
+						<f:validateLength maximum="8"/>
+						<f:ajax event="blur" render="messages"/>
+					</h:inputText>
+				</h:panelGrid>
+			</h:panelGroup>
+			<h:commandButton value="Calcula o Prazo" action="#{servicoCalculaPrazoBean.calculaPrazo}" />
+		</fieldset>
+	</h:form>
+	<br />
+	<br />
+	<fieldset>
+		<legend>Resultado da pesquisa</legend>
+			<h:form id="formResultado">
+				<h:dataTable id="tabelaResultaod" value="#{servicoCalculaPrazoBean.listServicos}" var="servico">
+					 <h:column>
+					    <f:facet name="header">Código</f:facet>
+					    <h:outputText value="#{servico.codigo}" />
+					 </h:column>
+					 <h:column>
+					    <f:facet name="header">Entrega Domiciliar</f:facet>
+					    <h:outputText value="#{servico.entregaDomiciliar}" />
+					 </h:column>
+					 <h:column>
+					    <f:facet name="header">Entrega Sábado</f:facet>
+					    <h:outputText value="#{servico.entregaSabado}" />
+					 </h:column>
+					 <h:column>
+					    <f:facet name="header">Observação fim</f:facet>
+					    <h:outputText value="#{servico.obsFim}" />
+					 </h:column>
+					 <h:column>
+					    <f:facet name="header">Prazo de entrega</f:facet>
+					    <h:outputText value="#{servico.prazoEntrega}" />
+					 </h:column>
+					 <h:column>
+					    <f:facet name="header">Valor</f:facet>
+					    <h:outputText value="#{servico.valor}" />
+					 </h:column>
+					 <h:column>
+					    <f:facet name="header">Valor aviso recebimento</f:facet>
+					    <h:outputText value="#{servico.valorAvisoRecebimento}" />
+					 </h:column>
+					 <h:column>
+					    <f:facet name="header">Valor mão própria</f:facet>
+					    <h:outputText value="#{servico.valorMaoPropria}" />
+					 </h:column>
+					 <h:column>
+					    <f:facet name="header">Valor sem adicionais</f:facet>
+					    <h:outputText value="#{servico.valorSemAdicionais}" />
+					 </h:column>
+					 <h:column>
+					    <f:facet name="header">Valor declarado</f:facet>
+					    <h:outputText value="#{servico.valorValorDeclarado}" />
+					 </h:column>
+					 
+					 <h:column>
+					    <f:facet name="header">ERRO</f:facet>
+					    <h:outputText value="#{servico.erro}" />
+					 </h:column>
+					 <h:column>
+					    <f:facet name="header">Mensagem de erro</f:facet>
+					    <h:outputText value="#{servico.msgErro}" />
+					 </h:column>
+				</h:dataTable>
+			</h:form>
+		</fieldset>
+	<a href="index.html">Página principal</a>
+</body>
+</html>

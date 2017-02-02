@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.estoque.caelum.com.br/">
+   <soapenv:Header><ws:token>
+         <!--Optional:-->
+         <dataValidade>2015-12-31</dataValidade>
+         <!--Optional:-->
+         <token>AAAA</token>
+      </ws:token>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ws:cadastrarItem>
+         <!--Optional:-->
+         <item>
+            <!--Optional:-->
+            <codigo>7</codigo>
+            <!--Optional:-->
+            <nome>MacBook Pro</nome>
+            <quantidade>2</quantidade>
+            <!--Optional:-->
+            <tipo>Notebook</tipo>
+         </item>
+      </ws:cadastrarItem>
+   </soapenv:Body>
+</soapenv:Envelope>
