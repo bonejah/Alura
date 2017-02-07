@@ -8,11 +8,13 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
+import javax.jms.MessageListener;
 import javax.jms.Session;
+import javax.jms.TextMessage;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-public class TesteConsumidor {
+public class TesteConsumerQueue {
 	public static void main(String[] args) throws NamingException, JMSException {
 		InitialContext context = new InitialContext();
 		ConnectionFactory factory = (ConnectionFactory) context.lookup("ConnectionFactory");
@@ -22,11 +24,24 @@ public class TesteConsumidor {
 		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		Destination fila = (Destination) context.lookup("financeiro");
 		MessageConsumer consumer = session.createConsumer(fila);
-		Message message = consumer.receive();
+		//Message message = consumer.receive();
 		
-		System.out.println("Recebendo a message: " + message);
+		consumer.setMessageListener(new MessageListener() {
+			@Override
+			public void onMessage(Message message) {
+				TextMessage textMessage = (TextMessage) message;
+				try {
+					System.out.println(textMessage.getText());
+				} catch (JMSException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		//System.out.println("Recebendo a message: " + message);
 	
-		//new Scanner(System.in).nextLine();
+		new Scanner(System.in).nextLine();
 		
 		session.close();
 		connection.close();

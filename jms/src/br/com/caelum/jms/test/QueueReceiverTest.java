@@ -22,7 +22,7 @@ public class QueueReceiverTest {
 		Queue fila = (Queue) ctx.lookup("financeiro");
 		QueueReceiver receiver = (QueueReceiver) sessao.createReceiver(fila);
 
-		Message message = receiver.receive();
+		Message message = receiver.receive(2000);
 		System.out.println(message);
 
 		new Scanner(System.in).nextLine();
