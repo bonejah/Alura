@@ -12,6 +12,7 @@ import javax.jms.Session;
 import javax.naming.InitialContext;
 
 public class QueueReceiverTest {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws Exception {
 		InitialContext ctx = new InitialContext();
 		QueueConnectionFactory cf = (QueueConnectionFactory) ctx.lookup("ConnectionFactory");

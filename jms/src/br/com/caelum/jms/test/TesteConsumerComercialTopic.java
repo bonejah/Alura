@@ -1,21 +1,25 @@
 package br.com.caelum.jms.test;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.MessageListener;
+import javax.jms.ObjectMessage;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.jms.Topic;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import br.com.caelum.modelo.Pedido;
+
 public class TesteConsumerComercialTopic {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws NamingException, JMSException {
 		InitialContext context = new InitialContext();
 		ConnectionFactory factory = (ConnectionFactory) context.lookup("ConnectionFactory");
@@ -31,9 +35,10 @@ public class TesteConsumerComercialTopic {
 		consumer.setMessageListener(new MessageListener() {
 			@Override
 			public void onMessage(Message message) {
-				TextMessage textMessage = (TextMessage) message;
+				ObjectMessage objectMessage = (ObjectMessage) message;
 				try {
-					System.out.println(textMessage.getText());
+					Pedido pedido = (Pedido) objectMessage.getObject();
+					System.out.println(pedido.getCodigo());
 				} catch (JMSException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

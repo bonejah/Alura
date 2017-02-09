@@ -20,6 +20,8 @@ public class TesteProducerTopic {
 		
 		MessageProducer producer = session.createProducer(topico);
 		Message message = session.createTextMessage("Enviando a 1ª mensagem");
+		message.setBooleanProperty("ebook",false);
+		
 		producer.send(message);
 	
 		//new Scanner(System.in).nextLine();

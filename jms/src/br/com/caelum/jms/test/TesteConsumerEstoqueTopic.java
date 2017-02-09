@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
@@ -16,6 +15,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 public class TesteConsumerEstoqueTopic {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws NamingException, JMSException {
 		InitialContext context = new InitialContext();
 		ConnectionFactory factory = (ConnectionFactory) context.lookup("ConnectionFactory");
