@@ -1,6 +1,5 @@
 package br.com.caelum.jms.log;
 
-
 import java.util.Scanner;
 
 import javax.jms.Connection;
@@ -24,29 +23,22 @@ public class TesteConsumerQueue {
 		connection.start();
 		
 		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-		//Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
-		//Session session = connection.createSession(true, Session.SESSION_TRANSACTED);
+
 		Destination fila = (Destination) context.lookup("LOG");
-		MessageConsumer consumer = session.createConsumer(fila);
-		//Message message = consumer.receive();
-		
+		MessageConsumer consumer = session.createConsumer(fila);		
 		consumer.setMessageListener(new MessageListener() {
+			
 			@Override
 			public void onMessage(Message message) {
 				TextMessage textMessage = (TextMessage) message;
 				try {
 					System.out.println(textMessage.getText());
-					//message.acknowledge(); // confirmando o recebimento da mensagem
-					//session.commit();
 				} catch (JMSException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		});
 		
-		//System.out.println("Recebendo a message: " + message);
-	
 		new Scanner(System.in).nextLine();
 		
 		session.close();
