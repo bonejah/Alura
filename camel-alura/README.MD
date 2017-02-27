@@ -27,3 +27,11 @@ http://camel.apache.org/constant.html
 http://camel.apache.org/simple.html
 https://www.caelum.com.br/apostila-java-testes-jsf-web-services-design-patterns/
 
+Database e tabela utilizadas no exercicio:
+create database camel;
+create table negociacao (id BIGINT NOT NULL AUTO_INCREMENT, preco DECIMAL(5,2), quantidade MEDIUMINT, data DATETIME, primary key (id));
+
+http://velocity.apache.org/
+
+
+

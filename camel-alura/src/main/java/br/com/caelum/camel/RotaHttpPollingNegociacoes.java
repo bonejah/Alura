@@ -30,6 +30,7 @@ public class RotaHttpPollingNegociacoes {
 			      convertBodyTo(String.class).
 			      unmarshal(new XStreamDataFormat(xstream)).
 			      split(body()).
+			      log("${body}").
 			      process(new Processor() {
 			        @Override
 			        public void process(Exchange exchange) throws Exception {
@@ -42,13 +43,14 @@ public class RotaHttpPollingNegociacoes {
 			      }).
 			      setBody(simple("insert into negociacao(preco, quantidade, data) values (${property.preco}, ${property.quantidade}, '${property.data}')")).
 			      log("${body}").
-			      delay(1000).
+			      delay(10000).
 			to("jdbc:mysql");
 			}
 		});
 		
 		context.start();
-		Thread.sleep(2000);		
+		Thread.sleep(2000);
+		context.stop();
 	}
 	
 	private static MysqlConnectionPoolDataSource criaDataSource() {
@@ -57,7 +59,7 @@ public class RotaHttpPollingNegociacoes {
 	    mysqlDs.setServerName("localhost");
 	    mysqlDs.setPort(3306);
 	    mysqlDs.setUser("root");
-	    mysqlDs.setPassword("admin");
+	    mysqlDs.setPassword("root");
 	    return mysqlDs;
 	}
 	

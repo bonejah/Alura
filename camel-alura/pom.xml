@@ -16,14 +16,20 @@
 
 		<dependency>
 			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-velocity</artifactId>
+			<version>2.16.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-core</artifactId>
-			<version>${camel-version}</version>
+			<version>2.18.2</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-xmljson</artifactId>
-			<version>${camel-version}</version>
+			<version>2.18.2</version>
 		</dependency>
 
 		<dependency>
@@ -35,7 +41,7 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-http4</artifactId>
-			<version>${camel-version}</version>
+			<version>2.18.2</version>
 		</dependency>
 
 		<dependency>
@@ -47,7 +53,7 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jms</artifactId>
-			<version>${camel-version}</version>
+			<version>2.18.2</version>
 		</dependency>
 
 		<dependency>
@@ -85,22 +91,19 @@
 			<version>1.4.8</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-jdbc -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-sql</artifactId>
-			<version>${camel-version}</version>
+			<artifactId>camel-jdbc</artifactId>
+			<version>2.18.2</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.36</version>
 		</dependency>
-
 	</dependencies>
-
-
 
 	<build>
 		<finalName>projeto-camel-alura</finalName>
