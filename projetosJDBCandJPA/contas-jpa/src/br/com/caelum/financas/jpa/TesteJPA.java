@@ -11,7 +11,6 @@ import br.com.caelum.financas.modelo.Conta;
 public class TesteJPA {
 
 	public static void main(String[] args) {
-
 		Conta conta = new Conta();
 		conta.setTitular("Maria dos Santos");
 		conta.setBanco("Caixa");
@@ -40,9 +39,7 @@ public class TesteJPA {
 
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
-
 		em.persist(conta);
-
 		em.getTransaction().commit();
 		em.close();
 	}

@@ -1,7 +1,6 @@
 package br.com.caelum.financas.modelo;
 
 public class Conta {
-
 	private Integer id;
 	private String titular;
 	private String banco;
@@ -47,5 +46,4 @@ public class Conta {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-
 }

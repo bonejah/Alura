@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	function mostra(frase) {
+		document.write(frase);
+		pulaLinha();
+	}
+
+	function pulaLinha() {
+		document.write("<br>");
+		document.write("<br>");
+	}
+
+	var idadeCasalComFilhos = 28;
+	var dataChegadaDosPortuguesesNoBrasil = 1500;
+	var anoAtual = 2017;
+
+	var geracoesJaPassadas = (anoAtual - dataChegadaDosPortuguesesNoBrasil) / 28;
+
+	mostra("Se passaram " + Math.round(geracoesJaPassadas) + " gerações, desde 1500!");
+
+</script>

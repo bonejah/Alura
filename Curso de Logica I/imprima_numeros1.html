@@ -1,0 +1,25 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	function mostra(frase) {
+		document.write(frase);
+		pulaLinha();
+	}
+
+	function pulaLinha() {
+		document.write("<br>");
+		document.write("<br>");
+	}
+
+	var contador = 30;
+
+	while (contador <= 40) {
+		if (contador != 33 && contador != 37) {
+			mostra(contador);
+		}
+
+		contador = contador + 1;
+	}
+	
+	mostra("FIM");
+
+</script>

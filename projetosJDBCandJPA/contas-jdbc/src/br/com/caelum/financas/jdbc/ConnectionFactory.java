@@ -27,7 +27,6 @@ public class ConnectionFactory {
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
-
 	}
 
 }

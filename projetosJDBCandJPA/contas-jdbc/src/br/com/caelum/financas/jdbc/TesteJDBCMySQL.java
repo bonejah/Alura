@@ -7,9 +7,7 @@ import java.util.List;
 import br.com.caelum.financas.modelo.Conta;
 
 public class TesteJDBCMySQL {
-
 	public static void main(String[] args) throws SQLException {
-
 		Conta conta = new Conta();
 		conta.setTitular("Joao Ferreira");
 		conta.setBanco("Itau");
@@ -34,5 +32,4 @@ public class TesteJDBCMySQL {
 		con.commit();
 		con.close();
 	}
-
 }

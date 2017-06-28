@@ -10,7 +10,6 @@ import java.util.List;
 import br.com.caelum.financas.modelo.Conta;
 
 public class ContaDAO {
-
 	private Connection connection;
 
 	public ContaDAO(Connection connection) {
@@ -18,7 +17,6 @@ public class ContaDAO {
 	}
 
 	public void adiciona(Conta conta) {
-
 		try {
 			PreparedStatement ps = this.connection
 					.prepareStatement("insert into Conta (titular, banco, agencia, numero) values (?,?,?,?)");
@@ -34,7 +32,6 @@ public class ContaDAO {
 	}
 
 	public void altera(Conta conta) {
-
 		try {
 			PreparedStatement ps = this.connection
 					.prepareStatement("update Conta set titular=?, banco=?, agencia=?, numero=? where id=?");
@@ -51,7 +48,6 @@ public class ContaDAO {
 	}
 
 	public void remove(Conta conta) {
-
 		try {
 			PreparedStatement ps = this.connection
 					.prepareStatement("delete from Conta where id=?");
@@ -64,7 +60,6 @@ public class ContaDAO {
 	}
 
 	public Conta procura(Integer id) {
-
 		try {
 			PreparedStatement ps = this.connection
 					.prepareStatement("select titular, banco, numero, agencia from Conta where id = ?");
@@ -86,7 +81,6 @@ public class ContaDAO {
 	}
 
 	public List<Conta> listaPaginada(int primeiro, int quantidade) {
-
 		try {
 			PreparedStatement ps = this.connection
 					.prepareStatement("select titular, banco, numero, agencia from Conta limit ?,? ");
@@ -114,7 +108,6 @@ public class ContaDAO {
 	}
 
 	public List<Conta> lista() {
-
 		try {
 			PreparedStatement ps = this.connection
 					.prepareStatement("select titular, banco, numero, agencia from Conta");
@@ -139,7 +132,6 @@ public class ContaDAO {
 	}
 
 	public List<Conta> procuraPeloNome(String nome) {
-
 		try {
 			PreparedStatement ps = this.connection
 					.prepareStatement("select titular, banco, numero, agencia from Conta where titular like ?");
@@ -163,5 +155,4 @@ public class ContaDAO {
 			throw new RuntimeException(e);
 		}
 	}
-
 }

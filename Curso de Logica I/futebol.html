@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	function mostra(frase) {
+		document.write(frase);
+		pulaLinha();
+	}
+
+	function pulaLinha() {
+		document.write("<br>");
+		document.write("<br>");
+	}
+	
+	var vitorias = parseInt(prompt("Entre com o numero de vitórias."));
+	var  empates = parseInt(prompt("Entre com o numero de empates."));
+	var pontos = (vitorias * 3) +  empates;
+
+	mostra("Os pontos do seu time é " + pontos);
+
+	if (pontos > 28) {
+    	mostra("Nosso time está indo MELHOR que o Livros Velhos!");
+	}
+
+	if (pontos < 28) {
+	    mostra("Nosso time está indo PIOR que o Livros Velhos!");
+	}
+
+	if (pontos == 28) {
+	    mostra("Nosso time está EMPATADO com o Livros Velhos!");
+	}
+</script>
+
