@@ -20,13 +20,19 @@
 			"path": "/Users/brunolima/Developer/Git/ProjetosAlura/Javascript"
 		},
 		{
-			"path": "/Users/brunolima/Developer/Curso de Logica I"
-		},
-		{
-			"path": "/Users/brunolima/Developer/Curso de Logica II"
-		},
-		{
 			"path": "/Users/brunolima/Developer/Ruby"
+		},
+		{
+			"path": "/Users/brunolima/Developer/Git/ProjetosAlura/Curso de Logica I"
+		},
+		{
+			"path": "/Users/brunolima/Developer/Git/ProjetosAlura/Curso de Logica II"
+		},
+		{
+			"path": "/Users/brunolima/Developer/Git/ProjetosAlura/projetoHtml5"
+		},
+		{
+			"path": "/Users/brunolima/Developer/Git/ProjetosAlura/projetoNodeJS"
 		}
 	]
 }
