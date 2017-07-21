@@ -1,1 +1,1 @@
-Projeto Estudo Javascript
+Study Project Javascript - By AluraOnline

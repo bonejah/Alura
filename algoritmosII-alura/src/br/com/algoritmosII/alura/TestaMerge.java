@@ -35,7 +35,6 @@ public class TestaMerge {
 			System.out.println((new StringBuilder(String.valueOf(nota.getAluno()))).append(" ").append(nota.getValor())
 					.toString());
 		}
-
 	}
 
 	private static Nota[] intercala(Nota notas1[], Nota notas2[]) {

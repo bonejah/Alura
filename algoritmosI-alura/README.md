@@ -1,1 +1,1 @@
-Curso Alura - AlgoritmosI
+Curse Alura - AlgorithmsI

@@ -11,6 +11,7 @@ import br.com.caelum.auron.modelo.Participante;
 
 @Stateless
 public class ParticipanteDao {
+	
 	@PersistenceContext
 	private EntityManager em;
 
@@ -23,11 +24,9 @@ public class ParticipanteDao {
 	}
 
 	public Participante getParticipante(String email, String senha) {
-		TypedQuery<Participante> query = em.createQuery("from Participante p where p.email=? and p.senha=?",
-				Participante.class);
+		TypedQuery<Participante> query = em.createQuery("from Participante p where p.email=? and p.senha=?", Participante.class);
 		query.setParameter(1, email);
 		query.setParameter(2, senha);
 		return query.getSingleResult();
 	}
-
 }

@@ -12,7 +12,6 @@ import javax.persistence.EntityManager;
 @Interceptor
 public class GerenciadorDeTransacao implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
 	@Inject
 	EntityManager manager;
 	
@@ -20,7 +19,7 @@ public class GerenciadorDeTransacao implements Serializable {
 	public Object executaTx(InvocationContext context) throws Exception{
 		manager.getTransaction().begin();
 		
-		// chama o método do DAO que precisa de TX
+		// chama o mï¿½todo do DAO que precisa de TX
 		Object resultado = context.proceed();
 		
 		manager.getTransaction().commit();

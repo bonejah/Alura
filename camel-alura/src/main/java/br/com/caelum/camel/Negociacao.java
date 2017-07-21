@@ -9,8 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Negociacao {
-	
+public class Negociacao {	
 	@XmlElement(required=true)
 	private double preco;
 	
@@ -48,5 +47,4 @@ public class Negociacao {
 	public String toString() {
 		return "Negociacao [preco=" + preco + ", quantidade=" + quantidade + "]";
 	}
-
 }

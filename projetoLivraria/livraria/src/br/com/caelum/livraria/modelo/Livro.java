@@ -15,11 +15,9 @@ import javax.persistence.TemporalType;
 @Entity
 public class Livro implements Serializable {
 	private static final long serialVersionUID = 2571774160289052005L;
-
 	@Id
 	@GeneratedValue
 	private Integer id;
-
 	private String titulo;
 	private String isbn;
 	private double preco;
@@ -92,5 +90,4 @@ public class Livro implements Serializable {
 	public void setDataLancamento(Calendar dataLancamento) {
 		this.dataLancamento = dataLancamento;
 	}
-
 }

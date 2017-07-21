@@ -8,7 +8,6 @@ import javax.persistence.TypedQuery;
 
 import br.com.caelum.livraria.modelo.Usuario;
 
-
 public class UsuarioDao implements Serializable{
 	private static final long serialVersionUID = 490418021245437331L;
 	
@@ -31,10 +30,21 @@ public class UsuarioDao implements Serializable{
 		return true;
 	}
 
-	public Usuario buscaPeloLogin(Object login) {
-		// TODO Auto-generated method stub
-		return null;
+	public Usuario buscaPeloLogin(Usuario usuario) {
+		Usuario resultado = null;
+		TypedQuery<Usuario> query = em.createQuery(
+				"select u from Usuario u where u.email = :pEmail and u.senha = :pSenha",
+				Usuario.class);
+		query.setParameter("pEmail", usuario.getEmail());
+		query.setParameter("pSenha", usuario.getSenha());
+		
+		try {
+			resultado = query.getSingleResult();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
+		return resultado;
 	}
-
 }
 

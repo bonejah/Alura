@@ -62,5 +62,4 @@ public class RotaHttpPollingNegociacoes {
 	    mysqlDs.setPassword("root");
 	    return mysqlDs;
 	}
-	
 }

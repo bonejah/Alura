@@ -2,24 +2,23 @@ package br.com.alura.algoritmosI;
 
 public class BuscaMaiorMenorSalario {
 	public static void main(String[] args) {
-		Pessoa pessoa[] = { new Pessoa("Fernando", 3200), 
+		Pessoa arrayPessoa[] = { new Pessoa("Fernando", 3200), 
 				new Pessoa("Alfredo", 6000), new Pessoa("Flavio", 5000),
 				new Pessoa("Marcela", 2200) };
 		
-		int menorSalario = buscaMenorSalario(pessoa);
-		System.out.println("O menor salário é: " + pessoa[menorSalario]);
+		int menorSalario = buscaMenorSalario(arrayPessoa);
+		System.out.println("O menor salï¿½rio ï¿½: " + arrayPessoa[menorSalario]);
 		
-		int maiorSalario = buscaMaiorSalario(pessoa);
-		System.out.println("O maior salário é: " + pessoa[maiorSalario]);
-		
+		int maiorSalario = buscaMaiorSalario(arrayPessoa);
+		System.out.println("O maior salï¿½rio ï¿½: " + arrayPessoa[maiorSalario]);
 	}
 
-	private static int buscaMaiorSalario(Pessoa[] pessoa) {
+	private static int buscaMaiorSalario(Pessoa[] arrayPessoa) {
 		int maiorSalario = 0;
-		int termino = pessoa.length - 1;
+		int tamanhoArray = arrayPessoa.length - 1;
 		
-		for (int salarioAtual = 0; salarioAtual <= termino; salarioAtual++) {
-			if(pessoa[salarioAtual].getSalario() > pessoa[maiorSalario].getSalario()) {
+		for (int salarioAtual = 0; salarioAtual <= tamanhoArray; salarioAtual++) {
+			if(arrayPessoa[salarioAtual].getSalario() > arrayPessoa[maiorSalario].getSalario()) {
 				maiorSalario = salarioAtual;
 			}
 		}
@@ -27,12 +26,12 @@ public class BuscaMaiorMenorSalario {
 		return maiorSalario;
 	}
 
-	private static int buscaMenorSalario(Pessoa[] pessoa) {
+	private static int buscaMenorSalario(Pessoa[] arrayPessoa) {
 		int menorSalario = 0;
-		int termino = pessoa.length - 1;
+		int tamanhoArray = arrayPessoa.length - 1;
 		
-		for (int salarioAtual = 0; salarioAtual <= termino; salarioAtual++) {
-			if(pessoa[salarioAtual].getSalario() < pessoa[menorSalario].getSalario()) {
+		for (int salarioAtual = 0; salarioAtual <= tamanhoArray; salarioAtual++) {
+			if(arrayPessoa[salarioAtual].getSalario() < arrayPessoa[menorSalario].getSalario()) {
 				menorSalario = salarioAtual;
 			}
 		}

@@ -1,6 +1,9 @@
 package br.com.algoritmosII.alura;
 
 public class Nota {
+	private String aluno;
+	private double valor;
+	
 	public Nota(String aluno, double valor) {
 		this.aluno = aluno;
 		this.valor = valor;
@@ -13,8 +16,4 @@ public class Nota {
 	public double getValor() {
 		return valor;
 	}
-
-	private String aluno;
-	private double valor;
-
 }

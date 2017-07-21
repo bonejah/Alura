@@ -1,2 +1,1 @@
-Projeto Estudo do Angular 1
-Teste
+Project Angular 1, curse by AluraOnline

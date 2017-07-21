@@ -5,7 +5,6 @@ import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
 public class LogPhaseListener implements PhaseListener {
-
 	@Override
 	public void afterPhase(PhaseEvent event) {
 		//System.out.println("After phase: " + event.getPhaseId());

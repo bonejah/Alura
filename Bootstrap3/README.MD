@@ -1,3 +1,3 @@
-Projeto utilizando Bootstrap3 - Curso Alura
+Project Bootstrap3 - Curse AluraOnline
 
-Para usar o Bootstrap precisamos de uma versão superior à 1.9.1 e inferior que 3
+TO use Bootstrap, we need a version higher than 1.91 and lower than 3

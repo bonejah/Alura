@@ -21,7 +21,6 @@ public class RotaPedido3 {
 		
 		context.addRoutes(new RouteBuilder()
 		{
-
 			@Override
 			public void configure() throws Exception {
 				from("direct:entrada").
@@ -33,7 +32,6 @@ public class RotaPedido3 {
 			}
 		});
 		
-
 		context.start();
 		Thread.sleep(2000);
 		context.stop();

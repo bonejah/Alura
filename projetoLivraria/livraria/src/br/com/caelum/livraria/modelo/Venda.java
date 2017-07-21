@@ -7,7 +7,6 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Venda {
-	
 	@Id
 	@GeneratedValue
 	private Integer id;

@@ -13,7 +13,6 @@ public class RotaEnviaPedido {
 		context.addComponent("activemq", ActiveMQComponent.activeMQComponent("tcp://localhost:61616"));
 		
 		context.addRoutes(new RouteBuilder() {
-
 			@Override
 			public void configure() throws Exception {				
 				from("file:pedidos?noop=true").

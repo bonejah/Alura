@@ -9,7 +9,6 @@ import javax.faces.event.PhaseListener;
 import br.com.caelum.livraria.modelo.Usuario;
 
 public class Autorizador implements PhaseListener {
-
 	@Override
 	public void afterPhase(PhaseEvent event) {
 		FacesContext context = event.getFacesContext();

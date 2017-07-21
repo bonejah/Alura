@@ -25,7 +25,6 @@ public class ParticipanteBean {
 	private Subject user;
 	@Inject
 	private FacesContext ctx;
-
 	@Inject
 	private ParticipanteDao participanteDao;
 

@@ -23,5 +23,4 @@ public class TestaEncontraMenores {
 
 		return menores;
 	}
-
 }

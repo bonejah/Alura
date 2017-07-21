@@ -58,5 +58,4 @@ public class Autenticador implements Realm {
 	public boolean supports(AuthenticationToken arg0) {
 		return true;
 	}
-
 }

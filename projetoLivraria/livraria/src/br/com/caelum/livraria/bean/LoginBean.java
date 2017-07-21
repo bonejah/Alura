@@ -39,7 +39,7 @@ public class LoginBean implements Serializable {
 		}
 		
 		context.getExternalContext().getFlash().setKeepMessages(true);
-		context.addMessage(null, new FacesMessage("Usuário não encontrado"));
+		context.addMessage(null, new FacesMessage("Usuï¿½rio nï¿½o encontrado"));
 		return "login?faces-redirect=true";
 	}
 	

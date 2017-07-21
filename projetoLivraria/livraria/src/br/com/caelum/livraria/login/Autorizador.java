@@ -9,11 +9,9 @@ import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
 public class Autorizador implements PhaseListener{
-	
 	private static final long serialVersionUID = 1L;
 
 	public void afterPhase(PhaseEvent event) {
-
 		FacesContext context = event.getFacesContext();
 		
 		if ("/login.xhtml".equals(context.getViewRoot().getViewId())) {
@@ -44,7 +42,4 @@ public class Autorizador implements PhaseListener{
 	public PhaseId getPhaseId() {
 		return PhaseId.RESTORE_VIEW;
 	}
-	
-	
-
 }

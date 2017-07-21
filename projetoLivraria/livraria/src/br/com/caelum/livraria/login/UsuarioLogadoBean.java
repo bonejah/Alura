@@ -11,7 +11,6 @@ import br.com.caelum.livraria.modelo.Usuario;
 @Named
 @SessionScoped
 public class UsuarioLogadoBean implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Inject

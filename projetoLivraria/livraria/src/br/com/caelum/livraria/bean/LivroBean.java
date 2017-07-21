@@ -30,7 +30,7 @@ public class LivroBean implements Serializable {
 	private Integer autorId;
 	private List<Livro> livros;
 	private LivroDataModel livroDataModel = new LivroDataModel();
-	private List<String> generos = Arrays.asList("Romance", "Drama", "Ação");
+	private List<String> generos = Arrays.asList("Romance", "Drama", "Aï¿½ï¿½o");
 	
 	@Inject
 	private AutorDao autorDao;
@@ -147,7 +147,7 @@ public class LivroBean implements Serializable {
 	public void comecaComDigitoUm(FacesContext fc, UIComponent component, Object value)  throws ValidatorException {
 		String valor = value.toString();
 		if(!valor.startsWith("1")){
-			throw new ValidatorException(new FacesMessage("ISBN Deveria começar com 1"));
+			throw new ValidatorException(new FacesMessage("ISBN Deveria comeï¿½ar com 1"));
 		}
 	}
 	
@@ -168,17 +168,17 @@ public class LivroBean implements Serializable {
 	
 	@Log
 	public boolean precoEhMenor(Object valorColuna, Object filtroDigitado, Locale locale) { // java.util.Locale
-        //tirando espaços do filtro
+        //tirando espaï¿½os do filtro
         String textoDigitado = (filtroDigitado == null) ? null : filtroDigitado.toString().trim();
 
         System.out.println("Filtrando pelo " + textoDigitado + ", Valor do elemento: " + valorColuna);
 
-        // o filtro é nulo ou vazio?
+        // o filtro ï¿½ nulo ou vazio?
         if (textoDigitado == null || textoDigitado.equals("")) {
             return true;
         }
 
-        // elemento da tabela é nulo?
+        // elemento da tabela ï¿½ nulo?
         if (valorColuna == null) {
             return false;
         }
@@ -188,7 +188,7 @@ public class LivroBean implements Serializable {
             Double precoDigitado = Double.valueOf(textoDigitado);
             Double precoColuna = (Double) valorColuna;
 
-            // comparando os valores, compareTo devolve um valor negativo se o value é menor do que o filtro
+            // comparando os valores, compareTo devolve um valor negativo se o value ï¿½ menor do que o filtro
             return precoColuna.compareTo(precoDigitado) < 0;
 
         } catch (NumberFormatException e) {
@@ -197,5 +197,4 @@ public class LivroBean implements Serializable {
             return false;
         }
 	}
-	
 }

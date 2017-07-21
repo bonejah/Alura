@@ -49,7 +49,4 @@ public class AutorDao implements Serializable {
 	public List<Autor> listaTodosPaginada(int firstResult, int maxResults) {
 		return dao.listaTodosPaginada(firstResult, maxResults);
 	}
-	
-	
-
 }

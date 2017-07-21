@@ -10,7 +10,6 @@ import javax.interceptor.InvocationContext;
 @Interceptor
 @Log
 public class TempoDeExecucaoInterceptor implements Serializable {
-
 	@AroundInvoke
 	public Object log(InvocationContext context) throws Exception {
 		long inicio = System.currentTimeMillis();
@@ -23,7 +22,7 @@ public class TempoDeExecucaoInterceptor implements Serializable {
 
 		long resultado = fim - inicio;
 
-		System.out.println("Método executado: " + metodo + " Tempo execução: "
+		System.out.println("Mï¿½todo executado: " + metodo + " Tempo execuï¿½ï¿½o: "
 				+ resultado);
 
 		return proceder;
