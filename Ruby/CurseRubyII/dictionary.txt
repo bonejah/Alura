@@ -1,0 +1,9 @@
+alura
+alurastart
+C#
+caelum
+casa do codigo
+code smell
+java
+python
+ruby
