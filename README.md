@@ -1,2 +1,2 @@
-# ProjetosAlura
-Repositorio com diversos projetos utilizados nos cursos Alura
+# ProjectsAlura
+Repositories whit many projects used in Alura courses
