@@ -19,7 +19,9 @@ META CHARS
 [a-z] significa de a até z, sempre minúscula,
 [A-Za-z] significa A-Z ou a-z.
 [abc] significa a, b ou c.
-
+(^) significa negação dentro dos colchetes
+\s significa whitespace e é um atalho para [ \t\r\n\f]
+\w significa word char e é uma atalho para [A-Za-z0-9_]
 
 Expressão regular:
 CPF => \d{3}\.\d{3}\.\d{3}\-\d{2}
@@ -34,7 +36,17 @@ Pega notas maiores que 7.2 até 7.9
 
 Pega notas até média 8
 10 - Bruce, 9.5 - Miranda, 7.9    - Bob, 10 - Zimbabue, 7.5 - Bety => [7]\.[5-9]\s+-\s+\w+
+BALEIRO GARROTE SERROTE GOLEIRO ROTEIRO => [A-Z]*ROT[A-Z]+
 
+?classes+poderosas* => [a-z?*+]+
+
+Expressao para data => [0123]?\d\s+de\s+[A-Z][a-zç]{1,8}\s+de\s+[12]\d{3}
+var DIA  = "[0123]?\d"; 
+var _DE_ = "\s+de\s+";
+var MES  = "[A-Za-z][a-zç]{1,8}";
+var ANO  = "[12]\d{3}";
+var stringRegex = DIA + _DE_ +  MES + _DE_ + ANO;
+var objetoRegex  = new RegExp(stringRegex, 'g');
 
 
 Find <code> or </code> : Use </?code>
