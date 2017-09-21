@@ -1,0 +1,1 @@
+{"version":3,"file":"foto.component.js","sourceRoot":"","sources":["foto.component.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,sCAAiD;AAOjD;IAAA;IAGA,CAAC;IAFY;QAAR,YAAK,EAAE;;iDAAQ;IACP;QAAR,YAAK,EAAE;;8CAAK;IAFJ,aAAa;QALzB,gBAAS,CAAC;YACP,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,MAAM;YAChB,WAAW,EAAE,uBAAuB;SACvC,CAAC;OACW,aAAa,CAGzB;IAAD,oBAAC;CAAA,AAHD,IAGC;AAHY,sCAAa"}
