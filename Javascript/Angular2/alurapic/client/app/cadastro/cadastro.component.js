@@ -9,16 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var foto_component_1 = require('../foto/foto.component');
+var http_1 = require('@angular/http');
 var CadastroComponent = (function () {
-    function CadastroComponent() {
+    function CadastroComponent(http) {
+        this.foto = new foto_component_1.FotoComponent();
+        this.http = http;
     }
+    CadastroComponent.prototype.cadastrar = function (event) {
+        var _this = this;
+        event.preventDefault();
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http
+            .post('v1/fotos', JSON.stringify(this.foto), { headers: headers })
+            .subscribe(function () {
+            _this.foto = new foto_component_1.FotoComponent();
+            console.log('Foto salva com sucesso');
+        }, function (erro) { return console.log(erro); });
+    };
     CadastroComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'cadastro',
             templateUrl: './cadastro.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], CadastroComponent);
     return CadastroComponent;
 }());
