@@ -7,17 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+var painel_component_1 = require("./painel.component");
+var PainelModule = /** @class */ (function () {
+    function PainelModule() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'app',
-            templateUrl: './app.component.html'
+    PainelModule = __decorate([
+        core_1.NgModule({
+            declarations: [painel_component_1.PainelComponent],
+            exports: [painel_component_1.PainelComponent]
         })
-    ], AppComponent);
-    return AppComponent;
+    ], PainelModule);
+    return PainelModule;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.PainelModule = PainelModule;
+//# sourceMappingURL=painel.module.js.map

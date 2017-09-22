@@ -10,25 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var FotoComponent = /** @class */ (function () {
-    function FotoComponent() {
+var PainelComponent = /** @class */ (function () {
+    function PainelComponent() {
     }
     __decorate([
         core_1.Input(),
         __metadata("design:type", String)
-    ], FotoComponent.prototype, "titulo", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FotoComponent.prototype, "url", void 0);
-    FotoComponent = __decorate([
+    ], PainelComponent.prototype, "titulo", void 0);
+    PainelComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'foto',
-            templateUrl: './foto.component.html'
+            selector: 'painel',
+            templateUrl: './painel.component.html'
         })
-    ], FotoComponent);
-    return FotoComponent;
+    ], PainelComponent);
+    return PainelComponent;
 }());
-exports.FotoComponent = FotoComponent;
-//# sourceMappingURL=foto.component.js.map
+exports.PainelComponent = PainelComponent;
+//# sourceMappingURL=painel.component.js.map

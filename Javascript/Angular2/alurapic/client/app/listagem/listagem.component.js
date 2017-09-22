@@ -10,25 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var FotoComponent = /** @class */ (function () {
-    function FotoComponent() {
+var http_1 = require("@angular/http");
+var ListagemComponent = /** @class */ (function () {
+    function ListagemComponent(http) {
+        var _this = this;
+        this.fotos = [];
+        http
+            .get('v1/fotos')
+            .map(function (res) { return res.json(); })
+            .subscribe(function (fotos) {
+            _this.fotos = fotos;
+            console.log(_this.fotos);
+        }, function (erro) { return console.log(erro); });
     }
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FotoComponent.prototype, "titulo", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FotoComponent.prototype, "url", void 0);
-    FotoComponent = __decorate([
+    ListagemComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'foto',
-            templateUrl: './foto.component.html'
-        })
-    ], FotoComponent);
-    return FotoComponent;
+            selector: 'listagem',
+            templateUrl: './listagem.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], ListagemComponent);
+    return ListagemComponent;
 }());
-exports.FotoComponent = FotoComponent;
-//# sourceMappingURL=foto.component.js.map
+exports.ListagemComponent = ListagemComponent;
+//# sourceMappingURL=listagem.component.js.map
