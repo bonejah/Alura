@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var ModalComponent = /** @class */ (function () {
+var core_1 = require('@angular/core');
+var ModalComponent = (function () {
     function ModalComponent(_element) {
         this._element = _element;
         this.titulo = 'Tem certeza?';
@@ -39,24 +38,24 @@ var ModalComponent = /** @class */ (function () {
         $(this._element.nativeElement).dialog('open');
     };
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
+        core_1.Input(), 
+        __metadata('design:type', String)
     ], ModalComponent.prototype, "titulo", void 0);
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
+        core_1.Input(), 
+        __metadata('design:type', String)
     ], ModalComponent.prototype, "frase", void 0);
     __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
+        core_1.Output(), 
+        __metadata('design:type', Object)
     ], ModalComponent.prototype, "confirma", void 0);
     ModalComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'modal',
             templateUrl: './modal.component.html'
-        }),
-        __metadata("design:paramtypes", [core_1.ElementRef])
+        }), 
+        __metadata('design:paramtypes', [core_1.ElementRef])
     ], ModalComponent);
     return ModalComponent;
 }());

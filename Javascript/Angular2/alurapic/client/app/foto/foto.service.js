@@ -8,10 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var http_1 = require("@angular/http");
-var core_1 = require("@angular/core");
-var FotoService = /** @class */ (function () {
+var http_1 = require('@angular/http');
+var core_1 = require('@angular/core');
+var FotoService = (function () {
     function FotoService(http) {
         this.url = 'v1/fotos';
         this.http = http;
@@ -41,13 +40,13 @@ var FotoService = /** @class */ (function () {
             .map(function (res) { return res.json(); });
     };
     FotoService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
     ], FotoService);
     return FotoService;
 }());
 exports.FotoService = FotoService;
-var MensagemCadastro = /** @class */ (function () {
+var MensagemCadastro = (function () {
     function MensagemCadastro(_mensagem, _inclusao) {
         this._mensagem = _mensagem;
         this._inclusao = _inclusao;

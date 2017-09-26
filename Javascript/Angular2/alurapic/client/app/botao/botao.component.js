@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var BotaoComponent = /** @class */ (function () {
+var core_1 = require('@angular/core');
+var BotaoComponent = (function () {
     function BotaoComponent() {
         this.nome = 'Ok';
         this.estilo = 'btn-default';
@@ -28,35 +27,36 @@ var BotaoComponent = /** @class */ (function () {
         this.acao.emit(null);
     };
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
+        core_1.Input(), 
+        __metadata('design:type', String)
     ], BotaoComponent.prototype, "nome", void 0);
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
+        core_1.Input(), 
+        __metadata('design:type', String)
     ], BotaoComponent.prototype, "estilo", void 0);
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
+        core_1.Input(), 
+        __metadata('design:type', String)
     ], BotaoComponent.prototype, "tipo", void 0);
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
     ], BotaoComponent.prototype, "desabilitado", void 0);
     __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
+        core_1.Output(), 
+        __metadata('design:type', Object)
     ], BotaoComponent.prototype, "acao", void 0);
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
     ], BotaoComponent.prototype, "confirmacao", void 0);
     BotaoComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'botao',
             templateUrl: './botao.component.html'
-        })
+        }), 
+        __metadata('design:paramtypes', [])
     ], BotaoComponent);
     return BotaoComponent;
 }());

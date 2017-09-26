@@ -8,10 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var foto_service_1 = require("./../foto/foto.service");
-var ListagemComponent = /** @class */ (function () {
+var core_1 = require('@angular/core');
+var foto_service_1 = require('./../foto/foto.service');
+var ListagemComponent = (function () {
     function ListagemComponent(service) {
         var _this = this;
         this.fotos = [];
@@ -42,8 +41,8 @@ var ListagemComponent = /** @class */ (function () {
             moduleId: module.id,
             selector: 'listagem',
             templateUrl: './listagem.component.html'
-        }),
-        __metadata("design:paramtypes", [foto_service_1.FotoService])
+        }), 
+        __metadata('design:paramtypes', [foto_service_1.FotoService])
     ], ListagemComponent);
     return ListagemComponent;
 }());

@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var FotoComponent = /** @class */ (function () {
+var core_1 = require('@angular/core');
+var FotoComponent = (function () {
     function FotoComponent() {
         this.titulo = '';
         this.url = '';
@@ -18,12 +17,12 @@ var FotoComponent = /** @class */ (function () {
         this._id = '';
     }
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
+        core_1.Input(), 
+        __metadata('design:type', String)
     ], FotoComponent.prototype, "titulo", void 0);
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
+        core_1.Input(), 
+        __metadata('design:type', String)
     ], FotoComponent.prototype, "url", void 0);
     FotoComponent = __decorate([
         core_1.Component({
@@ -32,7 +31,8 @@ var FotoComponent = /** @class */ (function () {
             templateUrl: './foto.component.html',
             styleUrls: ['./foto.component.css'],
             encapsulation: core_1.ViewEncapsulation.Emulated
-        })
+        }), 
+        __metadata('design:paramtypes', [])
     ], FotoComponent);
     return FotoComponent;
 }());
