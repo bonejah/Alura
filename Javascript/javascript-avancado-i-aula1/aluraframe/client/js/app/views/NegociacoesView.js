@@ -1,9 +1,9 @@
-class NegociacoesView {
+class NegociacoesView extends View {
     constructor(elemento) {
-        this._elemento = elemento;
+        super(elemento);
     }
 
-    _template(model) {
+    template(model) {
         return `
         <table class="table table-hover table-bordered">
             <thead>
@@ -15,7 +15,6 @@ class NegociacoesView {
                 </tr>
             </thead>
             <tbody>
-                ${console.log(model)}
                 ${model.negociacoes.map(n => 
                     `<tr>
                         <td>${DateHelper.dataParaTexto(n.data)}</td>
@@ -35,10 +34,6 @@ class NegociacoesView {
             <tfoot>
         </table>
         `;
-    }
-
-    update(model) {
-        this._elemento.innerHTML = this._template(model);
     }
 }
 
