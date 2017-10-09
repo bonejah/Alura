@@ -19,7 +19,7 @@ http://localhost:8080/api/autores
 Use this command for create project react:
 - npm install create-react-app
 - ./node_modules/.bin/create-react-app name_project (execute this command inside your project folder)
-- npm install --sava jquery
+- npm install --save jquery
 - npm install --save pubsub-js
 - npm install --save react-router@3
 - npm install --save react-router-dom
