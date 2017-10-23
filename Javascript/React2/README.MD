@@ -8,6 +8,9 @@ usuário = alots, senha = 123456;
 usuário = rafael, senha = 123456;
 usuário = vitor, senha = 123456
 
+http://localhost:8080/api/public/fotos/rafael
+http://localhost:8080/api/public/fotos/alots
+
 ----------------------------------------------------------------------------------------------------------------------------------------
 To create a new project React, follow this steps:
 
@@ -18,4 +21,7 @@ To create a new project React, follow this steps:
 To run project React Instalura, follow steps below:
 1 - cd instalura
 2 - npm start
+
+-------------------------------------------------------------------------------------------------------
+https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API
 
