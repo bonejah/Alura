@@ -22,6 +22,10 @@ To run project React Instalura, follow steps below:
 1 - cd instalura
 2 - npm start
 
+React-router
+npm install react-router@3.0.0 --save
+
+
 -------------------------------------------------------------------------------------------------------
 https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API
 
