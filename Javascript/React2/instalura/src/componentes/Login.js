@@ -9,7 +9,6 @@ export default class Login extends Component {
 
     envia(event){
         event.preventDefault();
-
         const requestInfo = {
             method:'POST',
             body:JSON.stringify({login:this.login.value,senha:this.senha.value}),
