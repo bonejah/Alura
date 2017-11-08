@@ -23,7 +23,7 @@ To run project React Instalura, follow steps below:
 2 - npm start
 
 React-router
-npm install react-router@3.0.0 --save
+npm install react-router@3.0.0 --save or npm install react-router@3.2.0 --save 
 npm install pubsub-js --save
 npm install react-transition-group@1.x --save
 
