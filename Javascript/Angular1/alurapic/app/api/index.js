@@ -2,8 +2,7 @@ var db = require('../../config/database');
 
 var api = {}
 
-api.adiciona = function(req, res) {
-    
+api.adiciona = function(req, res) {    
     db.insert(req.body, function(err, newDoc) {
         if(err) return console.log(err);
         console.log('Adicionado com sucesso: ' + newDoc._id);
@@ -18,8 +17,7 @@ api.busca = function(req, res) {
     });
 };
 
-api.atualiza = function(req, res) {
-    
+api.atualiza = function(req, res) {    
     db.update({_id : req.params.fotoId }, req.body, function(err, numReplaced) {
         if (err) return console.log(err);
         if(numReplaced) res.status(200).end();
