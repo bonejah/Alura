@@ -25,7 +25,14 @@ To run project React Instalura, follow steps below:
 React-router
 npm install react-router@3.0.0 --save
 npm install pubsub-js --save
-npm install react-transition-group@1.x --save
+npm install react-transition-group@1.x --save]
+
+Redux
+npm install redux --save
+
+Redux thunk
+npm install redux-thunk --save 
+
 
 
 -------------------------------------------------------------------------------------------------------
