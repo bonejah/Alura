@@ -1,3 +1,5 @@
+import {listagem, comentario, like, notifica} from '../actions/actionCreator';
+
 export default class TimeLineApi {
 
   static lista(urlPerfil){
@@ -5,13 +7,13 @@ export default class TimeLineApi {
       fetch(urlPerfil)
       .then(response => response.json())
       .then(fotos => {         
-        dispatch({type:'LISTAGEM', fotos});       
+        dispatch(listagem(fotos));       
         return fotos;
       });              
     }
   }
 
-  static comenta(fotoId,textoComentario) {
+  static comenta(fotoId,textoComentario){
     return dispatch => {
       const requestInfo = {
         method:'POST',
@@ -30,13 +32,13 @@ export default class TimeLineApi {
           }
         })
         .then(novoComentario => {
-            dispatch({type:'COMENTARIO', fotoId, novoComentario});
+            dispatch(comentario(fotoId, novoComentario));
             return novoComentario;
         });  
     }      
   }    
 
-  static like(fotoId) {
+  static like(fotoId){
     return dispatch => {
       fetch(`http://localhost:8080/api/fotos/${fotoId}/like?X-AUTH-TOKEN=${localStorage.getItem('auth-token')}`,{method:'POST'})
         .then(response => {
@@ -47,9 +49,26 @@ export default class TimeLineApi {
           }
         })
         .then(liker => {          
-          dispatch({type:'LIKE', fotoId, liker});
+          dispatch(like(fotoId, liker));
           return liker;
         });             
       }     
+  }
+
+  static pesquisa(loginPesquisado){
+    return dispatch => {
+      fetch(`http://localhost:8080/api/public/fotos/${loginPesquisado}`)
+      .then(response => response.json())
+      .then(fotos => {
+        if(fotos.length === 0) {
+          dispatch(notifica('Usuário não encontrado'));
+        } else {
+          dispatch(notifica('Usuário encontrado'));
+        }
+
+        dispatch(listagem(fotos));
+        return fotos;
+      });
+    }
   }
 }

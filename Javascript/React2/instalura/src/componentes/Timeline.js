@@ -10,9 +10,9 @@ export default class Timeline extends Component {
     this.login = this.props.login;
   }
 
-  componentWillMount() {
+  componentWillMount(){
     this.props.store.subscribe(() => {
-      this.setState({fotos:this.props.store.getState()});
+      this.setState({fotos:this.props.store.getState().timeline});
     });
   }
 
@@ -32,7 +32,7 @@ export default class Timeline extends Component {
     this.carregaFotos();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps){
     if(nextProps.login !== undefined) {
       this.login = nextProps.login;
       this.carregaFotos();
