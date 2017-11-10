@@ -33,6 +33,9 @@ npm install redux --save
 Redux thunk
 npm install redux-thunk --save 
 
+Immutable
+npm install immutable --save
+
 
 
 -------------------------------------------------------------------------------------------------------
