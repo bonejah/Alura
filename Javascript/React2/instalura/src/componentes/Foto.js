@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 
 class FotoAtualizacoes extends Component {
-  like(event) {
+  like(event){
     event.preventDefault();
     this.props.like(this.props.foto.id);
   }  

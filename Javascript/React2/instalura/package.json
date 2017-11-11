@@ -6,11 +6,17 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "immutable": "^3.8.2",
     "pubsub-js": "^1.5.7",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^3.2.0",
+<<<<<<< HEAD
     "react-transition-group": "^1.2.1"
+=======
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+>>>>>>> 4354b4ad5b02723daeeb04e702f94592517f866c
   },
   "scripts": {
     "start": "react-scripts start",
