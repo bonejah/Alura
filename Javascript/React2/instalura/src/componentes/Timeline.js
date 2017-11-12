@@ -1,88 +1,69 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import Foto from './Foto';
-import TimelineStore from '../logicas/TimelineStore';
-=======
 import FotoItem from './Foto';
 import TimelineApi from '../logicas/TimelineApi';
->>>>>>> 4354b4ad5b02723daeeb04e702f94592517f866c
+import {connect} from 'react-redux';
 
-export default class Timeline extends Component {
+class Timeline extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {fotos:[]};
-    this.login = this.props.login;
-  }
-
-<<<<<<< HEAD
-  componentWillMount() {
-    this.props.logicaTimeline.subscribe(fotos => {
-      this.setState({fotos});
-    })
-=======
-  componentWillMount(){
-    this.props.store.subscribe(() => {
-      this.setState({fotos:this.props.store.getState().timeline});
-    });
->>>>>>> 4354b4ad5b02723daeeb04e702f94592517f866c
-  }
-
-  carregaFotos(){
-    let urlPerfil;
-
-    if (this.login === undefined) {
-      urlPerfil = `http://localhost:8080/api/fotos?X-AUTH-TOKEN=${localStorage.getItem('auth-token')}`;
-    } else {
-      urlPerfil = `http://localhost:8080/api/public/fotos/${this.login}`;
+    constructor(props){
+      super(props);      
+      this.login = this.props.login;      
     }
-<<<<<<< HEAD
-    
-    this.props.logicaTimeline.lista(urlPerfil);
-=======
 
-    this.props.store.dispatch(TimelineApi.lista(urlPerfil));
->>>>>>> 4354b4ad5b02723daeeb04e702f94592517f866c
-  }
+    carregaFotos(){  
+      let urlPerfil;
 
-  componentDidMount(){
-    this.carregaFotos();
-  }
+      if(this.login === undefined) {
+        urlPerfil = `http://localhost:8080/api/fotos?X-AUTH-TOKEN=${localStorage.getItem('auth-token')}`;
+      } else {
+        urlPerfil = `http://localhost:8080/api/public/fotos/${this.login}`;
+      } 
 
-  componentWillReceiveProps(nextProps){
-    if(nextProps.login !== undefined) {
-      this.login = nextProps.login;
+      this.props.lista(urlPerfil);                  
+    }
+
+    componentDidMount(){
       this.carregaFotos();
     }
-  }
 
-  like(fotoId) {
-<<<<<<< HEAD
-    this.props.logicaTimeline.like(fotoId);
-  }
+    componentWillReceiveProps(nextProps){
+      if(nextProps.login !== this.login){          
+        this.login = nextProps.login;
+        this.carregaFotos();
+      }
+    }
 
-  comenta(fotoId, textoComentario) {
-    this.props.logicaTimeline.comenta(fotoId, textoComentario);
-=======
-    this.props.store.dispatch(TimelineApi.like(fotoId));
-  }
-
-  comenta(fotoId, textoComentario ) {
-    this.props.store.dispatch(TimelineApi.comenta(fotoId, textoComentario));
->>>>>>> 4354b4ad5b02723daeeb04e702f94592517f866c
-  }
-
-  render(){
-      return (
-      <div className="fotos container">
+    render(){
+        console.log("render");
+        return (
+        <div className="fotos container">
           {
-<<<<<<< HEAD
-            this.state.fotos.map(foto => <Foto key={foto.id} foto={foto} like={this.like.bind(this)} comenta={this.comenta.bind(this)}/>)
-=======
-            this.state.fotos.map(foto => <FotoItem key={foto.id} foto={foto} like={this.like.bind(this)} comenta={this.comenta.bind(this)}/>)
->>>>>>> 4354b4ad5b02723daeeb04e702f94592517f866c
-          }                
-      </div>            
-      );
+            this.props.fotos.map(foto => <FotoItem key={foto.id} foto={foto} like={this.props.like} comenta={this.props.comenta}/>)
+          }
+        </div>            
+        );
+    }
+}
+
+const mapStateToProps = state => {
+  return {fotos : state.timeline}
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    like : (fotoId) => {
+      dispatch(TimelineApi.like(fotoId));
+    },
+    comenta : (fotoId,textoComentario) => {
+      dispatch(TimelineApi.comenta(fotoId,textoComentario))
+    },
+    lista : (urlPerfil) => {
+      dispatch(TimelineApi.lista(urlPerfil));      
+    }
+
   }
 }
+
+const TimelineContainer = connect(mapStateToProps,mapDispatchToProps)(Timeline);
+
+export default TimelineContainer
