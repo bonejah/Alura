@@ -36,6 +36,9 @@ npm install redux-thunk --save
 Immutable
 npm install immutable --save
 
+PropTypes
+npm install prop-types --save 
+
 
 
 -------------------------------------------------------------------------------------------------------

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './componentes/Header';
-import Timeline from './componentes/Timeline'
+import Timeline from './componentes/Timeline';
+import PropTypes from 'prop-types';
 
 class App extends Component {
   render() {    
@@ -10,13 +11,13 @@ class App extends Component {
         <Header store={this.context.store}/>
         <Timeline login={this.props.params.login} store={this.context.store}/>
       </div>
-    </div>
+    </div>  
     );
   }
 }
 
 App.contextTypes = {
-  store : React.PropTypes.object.isRequired
+  store : PropTypes.object.isRequired
 };
 
 export default App;
