@@ -36,8 +36,19 @@ npm install redux-thunk --save
 Immutable
 npm install immutable --save
 
+React Redux
+npm install react-redux --save 
 
 
 -------------------------------------------------------------------------------------------------------
 https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API
+
+http://www.electrode.io/
+https://github.com/walmartlabs/electrode
+https://medium.com/walmartlabs/introducing-electrode-an-open-source-release-from-walmartlabs-14b836135319
+http://yeoman.io/
+https://gulpjs.com/
+
+https://github.com/zeit/next.js
+
 
