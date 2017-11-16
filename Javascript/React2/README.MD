@@ -36,13 +36,19 @@ npm install redux-thunk --save
 Immutable
 npm install immutable --save
 
+<<<<<<< HEAD
 React Redux
 npm install react-redux --save 
+=======
+PropTypes
+npm install prop-types --save 
+>>>>>>> e890b8bdee2867b5dfa9325abde8bd2fca6da468
 
 
 -------------------------------------------------------------------------------------------------------
 https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API
 
+<<<<<<< HEAD
 http://www.electrode.io/
 https://github.com/walmartlabs/electrode
 https://medium.com/walmartlabs/introducing-electrode-an-open-source-release-from-walmartlabs-14b836135319
@@ -50,5 +56,7 @@ http://yeoman.io/
 https://gulpjs.com/
 
 https://github.com/zeit/next.js
+=======
+>>>>>>> e890b8bdee2867b5dfa9325abde8bd2fca6da468
 
 
