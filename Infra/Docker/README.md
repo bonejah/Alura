@@ -80,17 +80,75 @@ docker run -d -p 8080:3000  bonejah/node : executa a imagem criada
 
 DOCKER HUB
 docker login : logando no Docker HUB
+docker tag douglasq/nginx bonejah/nginx : criando uma tag para o seu id
 docker push bonejah/node : disponibilizando a imagem no docker hub
 docker pull bonejah/node : baixa a imagem 
 
 CRIANDO A PROPRIA REDE
 docker network create --driver bridge minha-rede : criando um rede no Docker
 docker network ls : verifica as redes criadas
+docker network inspect nome_da_rede_criada : inspeciona as imagens criadas em uma rede especifica
 docker run --name meu-container-ubuntu -it --network minha-rede ubuntu: criando um container e atrelando a uma rede criada
 
 docker pull douglasq/alura-books:cap05
 docker run -d -p 8080:3000 douglas1/alura-books:cap05
 docker run -d --name meu-mongo --network minha-rede mongo
+
+CONECTANDO A UM BANCO DE DADOS
+docker run -d --name meu-mongo --network minha-rede mongo : executa a imagem do mongo e a associa a rede minha-rede
+docker run -d --network minha-rede -p 8080:3000 douglasq/alura-books:cap05 : sobe a aplicacao e a associa na rede minha-rede
+
+DOCKER COMPOSE
+Crie um arquivo chamado docker-compose.yml
+docker-compose build : 
+docker-compose up : executa o arquivos docker-compose.yml
+docker-compose up -d : executa o arquivos docker-compose.yml e não trava o terminal]
+docker-compose ps : lista os servicos em execucao
+docker-compose down : para os servicos em execucao e remove os containers
+docker-compose restart : reinicializa os servicos
+
+docker exec -it alura-books-1 ping alura-books-2 : executa um ping 
+docker exec -it alura-books-1 ping node2 : executa um ping 
+
+
+=======================================================================================================================
+O Docker Compose não é instalado por padrão no Linux, então você instalá-lo por fora. Para tal, baixe-o na sua versão mais atual, que pode ser visualizada no seu GitHub (https://github.com/docker/compose/releases), executando o comando abaixo:
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.15.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+Após isso, dê permissão de execução para o docker-compose:
+
+sudo chmod +x /usr/local/bin/docker-compose
+=======================================================================================================================
+
+DOCKER CLOUD
+https://www.docker.com/ : crie uma conta no Docker
+https://aws.amazon.com/pt/console/ : crie uma conta na Amazon (boneAWS)
+https://console.aws.amazon.com/iam/home?#/roles : Crie uma politica
+
+Criando uma policy
+https://console.aws.amazon.com/iam/home?#/policies
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "ec2:*",
+                "iam:ListInstanceProfiles"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
+
+Criando uma role
+https://console.aws.amazon.com/iam/home#/roles
+
+
+====================================================================================
+https://kubernetes.io/
 
 
 

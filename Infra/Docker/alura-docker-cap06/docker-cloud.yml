@@ -1,0 +1,33 @@
+nginx: 
+  image: douglasq/nginx
+  ports: 
+    - "80:80"
+  links:
+    - "node1"
+    - "node2"
+    - "node3"
+
+mongodb:
+  image: mongo
+
+node1:
+  image: douglasq/alura-books
+  ports:
+    - "3000"
+  links:
+    - "mongodb"
+
+node1:
+  image: douglasq/alura-books
+  ports:
+  - "3000"
+  links:
+    - "mongodb"
+
+node1:
+  image: douglasq/alura-books
+  ports:
+  - "3000"
+  links:
+    - "mongodb"
+
