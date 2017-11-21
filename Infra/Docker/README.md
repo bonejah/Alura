@@ -30,6 +30,16 @@ sudo add-apt-repository \
 
 sudo apt-get update
 sudo apt-get install docker-ce
+
+Se o comando acima nao funcionar, siga os passos abaixo:
+
+Edit the file /etc/apt/sources.list.d/docker.list to read:
+deb [arch=amd64] https://apt.dockerproject.org/repo ubuntu-xenial main
+
+Then run:
+sudo apt-get update
+sudo apt-get install docker-engine
+
 sudo docker version
 sudo usermod -aG docker $(whoami)
 
