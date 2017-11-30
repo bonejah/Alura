@@ -1,6 +1,9 @@
 Curso sobre Flexbox
 https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox
 https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+http://flexboxfroggy.com/
+http://www.flexboxdefense.com/
+
 
 display: inline
 Colocando display: inline nos elementos permite eles se posicionarem um do lado do outro, o problema do display: inline é que os elementos não aceitam mais que seja modificada tanto a width quanto a height. Isso limita MUITO nossas possibilidades.
@@ -46,3 +49,4 @@ flex-shrink
 flex-basis
 flex
 align-self
+
