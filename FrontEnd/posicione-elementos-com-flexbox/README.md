@@ -1,5 +1,6 @@
 Curso sobre Flexbox
 https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 display: inline
 Colocando display: inline nos elementos permite eles se posicionarem um do lado do outro, o problema do display: inline é que os elementos não aceitam mais que seja modificada tanto a width quanto a height. Isso limita MUITO nossas possibilidades.
@@ -22,3 +23,26 @@ Colocar todo espaço à esquerda e à direita, jogando o conteúdo para o meio c
 Colocar todo espaço entre os elementos como vimos antes usando justify-content: space-between.
 E uma possibilidade bem interessante também é colocar o espaço em volta dos elementos. Podemos usar o justify-content: space-around para isso.
 
+Para mobile devemos colocar um elemento em baixo do outro, é a melhor forma de ocupar todo o espaço para melhorar a usabilidade no celular. Para fazer isso podemos colocar a propriedade flex-direction: column, que faz com que os elementos fiquem um em baixo do outro. Esse é o aspecto mais importante da responsividade do flexbox. Quando colocamos display: flex em um elemento, o navegador passa a considerar esse elemento como um flex container, ou seja, cria todo aquele comportamento que vimos anteriormente no curso, os filhos ficam um do lado do outro e podemos aplicar propriedades para espaçá-los. Os filhos de um flex container por sua vez também ganham um nome, são chamados de flex items. Quando utilizamos flexbox temos que ficar atentos em quem colocamos as propriedades de espaçamento e distribuição do flex. Por exemplo, existem algumas propriedades que devem ser aplicadas à flex container e outras que devem ser aplicadas nos flex items.
+
+Lá podemos ver claramente quais propriedades são aplicadas ao container e aos flex items, não há necessidade de ficar decorando, isso virá naturalmente com a prática.
+
+Seguindo a documentação temos:
+
+container:
+
+display: flex
+flex-direction
+justify-content
+flex-wrap
+flex-flow
+align-items
+align-content
+flex item:
+
+order
+flex-grow
+flex-shrink
+flex-basis
+flex
+align-self
