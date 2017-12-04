@@ -1,5 +1,10 @@
 MySQL 5.7.6 and later:
 
+
+To install:
+sudo apt-get install mysql-client
+sudo apt-get install mysql-server
+
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
 MySQL 5.7.5 and earlier:
 
