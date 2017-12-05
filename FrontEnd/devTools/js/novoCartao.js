@@ -4,7 +4,7 @@
 	$(".novoCartao").submit(function(event){
 
 		var campoConteudo = $(".novoCartao-conteudo");
-	
+
 		var conteudo = campoConteudo.val().trim()
 										  .replace(/\n/g, "<br>")
 										  .replace(/\*\*([^\*][^\*]*)\*\*/g, "<b>$1</b>")
