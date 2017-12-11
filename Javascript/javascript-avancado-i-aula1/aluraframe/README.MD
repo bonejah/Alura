@@ -36,4 +36,7 @@ Prop é a propriedade em si, que está sendo lida naquele momento.
 Receiver é a referência ao próprio proxy. É na configuração do handler do Proxy que colocamos armadilhas.
 
 =================================================================================================================================
+Padrão Factory: Ele é utilizado quando precisamos facilitar a criação de um objeto. É ideal quando queremos criar objetos similares, com apenas seus detalhes diferentes, que podemos passar nos argumentos da Factory. É bom para abstrair a criação de um objeto complexo, já que o programador que utilizar a Factory não precisa necessariamente saber como é feita esta operação.
+
+=================================================================================================================================
 
