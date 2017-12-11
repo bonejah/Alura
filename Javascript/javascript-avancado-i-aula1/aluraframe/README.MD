@@ -54,3 +54,44 @@ Cada status é representado através de um inteiro. Os estados possíveis são:
 
 O Error-first Callback, ou errorback, é um padrão que foi adotado no mundo Node.js. Como você já aprendeu, o callback é uma função chamada quando uma tarefa for executada, como uma requisição Ajax ou o acesso ao banco de dados. No entanto, a qualquer momento pode acontecer um erro no processamento e aí vem a questão de como lidar com isso.
 A convenção é que cada callback receba sempre o erro no primeiro parâmetro. Na função callback, basta então verificar esse parâmetro para saber se ocorreu um erro ou não!
+
+    
+Um transpiler é um compilador de código fonte para código fonte. Ou seja, em linguagens como C, compilamos o código fonte para um código binário para que esse rode em nosso sistema operacional. Já um transpiler poderia converter o código escrito em C para JavaScript, ou seja, é um compilador que traduz o código fonte de uma linguagem para outra.
+
+No caso do JavaScript, o truque é compilar o código fonte (nossos arquivos JS) para JavaScript. Mas espera aí Flávio, não faz sentido algum converter código JavaScript para código JavaScript. Faz sim, porque no caso estaríamos convertendo um código em ES6 para ES5! Nesse contexto, o programador organiza seu código em ES6 para ajudar na manutenção e legibilidade, mas na hora que esse código for entrar em produção ele é todo convertido para ES5, ou seja, toda feature do ES6 é implementada (muitas vezes verbosamente) usando ES5! Com isso, qualquer navegador do mercado será capaz de compreender nosso código.
+
+Vejamos um exemplo de código em ES6:
+
+class Pessoa {
+
+    constructor(nome, sobrenome = '') {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+    }
+
+    obterNomeCompleto() {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+
+    static imprimePessoas(pessoas) {
+        pessoas.forEach((pessoa) => console.log(pessoa.nome));
+    }
+}
+O mesmo código, convertido para ES5 através de um transpiler ficaria assim:
+
+function Pessoa(nome, sobrenome) {
+
+    this.nome = nome;
+    this.sobrenome = sobrenome || ''
+}
+
+Pessoa.prototype.obterNomeCompleto = function() {
+    return this.nome + ' ' + this.sobrenome
+}
+
+Pessoa.imprimePessoa(pessoas) {
+    pessoas.forEach(function(pessoa) {
+        console.log(pessoa.nome);
+    });
+}
+O mais importante nessa abordagem, é nunca editarmos os arquivos em ES5, editamos sempre os que estão em ES6 que a cada modificação devem ser convertidos para ES5.
