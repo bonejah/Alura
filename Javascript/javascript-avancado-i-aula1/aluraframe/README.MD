@@ -27,3 +27,13 @@ Como Reflect.apply funciona? O primeiro parâmetro é o método ou função que 
 Padrão Observer: Utilizado para notificar partes do sistema interessadas quando um evento importante for disparado em nosso sistema. No contexto da nossa aplicação, entendemos um evento como o ato de adicionar ou esvaziar nossa lista de negociações. É a view que está interessada em observar esse evento e tomar uma ação, no caso, se atualizar com base no estado mais atual do modelo.
 
 =================================================================================================================================
+Padrão Proxy: O padrão de projeto Proxy nada mais é do que um objeto "falso", "mentiroso", que envolve e encapsula o objeto real que queremos interagir. É como se fosse uma interface, entre o objeto real e o resto do código. Conseguimos assim controlar o acesso aos seus atributos e métodos. Nele também podemos pendurar códigos que não cabem de estar alocados nos nossos modelos, mas que necessitam ser executados no caso de uma alteração ou atualização do mesmo.
+
+Target é o objeto real que é encapsulado pela proxy. É este objeto que não queremos "sujar" com armadilhas ou qualquer código que não diga respeito ao modelo.
+
+Prop é a propriedade em si, que está sendo lida naquele momento.
+
+Receiver é a referência ao próprio proxy. É na configuração do handler do Proxy que colocamos armadilhas.
+
+=================================================================================================================================
+
