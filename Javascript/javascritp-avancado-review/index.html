@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>TITULO</h1>
+  <p>PARAGRAFO</p>
+  <div>DADOS</div>
+
+  <script>
+    console.log(this); // é window
+
+    // Demonstração this dinâmico (Este funciona)
+    // let exibeConteudo = function () {
+    //  console.log(this);
+    //  alert(this.textContent);
+    //};
+
+    // Demonstração this usando arrow function (este por sua vez possui this estático e não funciona)
+    let exibeConteudo = () => {
+      console.log(this);
+      alert(this.textContent);
+    }
+
+    $ = document.querySelector.bind(document);
+
+    $('h1').addEventListener('click', exibeConteudo);
+
+    $('p').addEventListener('click', exibeConteudo);
+
+    $('div').addEventListener('click', exibeConteudo);
+
+  </script>
+</body>
+
+</html>

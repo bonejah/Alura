@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class SistemaImpressao {
+      constructor() {
+        this._codigo = 2;
+      }
+
+      // Nao funciona this._codigo desse jeito, pois ele não é de uma instância da classe SistemaImpressao
+      //imprime(nomes) {
+      //  nomes.forEach(function (nome) {
+      //    console.log(this);
+      //    console.log(`${this._codigo}: ${nome}`);
+      //  });
+      // }
+
+      // Usando o this do arrow function funciona, pois ele vai usar o this do contexto no qual foi declarado.
+      imprime(nomes) {
+        nomes.forEach(nome => {
+          console.log(this);
+          console.log(`${this._codigo}: ${nome}`);
+        });
+      }
+
+    }
+
+    let nomes = ['Flávio', 'Nico', 'Douglas'];
+    let si = new SistemaImpressao();
+    si.imprime(nomes);
+  </script>
+</body>
+</html>
