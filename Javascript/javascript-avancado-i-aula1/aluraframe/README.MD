@@ -39,6 +39,10 @@ Receiver é a referência ao próprio proxy. É na configuração do handler do 
 Padrão Factory: Ele é utilizado quando precisamos facilitar a criação de um objeto. É ideal quando queremos criar objetos similares, com apenas seus detalhes diferentes, que podemos passar nos argumentos da Factory. É bom para abstrair a criação de um objeto complexo, já que o programador que utilizar a Factory não precisa necessariamente saber como é feita esta operação.
 
 =================================================================================================================================
+Padrão Promisse: Promises (promessas) agora fazem parte da linguagem JavaScript a partir do ES6. Elas representam o resultado futuro de uma ação, que pode ser de sucesso ou fracasso. Elas visam tornar códigos assíncronos mais legíveis e fáceis de manter, evitando o Callback Hell. Uma ou outra chamada assíncrona não é problemática, o problema é quando temos uma sucessão de chamadas assíncronas e o modo tradicional de lidar com elas, aninhando callbacks, torna o código difícil de ler e manter, principalmente o tratamento de erros.
+
+
+=================================================================================================================================
 A propriedade onreadystatechange guarda uma função para ser executada automaticamente cada vez que há uma alteração no estado da requisição.
 
 Cada status é representado através de um inteiro. Os estados possíveis são:
