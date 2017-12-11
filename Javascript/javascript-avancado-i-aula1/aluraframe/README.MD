@@ -39,4 +39,14 @@ Receiver é a referência ao próprio proxy. É na configuração do handler do 
 Padrão Factory: Ele é utilizado quando precisamos facilitar a criação de um objeto. É ideal quando queremos criar objetos similares, com apenas seus detalhes diferentes, que podemos passar nos argumentos da Factory. É bom para abstrair a criação de um objeto complexo, já que o programador que utilizar a Factory não precisa necessariamente saber como é feita esta operação.
 
 =================================================================================================================================
+A propriedade onreadystatechange guarda uma função para ser executada automaticamente cada vez que há uma alteração no estado da requisição.
 
+Cada status é representado através de um inteiro. Os estados possíveis são:
+0: requisição ainda não iniciada.
+1: conexão com o servidor estabelecida.
+2: requisição recebida.
+3: processando requisição.
+4: requisição concluída e a resposta esta pronta.
+
+O Error-first Callback, ou errorback, é um padrão que foi adotado no mundo Node.js. Como você já aprendeu, o callback é uma função chamada quando uma tarefa for executada, como uma requisição Ajax ou o acesso ao banco de dados. No entanto, a qualquer momento pode acontecer um erro no processamento e aí vem a questão de como lidar com isso.
+A convenção é que cada callback receba sempre o erro no primeiro parâmetro. Na função callback, basta então verificar esse parâmetro para saber se ocorreu um erro ou não!
