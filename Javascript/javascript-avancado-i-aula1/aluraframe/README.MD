@@ -41,6 +41,11 @@ Padrão Factory: Ele é utilizado quando precisamos facilitar a criação de um 
 =================================================================================================================================
 Padrão Promisse: Promises (promessas) agora fazem parte da linguagem JavaScript a partir do ES6. Elas representam o resultado futuro de uma ação, que pode ser de sucesso ou fracasso. Elas visam tornar códigos assíncronos mais legíveis e fáceis de manter, evitando o Callback Hell. Uma ou outra chamada assíncrona não é problemática, o problema é quando temos uma sucessão de chamadas assíncronas e o modo tradicional de lidar com elas, aninhando callbacks, torna o código difícil de ler e manter, principalmente o tratamento de erros.
 
+=================================================================================================================================
+Padrão ConnectionFactory: Classe responsável por encapsular todo os métodos relacionados a conexão da aplicação
+
+=================================================================================================================================
+Module Pattern. É uma unidade de código confinada, mas que não exporta qualquer funcionalidade.
 
 =================================================================================================================================
 A propriedade onreadystatechange guarda uma função para ser executada automaticamente cada vez que há uma alteração no estado da requisição.
@@ -95,3 +100,12 @@ Pessoa.imprimePessoa(pessoas) {
     });
 }
 O mais importante nessa abordagem, é nunca editarmos os arquivos em ES5, editamos sempre os que estão em ES6 que a cada modificação devem ser convertidos para ES5.
+
+=================================================================================================================================
+Cada browser define um limite de tamanho para os dados armazenados no IndexedDB sem que seja necessário autorização do usuário. Se esse limite for excedido, uma caixa de diálogo pedirá a confirmação do usuário. Caso ele negue, o evento onerror será executado. O cálculo do limite disponível muitas vezes é calculado dinamicamente e varia de browser para browser, como está escrito na documentação:
+The process by which the browser works out how much space to allocate to web data storage and what to delete when that limit is reached is not simple, and differs between browsers.
+Fonte: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
+
+=================================================================================================================================
+
+
