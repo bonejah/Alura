@@ -237,3 +237,21 @@ ConnectionFactory. .getConnection() .then(connection => {
     })
 
 =================================================================================================================================
+Babel: transpiler JS ES6 to ES5
+Install: 
+npm install babel-cli@6.10.1 --save-dev
+npm install babel-preset-es2015@6.9.0  --save-dev
+npm install babel-plugin-transform-es2015-modules-systemjs@6.9.0 --save-dev
+npm install systemjs@0.19.31 --save
+
+In file package.json insert the code below: 
+ "build": "babel js/app-es6 -d js/app" 
+ "watch": "babel js/app-es6 -d js/app --source-maps --watch" 
+
+In terminal run: 
+npm run build inside folder 'client'
+npm run watch inside folder 'client'
+
+
+
+
