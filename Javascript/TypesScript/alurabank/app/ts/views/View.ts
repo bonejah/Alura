@@ -1,4 +1,4 @@
-abstract class View<T> {
+export abstract class View<T> {
   private _elemento: JQuery;
 
   constructor(seletor: string) {
@@ -9,5 +9,5 @@ abstract class View<T> {
     this._elemento.html(this.template(model));
   }
 
-  abstract template(model: T): string;  
+  abstract template(model: T): string;
 }

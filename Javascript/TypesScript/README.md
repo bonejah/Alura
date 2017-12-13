@@ -8,7 +8,9 @@ Course TypesScript by Alura
 6 - Run: npm run compile
 7 - In file tsconfig.json add this line "noEmitOnError": true on tag "compilerOptions"
 8 - Run: npm start
-8 - Run: npm install @types/jquery@2.0.42 --save-dev
+9 - Run: npm install @types/jquery@2.0.42 --save-dev
+10 - Run: npm install lite-server@2.3.0 --save-dev
+
 
 
 http://underscorejs.org/
