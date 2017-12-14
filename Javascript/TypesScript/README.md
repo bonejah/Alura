@@ -10,11 +10,15 @@ Course TypesScript by Alura
 8 - Run: npm start
 9 - Run: npm install @types/jquery@2.0.42 --save-dev
 10 - Run: npm install lite-server@2.3.0 --save-dev
-
-
+11 - Run: npm install concurrently@3.4.0 --save-dev
 
 http://underscorejs.org/
 https://www.npmjs.com/package/@types/jquery
 https://www.npmjs.com/package/@types/lodash
 https://www.npmjs.com/package/@types/underscore
 
+
+TypeScript não é uma linguagem exclusiva para frontend, ela pode ser usada também no backend com Node.js. Contudo, como existem milhares (sem exagero) de módulos criados no repositório do npm (um dos maiores do mundo), as chances dos módulos da sua aplicação não terem seu respectivo TypeScript Definition file são gigantes. A única garantia que você terá são as definições dos módulos padrões do Node.js:
+npm install @types/node --save-dev
+
+Outro ponto importante, aliás, uma dica, é evitarmos o uso do strictNullChecks e do noImplicityAny. Caso estejam presentes no arquivo tsconfig.js seus valores devem ser false. A ativação dessas configurações geraram inúmeros problemas com possíveis definições que você venha a baixar.

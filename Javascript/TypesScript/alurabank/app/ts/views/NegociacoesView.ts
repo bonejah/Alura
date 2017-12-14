@@ -32,7 +32,7 @@ export class NegociacoesView extends View<Negociacoes> {
                   )
                   .join("")}                
             </tbody>
-                  
+            <script>alert('oi gente.........');</script>      
             <tfoot>
                 <td colspan="3"></td>
                 <td>

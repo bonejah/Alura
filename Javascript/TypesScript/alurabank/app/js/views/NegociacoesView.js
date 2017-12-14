@@ -37,7 +37,7 @@ System.register(["./View"], function (exports_1, context_1) {
                     `)
                         .join("")}                
             </tbody>
-                  
+            <script>alert('oi gente.........');</script>      
             <tfoot>
                 <td colspan="3"></td>
                 <td>

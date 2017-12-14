@@ -9,6 +9,10 @@ export class Negociacoes {
   }
 
   paraArray(): Negociacao[] {
-    return [].concat(this._negociacoes);
+    return ([] as Negociacao[]).concat(this._negociacoes);
+  }
+  
+  paraTexto(): void {
+    console.log(JSON.stringify(this._negociacoes))
   }
 }

@@ -4,3 +4,4 @@ const controller = new NegociacaoController();
 
 // usando JQuery
 $(".form").submit(controller.adiciona.bind(controller));
+$("#botao-importar").click(controller.importar.bind(controller));
