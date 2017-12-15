@@ -1,4 +1,5 @@
 const criaJogo =  sprite => {
+    console.log(sprite)
 
     let palavraSecreta = '';
     let lacunas = [];

@@ -1,5 +1,4 @@
 const criaController = jogo => {
-
     const $entrada = $('.entrada');
     const $lacunas = $('.lacunas');
 
