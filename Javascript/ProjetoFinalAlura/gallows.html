@@ -28,14 +28,14 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/sprite.js"></script>
-    <script src="jsjogo.js"></script>
+    <script src="js/jogo.js"></script>
+    <script src="js/controller.js"></script>
     <script>
-        var sprite = createSprite('.sprite');
-        //console.log(sprite)
-
-        setInterval(() => {
-            sprite.nextFrame();
-        }, 500);
+        criaController(
+            criaJogo(
+                createSprite('.sprite')
+            )
+        ).inicia();
     </script>
 </body>
 </html>
