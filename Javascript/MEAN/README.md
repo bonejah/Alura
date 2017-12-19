@@ -28,7 +28,8 @@ C:\Program Files\MongoDB\Server\3.6\bin>mongo.exe
 mongo
 use alurapic
 db 
-db.find();
+db.fotos.find();
+db.usuarios.insert({login: 'flavio', senha: '123'});
 
 About MongoDB:
 A) Um documento é uma estrutura muito semelhante ao JSON, com a diferença de que possui mais tipos.
