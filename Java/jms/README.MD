@@ -1,56 +1,49 @@
-Projeto de estudo do JMQ
+# Course JMQ
 
-Para implementarmos essa solução, precisamos de um middleware e o mais famoso no mundo Java se chama ActiveMQ da Apache Foundation. 
-Usaremos o ActiveMQ ao longo deste treinamento, um MOM da Apache.
-Primeiro passo é instalar o ActiveMQ.
+* Para implementarmos essa soluÃ§Ã£o, precisamos de um middleware e o mais famoso no mundo Java se chama ActiveMQ da Apache Foundation. Usaremos o ActiveMQ ao longo deste treinamento, um MOM da Apache.
 
-Baixamos o ActiveMQ 5.12.x (ou mais recente) em http://activemq.apache.org/download.html.
-Observação: No Windows é preciso executar o script InstallService.bat da pasta win32 ou win64 dependendo da arquitetura do computador.
+* Primeiro passo Ã© instalar o ActiveMQ.
 
-Depois de baixado, só precisamos descompactá-lo. Como todo servidor, precisamos rodá-lo e fazemos através do terminal entrando 
-na pasta apache-activemq-5.12.2/bin. Lá uma série de scripts e precisamos rodar aquele que condiz com o sistema operacional que estamos usando. 
-Por exemplo, no OSX usamos no terminal o comando
+* Baixamos o ActiveMQ 5.12.x (ou mais recente) em http://activemq.apache.org/download.html.
+* ObservaÃ§Ã£o: No Windows Ã© preciso executar o script InstallService.bat da pasta win32 ou win64 dependendo da arquitetura do computador.
 
-activemq start = Windows
-sh activemq console = Unix
+* Depois de baixado, sï¿½ precisamos descompactï¿½-lo. Como todo servidor, precisamos rodÃ¡-lo e fazemos atravÃ©s do terminal entrando na pasta apache-activemq-5.12.2/bin. L uma sï¿½rie de scripts e precisamos rodar aquele que condiz com o sistema operacional que estamos usando. Por exemplo, no OSX usamos no terminal o comando
 
-*** No meu caso foi nesse diretório: C:\Java\apache-activemq-5.12.0-bin\apache-activemq-5.12.0\bin\win32\activemq.bat console **** FUNCIONOU AQUI
-Agora sim. Além de subir nosso servidor, ele nos apresenta uma série de logs. O terminal também indica o endereço do nosso 
-servidor: http://localhost:8161
+* activemq start = Windows
+* sh activemq console = Unix
 
-Visualizamos a página principal do ActiveMQ. Há um link (http://localhost:8161/admin) para o console de administrar. 
-Ao ser clicado, precisamos um usuário e uma senha. O login e senha padrão são admin.
+*** No meu caso foi nesse diretï¿½rio: C:\Java\apache-activemq-5.12.0-bin\apache-activemq-5.12.0\bin\win32\activemq.bat console **** FUNCIONOU AQUI
 
-Simulando a entrega
-Vamos simular essa entrega para nossa aplicação de nota fiscal que tem interesse em receber essas mensagens. 
-Para isso, preparamos um jar com código Java que consumirá a mensagem, mas ele não possui todo o protocolo possível do ActiveMQ, 
-é por isso que da pasta do ActiveMQ que baixamos, vamos mover o activemq-all-5.12.0.jar. Resumindo: nosso aula-jms.jar depende 
-de ativemq-all-5.12.0.jar.
+* Agora sim. AlÃ©m de subir nosso servidor, ele nos apresenta uma sï¿½rie de logs. O terminal tambï¿½m indica o endereï¿½o do nosso servidor: http://localhost:8161
 
-Sem fechar o terminal do ActiveMQ que está rodando, vamos abrir um novo terminal e executar:
+* Visualizamos a pÃ¡gina principal do ActiveMQ. HÃ¡ um link (http://localhost:8161/admin) para o console de administrar. Ao ser clicado, precisamos um usuÃ¡rio e uma senha. O login e senha padrÃ£o sÃ£o admin.
 
-No Linux e Mac:
-java –cp activemq-all-5.12.0.jar:aula-jms.jar br.com.caelum.TesteMensageria consome
+## Simulando a entrega
+* Vamos simular essa entrega para nossa aplicaÃ§Ã£oo de nota fiscal que tem interesse em receber essas mensagens. 
+* Para isso, preparamos um jar com cÃ³digo Java que consumirÃ¡ a mensagem, mas ele nÃ£o possui todo o protocolo possÃ©vel do ActiveMQ, Ã© por isso que da pasta do ActiveMQ que baixamos, vamos mover o activemq-all-5.12.0.jar. Resumindo: nosso aula-jms.jar depende de ativemq-all-5.12.0.jar.
 
-No Windows:
-java –cp activemq-all-5.12.0.jar;aula-jms.jar br.com.caelum.TesteMensageria consome
-Nosso programa se conectou ao nosso MOM e recebeu as mensagens que cadastramos.
+* Sem fechar o terminal do ActiveMQ que estÃ¡ rodando, vamos abrir um novo terminal e executar:
 
-Podemos enviar mensagens na linha de comando também usando o parâmetro envia seguido com a quantidade de números :
+## No Linux e Mac:
+* java -cp activemq-all-5.12.0.jar:aula-jms.jar br.com.caelum.TesteMensageria consome
 
-No Linux e Mac:
+## No Windows:
+* java -cp activemq-all-5.12.0.jar;aula-jms.jar br.com.caelum.TesteMensageria consome
+* Nosso programa se conectou ao nosso MOM e recebeu as mensagens que cadastramos.
+* Podemos enviar mensagens na linha de comando tambï¿½m usando o parï¿½metro envia seguido com a quantidade de nï¿½meros :
 
-java –cp activemq-all-5.12.0.jar:aula-jms.jar br.com.caelum.TesteMensageria envia 10
-No Windows:
+## No Linux e Mac:
+* java -cp activemq-all-5.12.0.jar:aula-jms.jar br.com.caelum.TesteMensageria envia 10
 
-java –cp activemq-all-5.12.0.jar;aula-jms.jar br.com.caelum.TesteMensageria envia 10
-Neste exemplo, estamos enviando 10 mensagens. Agora em nosso MOM, temos 10 mensagens. 
-Ao testar a consumidor (recebimento das mensagens) aparece no console:
+## No Windows:
+* java -cp activemq-all-5.12.0.jar;aula-jms.jar br.com.caelum.TesteMensageria envia 10
+* Neste exemplo, estamos enviando 10 mensagens. Agora em nosso MOM, temos 10 mensagens. 
+* Ao testar a consumidor (recebimento das mensagens) aparece no console:
 
-Os brokers são uma parte fundamental na integração de sistemas e existem vários no mercado, alguns de grandes fornecedores. 
-Exemplos populares são o RabbitMQ e o WebsphereMQ e, claro, o nosso ActiveMQ.
-Alguns até estão disponíveis na nuvem como Amazon SQS e iron.io.
-A wikipedia tem uma lista mais extensa com links de brokers disponíveis.
+* Os brokers sÃ£o uma parte fundamental na integraÃ§Ã£o de sistemas e existem vÃ¡rios no mercado, alguns de grandes fornecedores. 
+* Exemplos populares sÃ£o o RabbitMQ e o WebsphereMQ e, claro, o nosso ActiveMQ.
+* Alguns atÃ© estÃ£o disponÃ­veis na nuvem como Amazon SQS e iron.io.
+* A wikipedia tem uma lista mais extensa com links de brokers disponÃ­veis.
 
 
 
