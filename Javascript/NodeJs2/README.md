@@ -34,6 +34,8 @@ Bônus point: Descobri recentemente o Insomnia, ainda não testei mas admito est
   "descricao":"criando um pagamento"
 }'
 
+* curl http://localhost:3000/pagamentos/pagamento -X POST -v -H "Content-type: application/json" -d @files/pagamento.json
+
 ## Links
 * https://nodejs.org/.
 
