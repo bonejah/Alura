@@ -1,36 +1,26 @@
-Study project using GIT
+# Course GIT
 
-github - ferramenta online para guardar os arquivos
-ssh-keygen -t rsa -C "seu_email@provedor.com" - comando para configurar o github
+## GitHub - ferramenta online para guardar os arquivos
 
-git clone https://github.com/urlDoProjeto - Copia o projeto para sua m·quina
+## Comandos Git
 
-git config --global user.name = "seuNome"
-git config --global user.email = "seuEmail"
 
-Estados do Git: Working Directory, Index e Head.
-
-mkdir curso-git
-cd curso-git
-
-git ini = Comando que inicia um repositorio Git
-git ls-files = Comando que verifica quais arquivos pertencem ao diretorio
-git	blame nomedoarquivo - verifica as alteracoes do arquivo
-
-git tag - comando para verificar a vers„o do arquivo
-v0.1
-v0.2
-
-git checkout v0.1
-git diff v0.1 v0.2 - comando para verificar a diferenÁa de versoes
-
-git add nomedoarquivo = Comando para adicionar arquivo no repositorio
-git add .. = Comando que adiciona todos os arquivos da pasta atual
-git add *.txt = Comando que adiciona todos os arquivos .txt
-git add -i = … mais recomendado quando temos um numero muito grande de alteracoes a serem adicionadas ao Index
-
-git commit -m "Inicio do Projeto"
-git commit -a j· cria um novo HEAD com todas as alteracoes detectadas no repositorio, porem novos arquivos nao serao adicionados. 
+* comando para configurar o github: ssh-keygen -t rsa -C "seu_email@provedor.com" - 
+* comando para copiar o projeto para sua maquina fisica: git clone https://github.com/urlDoProjeto - 
+* git config --global user.name = "seuNome"
+* git config --global user.email = "seuEmail"
+* git ini = Comando que inicia um repositorio Git
+* git ls-files = Comando que verifica quais arquivos pertencem ao diretorio
+* git	blame nomedoarquivo - verifica as alteracoes do arquivo
+* git tag - comando para verificar a vers„o do arquivo
+* git checkout v0.1
+* git diff v0.1 v0.2 - comando para verificar a diferenÁa de versoes
+* git add nomedoarquivo = Comando para adicionar arquivo no repositorio
+* git add .. = Comando que adiciona todos os arquivos da pasta atual
+* git add *.txt = Comando que adiciona todos os arquivos .txt
+* git add -i = … mais recomendado quando temos um numero muito grande de alteracoes a serem adicionadas ao Index
+* git commit -m "Inicio do Projeto"
+* git commit -a j· cria um novo HEAD com todas as alteracoes detectadas no repositorio, porem novos arquivos nao serao adicionados.
 
 git remote add [alias_do_repositorio] [uri_do_repositorio]. = Comando para adicionar um repositorio remoto
 Exemplo: git remote add origin git@github.com:[seu_nome_de_usuario]/curso-git.git.
@@ -74,6 +64,14 @@ git stash pop
 git stash drop = Deleta um estado
 git stash list
 git stash pop stash@{1}
+
+
+Estados do Git: Working Directory, Index e Head.
+
+mkdir curso-git
+cd curso-git
+
+
 git revert
 HEAD~1 = Atalho para o penultimo commit
 git bisect = Possibilita navegar em v·rios commits de uma maneira mais simples e verificar onde um possÌvel bug foi inserido.
