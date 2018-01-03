@@ -13,7 +13,6 @@
 ## Command to use Mysql
 * mysql -u root -p
 * mysql -u root
-
 * http://localhost:8080/api/autores
 
 ## Use this command for create project react:
