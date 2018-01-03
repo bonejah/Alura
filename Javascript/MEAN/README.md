@@ -1,6 +1,5 @@
 # Course MEAN by Alura
 
-
 ## Infrastructure
 
 * https://www.mongodb.org/
