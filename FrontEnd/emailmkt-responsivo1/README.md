@@ -1,11 +1,7 @@
-Course Email MArketing Responsive
+# Course Email MArketing Responsive
 
+* Some interesting links
 https://www.campaignmonitor.com/css/
-
-display-block:
- - Ocupam uma linha inteira
- - Conseguem interpretar largura/altura
-
 https://mailchimp.com/
 https://imgur.com/
 https://imageshack.us/
