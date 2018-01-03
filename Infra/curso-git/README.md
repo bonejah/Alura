@@ -2,9 +2,9 @@
 
 ## GitHub - ferramenta online para guardar os arquivos
 
-## Git-Cola = Ferramenta Gr·fica (http://git-cola.github.com/downloads.html)
+## Git-Cola = Ferramenta Gráfica (http://git-cola.github.com/downloads.html)
 
-## Pull Request = pode ser criado pela prÛpria interface gráfica do Github, onde indicaremos quais usuários serão notificados das alteracoes que desejamos enviar. Por fim, basta dar uma descrição para as alteracoes que estão sendo enviadas e aguardar se o Pull Request será aceito ou não.
+## Pull Request = pode ser criado pela própria interface gráfica do Github, onde indicaremos quais usuários serão notificados das alteracoes que desejamos enviar. Por fim, basta dar uma descrição para as alteracoes que estão sendo enviadas e aguardar se o Pull Request será aceito ou não.
 
 ## Estados do Git: Working Directory, Index e Head.
 
@@ -52,10 +52,11 @@
 * git mergetool -t nome_do_programa
 * git merge design = Comando que envia as alteracoes de design para o master
 * git rebase master design = Comando que atualiza a branch design com base na branch master
+
 * git rebase:
-- Continue deve ser utilizado apos a resolucao manual dos conflitos, 
-- Skip faz com que suas alteracoes sejam descartadas 
-- Abort volta atr·s em todo o processo de rebase.
+-- Continue deve ser utilizado apos a resolucao manual dos conflitos, 
+-- Skip faz com que suas alteracoes sejam descartadas 
+-- Abort volta atr·s em todo o processo de rebase.
 
 * git checkout nomeDoArquivo = Comando que retira as alteracoes de um arquivo do Working Directory.
 * git checkout -- nomeDoArquivo = Caso tenha um arquivo com o nome igual ao da branc
