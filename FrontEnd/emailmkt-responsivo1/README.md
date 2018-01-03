@@ -1,7 +1,7 @@
 # Course Email MArketing Responsive
 
 * Some interesting links
-https://www.campaignmonitor.com/css/
+** https://www.campaignmonitor.com/css/
 https://mailchimp.com/
 https://imgur.com/
 https://imageshack.us/
