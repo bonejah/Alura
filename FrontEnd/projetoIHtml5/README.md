@@ -1,1 +1,1 @@
-Study Project HTML 5 - By AluraOnline
+# Course HTML 5 - By AluraOnline
