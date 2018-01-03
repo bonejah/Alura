@@ -1,1 +1,1 @@
-Project Ruby by curse AluraOnLine
+# Curse OO with Ruby

@@ -22,23 +22,18 @@ Things you may want to cover:
 	Comando to reload a class: reload!
 
 
- 	2.4.1 :001 > bigbang = Produto.new
+* 	2.4.1 :001 > bigbang = Produto.new
 	 => #<Produto id: nil, nome: nil, descricao: nil, quantidade: nil, preco: nil, created_at: nil, updated_at: nil>
 	2.4.1 :002 > bigbang.nome = "Camiseta Big Bang Theory"
 	2.4.1 :003 > bigbang.descricao = "Camiseta Big Bang Theory"
 	2.4.1 :004 > bigbang.quantidade = 7
 	2.4.1 :005 > bigbang.preco = 77.7
-	2.4.1 :006 > bigbang
- 	=> #<Produto id: nil, nome: "Camiseta Big Bang Theory", descricao: "Camiseta Big Bang Theory", quantidade: 7, preco: 0.777e2, created_at: nil, updated_at: nil>
-
-	2.4.1 :007 > bigbang.save
-   (0.2ms)  begin transaction
+	2.4.1 :006 > bigbang <Produto id: nil, nome: "Camiseta Big Bang Theory", descricao: "Camiseta Big Bang Theory", quantidade: 7, preco: 0.777e2, created_at: nil, updated_at: nil> 2.4.1 :007 > bigbang.save   (0.2ms)  begin transaction
 	  SQL (1.2ms)  INSERT INTO "produtos" ("nome", "descricao", "quantidade", "preco", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Camiseta Big Bang Theory"], ["descricao", "Camiseta Big Bang Theory"], ["quantidade", 7], ["preco", 77.7], ["created_at", "2017-07-22 10:05:00.840061"], ["updated_at", "2017-07-22 10:05:00.840061"]]
 	   (1.5ms)  commit transaction
 	 => true
 
-   2.4.1 :020 > batman = Produto.create nome:"Camiseta do Batman", descricao:"Camiseta do Batman", quantidade:10, preco:70.7
-   (0.2ms)  begin transaction
+*  2.4.1 :020 > batman = Produto.create nome:"Camiseta do Batman", descricao:"Camiseta do Batman", quantidade:10, preco:70.7   (0.2ms)  begin transaction
 	  SQL (0.6ms)  INSERT INTO "produtos" ("nome", "descricao", "quantidade", "preco", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Camiseta do Batman"], ["descricao", "Camiseta do Batman"], ["quantidade", 10], ["preco", 70.7], ["created_at", "2017-07-22 10:11:36.664026"], ["updated_at", "2017-07-22 10:11:36.664026"]]
 	   (2.1ms)  commit transaction
 	 => #<Produto id: 3, nome: "Camiseta do Batman", descricao: "Camiseta do Batman", quantidade: 10, preco: 0.707e2, created_at: "2017-07-22 10:11:36", updated_at: "2017-07-22 10:11:36">
