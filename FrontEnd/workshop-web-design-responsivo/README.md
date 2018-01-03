@@ -66,7 +66,8 @@
 ## NÃO USE FRAMWORKS PARA IMAGENS RESPONSIVAS (picturefill, adaptative, imagens, retina.js, imager.js...)
 <img src="logo.png" srcset="logohd.png 2x, logo.png 1x">
 
-# COMPRESSIVE IMAGES: É otimizar bastante uma imagem de tamanho grande, de forma a ficar com tamanho razoável para diversos dispositivos. Diminuímos a qualidade da imagem, aumentamos a compressão, usamos formatos mais leves etc.
+# COMPRESSIVE IMAGES
+* É otimizar bastante uma imagem de tamanho grande, de forma a ficar com tamanho razoável para diversos dispositivos. Diminuímos a qualidade da imagem, aumentamos a compressão, usamos formatos mais leves etc.
 
 ## Imagens Vetoriais
 * SVG
@@ -80,7 +81,7 @@ Exemplo de bordas:
   box-shadow: 3px 3px 10px rgba(0,0,0,.3); 
 }
 
-.mian {
+.main {
   background: linear-gradient(#F90, #FF0);
 }
 
