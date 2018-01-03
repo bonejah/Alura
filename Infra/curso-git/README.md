@@ -70,7 +70,7 @@
 * git stash pop stash@{1}]
 * git revert
 * git bisect = Possibilita navegar em v·rios commits de uma maneira mais simples e verificar onde um possÌvel bug foi inserido.
-* fork = Permite que vocÍ tenha uma cÛpia de repositorio (que vocÍ não tenha permissao) para voce realizar as suas prÛprias alteracoes;
+* fork = Permite que você tenha uma cópia de repositorio (que vocÍ não tenha permissao) para voce realizar as suas próprias alteracoes;
 * git remote add original [caminho_do_repositorio_remoto] = Comando utilizado para rastrear todas as alteracoes existentes no repositorio original em nosso novo fork.
 * git fetch original = Carrega as alteracoes existentes no repositorio. O comando fetch apenas realizar· o download das novas alteracoes que não temos ainda em nosso repositorio, mas não vai aplic·-las ainda.
 * git merge original = Comando que aplica as alteracoes do repositorio original 
