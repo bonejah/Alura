@@ -1,9 +1,10 @@
-Projetos de estudo livraria utilizando as tecnologias:
+# Course JSF
 
-JSF2.0
-Primefaces
-Spring
-Maven
-Tomcat
-WildFly
-CDI
+## Tecnologies
+* JSF2.0
+* Primefaces
+* Spring
+* Maven
+* Tomcat
+* WildFly
+* CDI
