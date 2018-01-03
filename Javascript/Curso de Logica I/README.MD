@@ -1,1 +1,1 @@
-Logic CurseI by AluraOnline
+# Course Logic I

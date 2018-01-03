@@ -1,1 +1,1 @@
-Study Project Javascript - By AluraOnline
+# Course Javascript
