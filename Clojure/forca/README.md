@@ -2,7 +2,8 @@ Projeto de Estudo do Clojure
 
 # forca
 
-FIXME: description
+FIXME: descriptions
+
 
 ## Installation
 
