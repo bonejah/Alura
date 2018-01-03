@@ -1,5 +1,3 @@
-# Debub
+# Course Debug by Alura
 
-Course Debug by Alura
-
-https://github.com/alura-cursos/listavipServlet
+* https://github.com/alura-cursos/listavipServlet

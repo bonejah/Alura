@@ -6,7 +6,8 @@
 * - SOAP
 * - WSDL de exemplo: https://s3.amazonaws.com/caelum-online-public/soap/EstoqueWSServiceCap5.wsdl
 * - wsdl2java: ferramenta que cria as classes a partir do wsdl
-* - comando que gera as classes (executar o comando abaixo dentro da pasta bin do JBossWildFly): 
+
+## Comando que gera as classes (executar o comando abaixo dentro da pasta bin do JBossWildFly): 
 * wsconsume.bat -k -n -o C:\Users\Bruno\Desktop\Projects\ProjetosAlura\estoquews-web\src * C:\Users\Bruno\Desktop\Projects\ProjetosAlura\estoquews-web\src\EstoqueWSServiceCap5.wsdl 
 * -k - keep, para manter o código fonte
 * -o - para definir a pasta de saida
