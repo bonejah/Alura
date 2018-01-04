@@ -63,6 +63,15 @@ CREATE TABLE `pagamentos` (
 * 404 Not Found: a url solicitada não foi encontrada.
 * 500 Internal Server Error: algo inesperado aconteceu do lado do servidor
 
+## HATEOAS
+* Hypermedia
+* As
+* The
+* Engine
+* Of
+* Application
+* State
+
 ## Links
 * https://nodejs.org/.
 * https://www.getpostman.com/

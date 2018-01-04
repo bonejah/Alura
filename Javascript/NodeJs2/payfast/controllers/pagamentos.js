@@ -75,12 +75,12 @@ module.exports = function(app) {
           dados_do_pagamento: pagamento,
           links: [
             {
-              href: "http://localhost:3000/pagamentos/pagamento" + pagamento.id,
+              href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
               rel: "confirmar",
               method: "PUT"
             },
             {
-              href: "http://localhost:3000/pagamentos/pagamento" + pagamento.id,
+              href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
               rel: "cancelar",
               method: "DELETE"
             }
