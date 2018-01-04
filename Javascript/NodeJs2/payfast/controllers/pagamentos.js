@@ -19,7 +19,7 @@ module.exports = function(app) {
         return;
       }
       console.log('Pagamento cancelado com sucesso')
-      res.send(pagamento);
+      res.status(204).send(pagamento);
     })
   });
 
