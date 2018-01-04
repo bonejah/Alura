@@ -38,7 +38,10 @@ Bônus point: Descobri recentemente o Insomnia, ainda não testei mas admito est
 
 * curl http://localhost:3000/pagamentos/pagamento -X POST -v -H "Content-type: application/json" -d @files/pagamento.json
 
+## Criando o banco de dados e a tabela
 ```
+create database payfast;
+
 CREATE TABLE `pagamentos` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
   `forma_de_pagamento` varchar(255) NOT NULL,
@@ -51,7 +54,17 @@ CREATE TABLE `pagamentos` (
   );
 ```
 
+## Status Code
+* 100 Continue: o servidor recebeu a solicitação e o cliente pode continuar a comunicação.
+* 200 Ok: tudo ocorreu como esperado.
+* 201 Created: um novo recurso foi criado no servidor.
+* 301 Moved: a url solicitada foi movida.
+* 400 Bad Request: problemas na requisição do cliente.
+* 404 Not Found: a url solicitada não foi encontrada.
+* 500 Internal Server Error: algo inesperado aconteceu do lado do servidor
+
 ## Links
 * https://nodejs.org/.
+* https://www.getpostman.com/
 
 
