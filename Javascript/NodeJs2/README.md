@@ -9,6 +9,8 @@
 * execute node: nodemon index.js 
 * install consign: npm i --save consign (helper to routes)
 * install body-parser: npm i --save body-parser
+* install mysql: npm i --save mysql
+* install express-validator: npm i --save express-validator
 
 ## Install Curl on Windows
 ```
