@@ -43,6 +43,13 @@ Bônus point: Descobri recentemente o Insomnia, ainda não testei mas admito est
 * curl http://localhost:3000/correios/calculo-prazo -H "Content-type: application/json" -d 
 @files/dados-entrega.json
 
+* curl -X POST http://localhost:3000/upload/imagem --data-binary @imagem.jpg -H "Content-type: application/octet-stream" -v -H "filename: imagem.jpg"
+
+* curl -X POST http://localhost:3000/upload/imagem -v 
+          -H "filename: imagem.jpg" 
+          -H "Content-Type: application/octet-stream" 
+          --data-binary @imagem.jpg
+
 ## Criando o banco de dados e a tabela
 ```
 create database payfast;
