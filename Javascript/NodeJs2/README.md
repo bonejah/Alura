@@ -13,8 +13,25 @@
 * install express-validator: npm i --save express-validator
 * install restify: npm i --save restify
 * install soap: npm i --save soap
+* install winston: npm i --save winston
+
+
+## MEMCACHED
 * install memcached: npm i --save memcached
 * execute command: memcached -vv
+
+ * MAC: brew install memcached
+ * UBUNTU: sudo apt-get install memcached
+ * Windows:
+ ```
+  http://code.jellycan.com/files/memcached-1.2.5-win32-bin.zip
+  http://code.jellycan.com/files/memcached-1.2.6-win32-bin.zip
+  http://downloads.northscale.com/memcached-win32-1.4.4-14.zip
+  http://downloads.northscale.com/memcached-win64-1.4.4-14.zip
+  http://downloads.northscale.com/memcached-1.4.5-x86.zip
+  http://downloads.northscale.com/memcached-1.4.5-amd64.zip
+```
+
 
 ## Install Curl on Windows
 ```

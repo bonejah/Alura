@@ -10,7 +10,7 @@ module.exports = function(app) {
 
     var memcachedClient = app.persistencia.memcachedClient();
 
-    memcachedClient..get('pagamento-' + id, function(erro, retorno){
+    memcachedClient.get('pagamento-' + id, function(erro, retorno){
       if(erro || !retorno) {
         console.log('MISS - chave não encontrada') ;
         var connection = app.persistencia.connectionFactory();
