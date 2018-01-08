@@ -50,6 +50,9 @@ Bônus point: Descobri recentemente o Insomnia, ainda não testei mas admito est
           -H "Content-Type: application/octet-stream" 
           --data-binary @imagem.jpg
 
+* curl -X GET http://localhost:3000/pagamentos/pagamento/2 -v
+         
+
 ## Criando o banco de dados e a tabela
 ```
 create database payfast;
