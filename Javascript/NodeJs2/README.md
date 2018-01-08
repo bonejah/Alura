@@ -13,6 +13,8 @@
 * install express-validator: npm i --save express-validator
 * install restify: npm i --save restify
 * install soap: npm i --save soap
+* install memcached: npm i --save memcached
+* execute command: memcached -vv
 
 ## Install Curl on Windows
 ```

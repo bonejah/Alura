@@ -8,17 +8,28 @@ module.exports = function(app) {
     var id = req.params.id;    
     console.log('consultando o pagamento de id:'  + id);
 
-    var connection = app.persistencia.connectionFactory();
-    var pagamentoDAO = new app.persistencia.pagamentoDao(connection);
-    pagamentoDao.buscaPorId(id, function(erro, resultado){
-      if(erro){
-        console.log('erro ao consultar no banco: ' + erro);
-        res.status(500).send(erro);
+    var memcachedClient = app.persistencia.memcachedClient();
+
+    memcachedClient..get('pagamento-' + id, function(erro, retorno){
+      if(erro || !retorno) {
+        console.log('MISS - chave não encontrada') ;
+        var connection = app.persistencia.connectionFactory();
+        var pagamentoDAO = new app.persistencia.pagamentoDao(connection);
+        pagamentoDao.buscaPorId(id, function(erro, resultado){
+          if(erro){
+            console.log('erro ao consultar no banco: ' + erro);
+            res.status(500).send(erro);
+            return;
+          }
+
+          console.log('pagamento encontrado ' + JSON.stringify(resultado));
+          res.json(resultado);      
+        });
+      } else {
+        console.log('HIT -valor: ' + JSON.stringify(retorno)); 
+        res.json(resultado);
         return;
       }
-
-      console.log('pagamento encontrado ' + JSON.stringify(resultado));
-      res.json(resultado);      
     });
   });
 
@@ -87,7 +98,12 @@ module.exports = function(app) {
         res.status(500).send(erro);
       }else{
         pagamento.id = resultado.insertId;
-        console.log('pagamento criado')
+        console.log('pagamento criado');
+
+        var memcachedClient = app.persistencia.memcachedClient();
+        memcachedClient.set('pagamento-' + pagamento.id, pagamento, 6000, function(erro){
+          console.log('nova chave adicionada - pagamento-' + pagamento.id)
+        });
 
         if(pagamento.forma_de_pagamento == 'cartao') {
           var cartao = req.body["cartao"];
