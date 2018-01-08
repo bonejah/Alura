@@ -11,6 +11,8 @@
 * install body-parser: npm i --save body-parser
 * install mysql: npm i --save mysql
 * install express-validator: npm i --save express-validator
+* install restify: npm i --save restify
+* install soap: npm i --save soap
 
 ## Install Curl on Windows
 ```
@@ -38,6 +40,9 @@ Bônus point: Descobri recentemente o Insomnia, ainda não testei mas admito est
 
 * curl http://localhost:3000/pagamentos/pagamento -X POST -v -H "Content-type: application/json" -d @files/pagamento.json
 
+* curl http://localhost:3000/correios/calculo-prazo -H "Content-type: application/json" -d 
+@files/dados-entrega.json
+
 ## Criando o banco de dados e a tabela
 ```
 create database payfast;
@@ -63,6 +68,33 @@ CREATE TABLE `pagamentos` (
 * 404 Not Found: a url solicitada não foi encontrada.
 * 500 Internal Server Error: algo inesperado aconteceu do lado do servidor
 
+## REST
+* A sigla REST vêm de Representational State Transfer e surgiu da tese de doutorado de Roy Fielding, descrevendo as ideias que levaram à criação do protocolo HTTP. A Web é o maior exemplo de uso de uma arquitetura REST, onde os verbos são as operações disponíveis no protocolo (GET, POST, DELETE, PUT, OPTION...), os recursos são identificados pelas URLs e as representações podem ser definidas com o uso de Mime Types(texto, XML, JSON e outros).
+
+* REST não é uma especificação nem uma tecnologia, é um modelo arquitetural. Neste modelo, o pensamento da aplicação gira em torno dos recursos. Depois de definir os recursos, usamos os verbos disponíveis (no HTTP temos o GET, POST, PUT e outros) para manipular estes recursos.
+
+* Uma das ideias da arquitetura REST é aproveitar ao máximo o protocolo de comunicação (HTTP) usando-o direito. Nesse escopo, um dos princípios que o REST prega é a utilização das URIs de acordo com sua denominação, URI é a sigla para Uniform Resource Identifier (Identificador Uniforme de Recurso). Pensando voltado a recursos, podemos imaginar que cada recurso tem um identificador único perante os usúarios.
+
+* Casando com a ideia de manipular os recursos usando os verbos do protocolo, se cada recurso tem um único endereço, basta fazer uma requisição do tipo POST para criar um novo recurso ou fazer uma requisição GET para buscar o recurso. Tudo gira em torno do recurso.
+
+* Os recursos em geral estarão "guardados" ou gerados no servidor, então o cliente da aplicação não pode simplesmente pegá-lo, no máximo ele pode vizualizá-lo. Porém, essa visualização pode ocorrer de várias maneiras, por meio de uma página HTML, uma interface desktop, mobile e etc.
+
+* Parte da ideia REST foca que em cada recurso pode ter suas representações. Cada representação pode ter seu formato específico, por exemplo, via XML, HTML, JSON
+
+## METODOS HTTP
+* Ao desenhar aplicações REST, pensamos nos recursos a serem disponibilizados pela aplicação e em seus formatos, em vez de pensar nas operações. As operações disponíveis para cada um dos recursos no protocolo HTTP são:
+
+* GET: retorna uma representação do recurso
+* POST: cria ou altera o recurso
+* PUT: cria ou altera o recurso
+* DELETE: remove o recurso outras menos comuns, como HEAD e OPTIONS
+* Os quatro principais verbos do protocolo HTTP são comumente associados às operações de CRUD em sistemas Restful (POST -> INSERT, GET -> SELECT, PUT -> UPDATE, DELETE -> DELETE). Há uma grande discussão dos motivos pelos quais usamos POST para criação (INSERT) e PUT para alteração (UPDATE). A razão principal é que o protocolo HTTP especifica que a operação PUT deve ser idempotente, já POST não.
+
+### Idempotência e SAFE
+* Operações idempotentes são operações que podem ser chamadas uma ou mais vezes, sempre com o mesmo resultado final.
+* Uma operação é chamada SAFE se ela não altera nenhuma representação.
+* Idempotência e SAFE são propriedades das operações e fundamentais para a escalabilidade da Web.
+
 ## HATEOAS
 * Hypermedia
 * As
@@ -71,6 +103,7 @@ CREATE TABLE `pagamentos` (
 * Of
 * Application
 * State
+* http://blog.caelum.com.br/hipermidia-e-contratos-dinamicos-menor-acoplamento/
 
 ## Links
 * https://nodejs.org/.
