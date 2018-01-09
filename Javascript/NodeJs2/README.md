@@ -14,6 +14,7 @@
 * install restify: npm i --save restify
 * install soap: npm i --save soap
 * install winston: npm i --save winston
+* install morgan: npm i --save morgan
 
 
 ## MEMCACHED

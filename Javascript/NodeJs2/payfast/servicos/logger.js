@@ -1,6 +1,6 @@
 var winston = require('winston');
 
-var logger = new winston.Logger({
+module.exports = new winston.Logger({
   transports: [
     new winston.transports.File({
       level: "info",
@@ -11,6 +11,3 @@ var logger = new winston.Logger({
   ]
 });
 
-logger.log('Log utilizando winston');
-logger.log('info','Log utilizando winston e info');
-logger.info('Log mais maroto');

@@ -1,18 +1,20 @@
+var logger = require('./../servicos/logger.js');
+
 module.exports = function(app) {
   app.get('/pagamentos', function(req, res){
-    console.log('Recebida requisicao de teste')
+    logger.info('Recebida requisicao de teste')
     res.send('OK.')
   });
 
   app.get('/pagamentos/pagamento:id', function(req, res){
     var id = req.params.id;    
-    console.log('consultando o pagamento de id:'  + id);
+    logger.info('consultando o pagamento de id:'  + id);
 
     var memcachedClient = app.persistencia.memcachedClient();
 
     memcachedClient.get('pagamento-' + id, function(erro, retorno){
       if(erro || !retorno) {
-        console.log('MISS - chave não encontrada') ;
+        logger.info('MISS - chave não encontrada');
         var connection = app.persistencia.connectionFactory();
         var pagamentoDAO = new app.persistencia.pagamentoDao(connection);
         pagamentoDao.buscaPorId(id, function(erro, resultado){
