@@ -12,6 +12,10 @@
 * https://cursos.alura.com.br/course/acessibilidade-web-design-inclusivos/task/33536
 * https://medium.com/utilizza/thedevconf-2017-trilha-acessibilidade-acessibilidade-como-compliance-e-a-abordagem-equivocada-11cf484918a8
 
+* https://www.iconfinder.com/
+* https://www.flaticon.com/
+
+
 
 
 
