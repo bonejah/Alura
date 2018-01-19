@@ -14,6 +14,8 @@
 
 * https://www.iconfinder.com/
 * https://www.flaticon.com/
+* http://talitapagani.com/gaia/sobre/
+
 
 
 
