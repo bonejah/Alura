@@ -15,6 +15,13 @@
 * https://www.iconfinder.com/
 * https://www.flaticon.com/
 * http://talitapagani.com/gaia/sobre/
+* https://www.designmantic.com/blog/infographics/designing-for-users-dyslexia/
+* https://contrastchecker.com/
+* https://www.w3.org/TR/AERT/#color-contrast
+* https://youtu.be/igGOeem6y4w
+
+
+
 
 
 
