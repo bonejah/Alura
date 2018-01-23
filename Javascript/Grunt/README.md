@@ -10,7 +10,10 @@
 * npm install grunt-contrib-concat grunt-contrib-uglify grunt-contrib-cssmin --save-dev (plugins para minificar arquivos)
 * npm install grunt-usemin --save-dev 
 * npm install grunt-contrib-imagemin --save-dev
-* npm install grunt-rev --save-dev
+* npm install grunt-contrib-less grunt-contrib-coffee --save-dev
+* npm install grunt-contrib-watch --save-dev
+
+* Comando para executar o grunt-watch: grunt watch (trava o terminal)
 
 
 # Links
