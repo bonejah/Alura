@@ -7,6 +7,8 @@
 * npm install grunt-cli -g
 * npm install grunt-contrib-copy --save-dev
 * npm install grunt-contrib-clean --save-dev
+* npm install grunt-contrib-concat grunt-contrib-uglify grunt-contrib-cssmin --save-dev (plugins para minificar arquivos)
+* npm install grunt-usemin --save-dev 
 
 
 # Links
