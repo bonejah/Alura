@@ -11,10 +11,14 @@
 * npm install grunt-usemin --save-dev 
 * npm install grunt-contrib-imagemin --save-dev
 * npm install grunt-contrib-less grunt-contrib-coffee --save-dev
-* npm install grunt-contrib-watch --save-dev
 
+* npm install grunt-contrib-watch --save-dev
 * Comando para executar o grunt-watch: grunt watch (trava o terminal)
 
+* npm install grunt-contrib-jshint --save-dev
 
 # Links
 * https://gruntjs.com/
+* http://jshint.com/
+
+
