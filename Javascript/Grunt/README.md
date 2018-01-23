@@ -16,6 +16,10 @@
 * Comando para executar o grunt-watch: grunt watch (trava o terminal)
 
 * npm install grunt-contrib-jshint --save-dev
+* npm install grunt-browser-sync --save-dev
+
+## Para visualizar a pagina no smartphone
+* De posse do IP, vá até seu Smartphone favorito e digite seu ip. Por exemplo, o IP da minha máquina é 192.168.0.23, sendo assim, eu digito: 192.168.0.23:3000. Se o seu smartphone estiver na mesma rede do seu Desktop você será capaz de visualizar seu projeto no seu smartphone.
 
 # Links
 * https://gruntjs.com/
