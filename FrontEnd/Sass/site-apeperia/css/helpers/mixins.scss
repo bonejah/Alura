@@ -5,7 +5,7 @@
 }
 
 @function retorna-largura($multiplicador) {
-  @return $multiplicador * $tamanho-fonte-padrao;
+  @return round($multiplicador * $tamanho-fonte-padrao);
 }
 
 %image-replacement {
