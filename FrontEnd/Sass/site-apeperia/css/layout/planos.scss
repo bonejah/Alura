@@ -11,7 +11,7 @@
 
 .plano {
   background: white;
-  width: 18em;
+  width: retorna-largura(18);
   display: inline-block;
   margin: 1em 0 0 1.4em;
   padding-bottom: 2em;
@@ -71,7 +71,7 @@
 }
 
 @include all-sprite-sprites;
-.sprite-icone-check, .sprite-icone-x {
+.sprite-icone-ok, .sprite-icone-x {
   //background: url(../imagens/sprite-s0dba85534d.png) no-repeat;
   width: 18px;
   height: 18px;

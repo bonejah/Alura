@@ -30,8 +30,8 @@ footer::before {
 }
 
 footer .container {
-  padding-top: 3em;
-  height: 6.5em;
+  padding-top: retorna-largura(3);
+  height: retorna-largura(6.5);
   position: relative;
 }
 

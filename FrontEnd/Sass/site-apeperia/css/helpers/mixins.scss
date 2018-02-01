@@ -4,6 +4,10 @@
   border-radius: $raio;
 }
 
+@function retorna-largura($multiplicador) {
+  @return $multiplicador * $tamanho-fonte-padrao;
+}
+
 %image-replacement {
   text-indent: -9999px;
   overflow: hidden;

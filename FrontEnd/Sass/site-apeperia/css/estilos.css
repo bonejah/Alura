@@ -1,4 +1,4 @@
-.sprite-sprite, .sprite-icone-check, .sprite-icone-x {
+.sprite-sprite, .sprite-icone-ok, .sprite-icone-x {
   background: url('../imagens/sprite-s0dba85534d.png') no-repeat;
 }
 
@@ -626,7 +626,7 @@ header .container {
 
 .plano {
   background: white;
-  width: 18em;
+  width: 288px;
   display: inline-block;
   margin: 1em 0 0 1.4em;
   padding-bottom: 2em;
@@ -687,7 +687,7 @@ header .container {
   margin-left: 2em;
 }
 
-.sprite-icone-check {
+.sprite-icone-ok {
   background-position: 0 -24px;
 }
 
@@ -695,7 +695,7 @@ header .container {
   background-position: 0 0;
 }
 
-.sprite-icone-check, .sprite-icone-x {
+.sprite-icone-ok, .sprite-icone-x {
   width: 18px;
   height: 18px;
 }
@@ -827,8 +827,8 @@ footer::before {
 }
 
 footer .container {
-  padding-top: 3em;
-  height: 6.5em;
+  padding-top: 48px;
+  height: 104px;
   position: relative;
 }
 
