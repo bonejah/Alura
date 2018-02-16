@@ -23,6 +23,9 @@ https://nodejs.org/en/
 * Install
 * npm install webpack@3.1.0 babel-core@6.25.0 --save-dev
 * npm install babel-loader@7.1.0 --save-dev
+* npm install babili-webpack-plugin@0.1.1 --save-dev
+* npm install cross-env@5.0.1 --save-dev
+
 
 
 
