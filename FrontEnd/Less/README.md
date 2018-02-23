@@ -19,6 +19,7 @@
 * lighten(@cor-padrao, 10);
 
 ## Links
+* https://github.com/alura-cursos/less-css-simples-e-produtivo
 * http://lesscss.org/functions/#color-channel
 
 
