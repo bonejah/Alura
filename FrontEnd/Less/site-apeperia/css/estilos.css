@@ -363,8 +363,11 @@ th {
   font-size: 0;
   color: transparent;
 }
-.sombra-padrao {
-  box-shadow: 0 2px 6.65px 0.35px #000000;
+.sombra-padrao,
+.destaque button,
+.plano button,
+.contato button {
+  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
 }
 body {
   font-family: "Roboto Slab", serif;
@@ -372,6 +375,9 @@ body {
 .container {
   width: 940px;
   margin: 0 auto;
+}
+@media (max-width: 980px) {
+  width: 90%;
 }
 .titulo-secao {
   text-decoration: underline;
@@ -394,8 +400,18 @@ header {
   width: 100%;
   position: absolute;
 }
+@media (max-width: 980px) {
+  header {
+    height: auto;
+  }
+}
 header .container {
   position: relative;
+}
+@media (max-width: 980px) {
+  header .container {
+    position: static;
+  }
 }
 .menu-principal {
   position: absolute;
@@ -404,12 +420,24 @@ header .container {
   font-size: 1.2em;
   font-weight: lighter;
 }
+@media mobile {
+  .menu-principal {
+    position: static;
+    display: block;
+    text-align: center;
+  }
+}
 .menu-principal ul {
   padding-left: 0;
 }
 .menu-principal li {
   display: inline-block;
   width: 5em;
+}
+@media (max-width: 980px) {
+  .menu-principal li {
+    margin: 4em;
+  }
 }
 .menu-principal a {
   color: white;
@@ -425,6 +453,12 @@ header .container {
   color: white;
   height: 330px;
   padding-top: 10em;
+}
+@media (max-width: 980px) {
+  .destaque {
+    font-size: 14px;
+    height: 250px;
+  }
 }
 .destaque p {
   width: 30em;
@@ -447,7 +481,6 @@ header .container {
   -webkit-border-radius: 2em;
   -o-border-radius: 2em;
   border-radius: 2em;
-  box-shadow: 0 2px 6.65px 0.35px #000000;
   font-weight: bold;
 }
 .destaque button :hover {
@@ -557,7 +590,6 @@ header .container {
   -webkit-border-radius: 0.3em;
   -o-border-radius: 0.3em;
   border-radius: 0.3em;
-  box-shadow: 0 2px 6.65px 0.35px #000000;
   margin-left: 2em;
 }
 .icone-check,
@@ -640,7 +672,6 @@ textarea {
   -webkit-border-radius: 0.3em;
   -o-border-radius: 0.3em;
   border-radius: 0.3em;
-  box-shadow: 0 2px 6.65px 0.35px #000000;
 }
 footer {
   display: block;
@@ -668,8 +699,8 @@ footer::before {
   z-index: -1;
 }
 footer .container {
-  padding-top: 3em;
-  height: 6.5em;
+  padding-top: 48px;
+  height: 104px;
   position: relative;
 }
 footer .container img {
@@ -727,15 +758,6 @@ footer a {
   background-image: url(../imagens/instagram.png);
 }
 @media (max-width: 980px) {
-  .container {
-    width: 90%;
-  }
-  header {
-    height: auto;
-  }
-  header .container {
-    position: static;
-  }
   header h1 {
     max-width: 50%;
     margin: 0 auto;
@@ -744,18 +766,6 @@ footer a {
     max-width: 100%;
     margin: 0.5em auto;
     display: block;
-  }
-  .menu-principal {
-    position: static;
-    display: block;
-    text-align: center;
-  }
-  .menu-principal li {
-    margin: 0.4em;
-  }
-  .destaque {
-    font-size: 14px;
-    height: 250px;
   }
   .menu-principal,
   .menu-principal li,

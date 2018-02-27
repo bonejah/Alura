@@ -37,6 +37,8 @@ text-indent: -9999px;
 ## Links
 * https://github.com/alura-cursos/less-css-simples-e-produtivo
 * http://lesscss.org/functions/#color-channel
+* http://caniuse.com/#feat=calc
+
 
 
 
