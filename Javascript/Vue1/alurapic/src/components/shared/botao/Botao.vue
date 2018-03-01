@@ -15,7 +15,7 @@ export default {
     rotulo: {
       required: true,
       type: String
-    }
+    },
 
     confirmacao: Boolean,
     estilo: String
