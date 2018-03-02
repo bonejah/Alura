@@ -14,6 +14,8 @@ const router = new VueRouter({
   mode: 'history'
 });
 
+Vue.http.options.root = 'http://localhost:3000'; // Definindo o Domain da API
+
 new Vue({
   el: '#app',
   router,
