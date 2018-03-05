@@ -140,5 +140,196 @@ select * from compras;
 ALTER TABLE COMPRAS MODIFY (COMPRADOR_ID NUMBER NOT NULL);
 DESC COMPRAS;
 
+-- Juntando duas tabelas diferentes
+select * from compras join compradores on compras.comprador_id = compradores.id;
+select * FROM compras inner join compradores on compras.comprador_id = compradores.id;
+
+-- Alterando a coluna comprador_id para FK
+alter table COMPRAS add foreign key (COMPRADOR_ID) references COMPRADORES(ID);
+
+-- Exiba o NOME do comprador e o VALOR de todas as compras feitas antes de 09/07/2010
+select nome, valor from compras join compradores on compras.COMPRADOR_ID = compradores.ID where data < '09-JUL-2010';
+
+-- Exiba todas as compras do comprador que possui ID igual a 1.
+select * from compras where compras.COMPRADOR_ID = 1;
+select * from compras join compradores on compras.COMPRADOR_ID = compradores.ID where compras.COMPRADOR_ID = 1;
+
+-- Exiba todas as compras (mas sem os dados do comprador), cujo comprador tenha nome que comece com 'FLAVIO'.
+select compras.* from compras join COMPRADORES on compras.COMPRADOR_ID = COMPRADORES.ID where COMPRADORES.NOME like 'FLAVIO%';
+
+-- Exiba o nome do comprador e a soma de todas as suas compras.
+select compradores.nome, sum(compras.valor) as soma
+from compras join compradores  on compras.COMPRADOR_ID = compradores.id 
+group by compradores.nome;
+
+select sum(valor) from compras;
+
+-- -----------------------------------------------------------------------------
+-- Curso Oracle II Alura 
+
+-- Comando para aumentar os caracteres do console oracle
+set linesize 200;
+
+-- Comando para verificar a linguagem padrão do Oracle
+show parameter nls_lang;
+
+-- Comando para selecionar todas as tabelas do usuário
+select table_name  from user_tables order by 1;
+
+-- Consultando os alunos
+select nome from aluno;
+
+-- Verificando as matriculas dos alunos
+select nome from aluno join matricula on matricula.aluno_id = aluno.id;
+
+-- Verificando o aluno e o nome do curso
+select aluno.nome, curso.nome 
+from aluno 
+join matricula on matricula.aluno_id = aluno.id
+join curso on curso.ID = matricula.CURSO_ID;
+
+select a.nome, c.nome 
+from aluno a
+join matricula m on m.aluno_id = a.id
+join curso c on c.ID = m.CURSO_ID;
+
+-- Exibindo alunos com matrícula
+select a.nome from aluno a;
+select a.nome from aluno a where exists (
+  select m.id from matricula m where m.ALUNO_ID = a.ID
+);
+
+-- Exibindo alunos sem matrícula
+select a.nome from aluno a where not exists (
+  select m.id from matricula m where m.ALUNO_ID = a.ID
+);
+
+-- Existem exercícios não respondidos
+select * from exercicio;
+select * from exercicio e where exists (
+  select r.id from resposta r where r.EXERCICIO_ID = e.ID
+);
+
+select * from exercicio e where not exists (
+  select r.id from resposta r where r.EXERCICIO_ID = e.ID
+);
+
+-- Quais cursos estão com  matrícula?
+select c.nome from curso c where exists (
+  select m.id from matricula m where m.CURSO_ID = c.ID
+);
+
+-- Quais cursos estão sem  matrícula?
+select c.nome from curso c where not exists (
+  select m.id from matricula m where m.CURSO_ID = c.ID
+);
+
+-- Busque todos os alunos que não tiveram nenhuma matrícula no último ano, usando a instrução EXISTS
+select a.nome from aluno a where not exists (
+    select m.id from matricula m where m.aluno_id = a.id and 
+    m.data > (select sysdate - interval '1' year from dual));
+    
+select a.nome from aluno a where (
+    select count(m.id) from matricula m where m.aluno_id = a.id and 
+    m.data > (select sysdate - interval '1' year from dual)) = 0;   
+    
+-- Médias das notas por curso
+desc nota;
+desc resposta;
+desc exercicio;
+desc secao;
+desc curso;
+
+select c.nome, avg(n.nota) as media from nota n
+join resposta r on r.id = n.resposta_id
+join exercicio e on e.id = r.exercicio_id
+join secao s on s.id = e.secao_id
+join curso c on c.id = s.curso_id
+group by c.nome;
+
+-- Quantidade de exercícios por curso
+select c.nome, count(e.id) as qtde_exercicios from exercicio e
+join secao s on s.id = e.SECAO_ID
+join curso c on c.id = s.CURSO_ID
+group by c.nome;
+    
+-- Quantos alunos temos matriculados em cada curso?
+select c.nome, count(a.id) as qtde_alunos from curso c
+join matricula m on m.CURSO_ID = c.ID
+join aluno a on a.ID = m.ALUNO_ID
+group by c.nome;
+
+select c.nome, count(a.id) from aluno a
+join matricula m on m.ALUNO_ID = a.ID
+join curso c on c.ID = m.CURSO_ID
+group by c.nome;
+
+-- Selecione o curso e as médias de notas, levando em conta somente alunos que tenham "Silva" ou "Santos" no sobrenome.
+select c.nome, avg(n.id) as media_notas from nota n
+join resposta r on r.id = n.resposta_id
+join exercicio e on e.id = r.exercicio_id
+join secao s on s.id = e.secao_id
+join curso c on c.id = s.curso_id
+join aluno a on a.ID = r.ALUNO_ID
+where (a.nome like '%Silva' or a.NOME like '%Santos')
+group by c.nome;
+
+-- Conte a quantidade de respostas por exercício. Exiba a pergunta e o número de respostas.
+desc resposta;
+desc exercicio;
+
+select e.pergunta, count(r.id) as quantidade from resposta r
+join exercicio e on e.id = r.exercicio_id
+group by e.pergunta;
+
+select e.pergunta, count(r.id) as quantidade from resposta r
+join exercicio e on e.id = r.exercicio_id
+group by e.pergunta order by count(r.id) desc;
+
+-- A média de notas por aluno por curso
+select a.nome, c.nome, avg(n.nota) as media from nota n
+join resposta r on r.id = n.resposta_id
+join exercicio e on e.id = r.exercicio_id
+join secao s on s.id = e.secao_id
+join curso c on c.id = s.curso_id
+join aluno a on a.ID = r.ALUNO_ID
+group by a.nome,  c.nome;
+
+-- HAVING é utilizado para filtrar o resultado de um agrupamento, resultado de 
+-- uma função agregada por exemplo, enquanto o WHERE é usado quando queremos 
+-- filtrar as linhas antes do agrupamento.
+
+-- Selecionando a média das notas de um aluno aprovado
+select a.nome as nome_aluno, c.nome as nome_curso, avg(n.nota) from nota n
+join resposta r on r.ID = n.RESPOSTA_ID
+join exercicio e on e.ID = r.EXERCICIO_ID
+join secao s on s.ID = e.SECAO_ID
+join curso c on c.ID = s.CURSO_ID
+join aluno a on a.id = r.aluno_id
+group by a.nome, c.nome
+having avg(n.nota) > 5;
+-- having avg(n.nota) < 5; -- alunos reprovados;
+
+-- Quantos alunos temos matriculados em cada curso?
+select count(a.id) as quantidade, c.nome as nome_curso, a.nome as nome_aluno from curso c
+    join matricula m on m.curso_id = c.id
+    join aluno a on m.aluno_id = a.id
+group by c.nome, a.nome
+having count(a.id) < 3
+order by nome_curso;
+
+-- Exiba todos os cursos e a sua quantidade de matrículas. Mas exiba somente cursos que tenham mais de 1 matrícula.
+select c.nome, count(m.id) as quantidade from curso c
+join matricula m on m.CURSO_ID = c.ID
+group by c.nome
+having count(m.id) < 1;
+
+-- Exiba o nome do curso e a quantidade de seções que existe nele. Mostre só cursos com mais de 3 seções.
+select c.nome, count(s.id) as quantidade_secoes from curso c
+join secao s on s.CURSO_ID = c.ID
+group by c.nome
+having count(s.id) > 3;
+
+
 
 
