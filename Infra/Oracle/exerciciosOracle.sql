@@ -169,6 +169,7 @@ select sum(valor) from compras;
 
 -- Comando para aumentar os caracteres do console oracle
 set linesize 200;
+set pagesize 20;
 
 -- Comando para verificar a linguagem padrão do Oracle
 show parameter nls_lang;
@@ -327,9 +328,120 @@ having count(m.id) < 1;
 -- Exiba o nome do curso e a quantidade de seções que existe nele. Mostre só cursos com mais de 3 seções.
 select c.nome, count(s.id) as quantidade_secoes from curso c
 join secao s on s.CURSO_ID = c.ID
+where c.id in (1, 3)
 group by c.nome
 having count(s.id) > 3;
 
+-- Selecionando valores distintos, mas sem repetições
+select tipo from matricula;
+select distinct tipo from matricula;
 
+-- Filtrando por um conjunto determinado de valores
+select c.nome, m.tipo, count(m.id) as quantidade from matricula m
+join curso c on c.ID = m.CURSO_ID
+where m.TIPO = 'PAGA_PJ' or m.tipo = 'PAGA_PF'
+group by c.nome, m.tipo;
 
+select c.nome, m.tipo, count(m.id) as quantidade from matricula m
+join curso c on c.ID = m.CURSO_ID
+where m.TIPO IN ('PAGA_PJ', 'PAGA_PF')
+group by c.nome, m.tipo;
 
+-- Sabendo quais cursos determinados alunos fizeram
+select a.nome, c.nome from curso c
+join matricula m on m.CURSO_ID = c.ID
+join aluno a on a.ID = m.ALUNO_ID
+where m.ALUNO_ID in (1, 3, 4)
+order by a.nome;
+
+-- Divulgando um novo curso para determinados ex-alunos
+select a.nome, c.nome from curso c
+    join matricula m on m.curso_id = c.id
+    join aluno a on m.aluno_id = a.id
+where c.id in (1, 9);
+
+-- Exiba todos os tipos de matrícula que existem na tabela. Use DISTINCT para que não haja repetição.
+select distinct tipo from matricula m;
+
+-- Traga todas os exercícios e a quantidade de respostas de cada uma. Mas dessa vez, somente dos cursos com ID 1 e 3
+select e.pergunta, count(r.id) as quantidade from exercicio e 
+    join resposta r on e.id = r.exercicio_id
+    join secao s on s.id = e.secao_id
+    join curso c on s.curso_id = c.id
+where c.id in (1,3)
+group by e.pergunta;
+
+-- Comparando a média geral de todos os cursos com a média de cada aluno
+select a.nome as aluno, c.nome as curso, avg(n.nota) as media, 
+avg(n.nota) - (select avg(n.nota) from nota n) as diferenca
+from nota n
+join resposta r on r.ID = n.RESPOSTA_ID
+join exercicio e on e.ID = r.EXERCICIO_ID
+join secao s on s.ID = e.SECAO_ID
+join curso c on c.ID = s.CURSO_ID
+join aluno a on a.ID = r.ALUNO_ID
+group by a.nome, c.nome;
+
+-- Quantidade de respostas por aluno
+select a.nome from aluno a;
+select count(r.id) from resposta r;
+select a.nome, (select count(r.id) from resposta r where r.ALUNO_ID = a.id) from aluno a;
+
+-- Quantos cursos cada aluno fez?
+select a.nome, (select count(m.id) from matricula m where m.aluno_id = a.id) as matriculas from aluno a;
+
+-- Devolva a média de notas por aluno e a diferença para a média geral. No entanto, exiba apenas alunos que tiveram alguma matrícula nos últimos 6 meses.
+select a.nome as aluno, c.nome as curso, avg(n.nota) as media, 
+avg(n.nota) - (select avg(n.nota) from nota n) as diferenca
+from nota n
+join resposta r on r.ID = n.RESPOSTA_ID
+join exercicio e on e.ID = r.EXERCICIO_ID
+join secao s on s.ID = e.SECAO_ID
+join curso c on c.ID = s.CURSO_ID
+join aluno a on a.ID = r.ALUNO_ID
+where a.id in (select aluno_id from matricula where data > (select sysdate - interval '6' month from dual))
+group by a.nome, c.nome;
+
+-- Relatório para saber quem são os alunos mais participativos em sala de aula 
+select a.nome, count(r.id) as quantidade from aluno a
+join resposta r on r.ALUNO_ID = a.ID
+group by a.nome;
+
+select a.nome, r.resposta_dada from aluno a 
+    left join resposta r on a.id = r.aluno_id;
+
+-- Relatório para saber quem são os alunos menos participativos em sala de aula 
+select a.nome, r.resposta_dada from aluno a right join resposta r on r.aluno_id = a.id;
+
+-- Teste para trazer resposta sem aluno
+insert into resposta (id, exercicio_id, aluno_id, resposta_dada) values (28, 1, 50000, 'c# e vb');
+delete from resposta where aluno_id = 50000;
+
+-- Exibindo somente os 5 primeiros alunos ordenados por nome
+select a.nome from aluno a;
+select count(a.id) from aluno a;
+select a.nome from aluno a order by a.nome;
+select rownum from (select a.nome from aluno a order by a.nome);
+select rownum, nome from (select a.nome from aluno a order by a.nome);
+select rownum, nome from (select a.nome from aluno a order by a.nome) where rownum <= 5;
+
+select * from (select rownum r, nome from (
+    select a.nome from aluno a order by a.nome
+)) where r > 5;
+
+-- Exibindo um intervalo de alunos
+select * from (select rownum r, nome from (
+    select a.nome from aluno a order by a.nome
+) where rownum <= 10) where r > 5;
+
+-- Escreva uma query que ordene os alunos por nome e traga apenas os dois primeiros.
+select rownum, nome from 
+    (select a.nome from aluno a order by a.nome) where rownum <= 2;
+
+-- Escreva uma SQL que devolva os 3 primeiros alunos que o e-mail termine com o domínio ".com".
+select rownum, nome, email from 
+    (select a.nome, a.email from aluno a) where rownum <= 3 and email like '%.com';
+    
+-- Escreva uma query que ordene os alunos por nome, e traga apenas os dois primeiros cujo e-mail termine com ".com".
+select rownum, nome, email from 
+    (select a.nome, a.email from aluno a order by a.nome) where rownum <= 2 and email like '%.com';
