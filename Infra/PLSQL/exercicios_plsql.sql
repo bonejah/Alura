@@ -173,14 +173,25 @@ create or replace procedure incluir_cliente(
   p_faturamento_previsto in cliente.faturamento_previsto%type)
 is
   v_categoria cliente.categoria%type;
+  e_null exception;
+  pragma exception_init (e_null, -1400);
 begin
   v_categoria := categoria_cliente(p_faturamento_previsto);
   insert into cliente values (p_id, UPPER(p_razao_social), p_cnpj, p_segmercado_id, sysdate, p_faturamento_previsto, v_categoria);
   commit;
+  
+  EXCEPTION
+    WHEN dup_val_on_index then
+        --dbms_output.put_line ('Cliente já cadastrado');
+      raise_application_error(-20010,'Cliente já cadastrado');
+    WHEN e_null then
+      raise_application_error(-20015,'A coluna ID tem preenchimento obrigatório');
+    WHEN others then
+      raise_application_error(-20020,sqlerrm());
 end;
 
 -- executando a procedure para inserir cliente
-execute incluir_cliente(4, 'CRUZEIRO', '9999', 1, 1000);
+execute incluir_cliente(5, 'FASS', '987654321', 1, 1000);
 select * from cliente;
 
 -- isolando em função a categoria do cliente
@@ -200,6 +211,108 @@ begin
   end if;
 end;
 
--- 
+-- Formatando o CNPJ
+CREATE OR REPLACE PROCEDURE FORMAT_CNPJ
+    (p_cnpj IN OUT cliente.CNPJ%type)
+IS
+BEGIN
+    p_cnpj := substr(p_cnpj,1,2) || '/' || substr(p_cnpj,3);
+END;
 
+VARIABLE g_cnpj varchar2(10);
+execute :g_cnpj := '123456789';
+print g_cnpj;
 
+execute FORMAT_CNPJ(:g_cnpj);
+print g_cnpj;
+
+-- Criando a procedure ATUALIZAR_CLI_SEG_MERCADO
+CREATE OR REPLACE PROCEDURE ATUALIZAR_CLI_SEG_MERCADO
+    (p_id IN cliente.id%type,
+     p_segmercado_id IN cliente.segmercado_id%type)
+IS
+    e_cliente_id_inexistente exception;
+BEGIN
+    UPDATE cliente
+        SET segmercado_id = p_segmercado_id
+        WHERE id = p_id;
+    IF SQL%NOTFOUND then
+        RAISE e_cliente_id_inexistente;
+    END IF;
+    COMMIT;
+EXCEPTION
+    WHEN e_cliente_id_inexistente then
+        raise_application_error(-20100,'Cliente inexistente');
+END;
+
+-- Atualizando os segmentos de mercado - FORMA 1
+DECLARE
+    v_segmercado_id cliente.segmercado_id%type := 3;
+    v_i number(5);
+BEGIN
+    v_i := 1;
+LOOP
+    ATUALIZAR_CLI_SEG_MERCADO(v_i, v_segmercado_id);
+    v_i := v_i +1;
+    EXIT WHEN v_i > 5;
+ END LOOP;
+END;
+
+select * from cliente;
+
+-- Atualizando os segmentos de mercado - FORMA 2
+DECLARE
+    v_segmercado_id cliente.segmercado_id%type := 2;
+BEGIN
+    FOR i in 1..3 LOOP
+        ATUALIZAR_CLI_SEG_MERCADO(i, v_segmercado_id);
+    END LOOP;
+     COMMIT;
+END;
+
+select * from cliente;
+
+-- Utilizando CURSOR para percorrer a tabela Cliente
+DECLARE
+    v_segmercado_id cliente.segmercado_id%type := 1;
+    v_id cliente.id%type;
+    CURSOR cur_cliente is SELECT id from cliente; 
+BEGIN
+    FOR cli_rec IN cur_cliente LOOP
+       ATUALIZAR_CLI_SEG_MERCADO(cli_rec.id, v_segmercado_id);
+    END LOOP;
+END;
+
+select * from cliente;
+
+-- Aprendendo sobre CURSOR
+DECLARE
+   v_id cliente.id%type;
+   v_segmercado_id cliente.segmercado_id%type := 3;
+   cursor cur_cliente is select id from cliente;
+BEGIN
+  open cur_cliente;
+  loop  
+    fetch cur_cliente into v_id;
+    exit when cur_cliente%NOTFOUND;
+      ATUALIZAR_CLI_SEG_MERCADO(v_id, v_segmercado_id);
+  end loop;
+  close cur_cliente;
+END;
+select * from cliente;
+
+DECLARE
+    v_segmercado_id cliente.segmercado_id%type := 2;
+    CURSOR cur_cliente is SELECT id FROM cliente;
+BEGIN
+    FOR cli_rec IN cur_cliente LOOP
+        ATUALIZAR_CLI_SEG_MERCADO(cli_rec.id, v_segmercado_id);
+    END LOOP;
+    COMMIT;
+END;
+select * from cliente;
+
+-- Tratando exceções
+SET SERVEROUTPUT ON
+EXECUTE INCLUIR_CLIENTE(1,'SUPERMERCADO XYZ','12345',2,150000);
+EXECUTE INCLUIR_CLIENTE(NULL,'SUPERMERCADO TYU','65712',2,150000)
