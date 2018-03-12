@@ -17,6 +17,7 @@
   "assets/css/block-titulo-destaque.css": "assets/css/block-titulo-destaque-d4da51ed1b.css",
   "assets/css/block-titulos.css": "assets/css/block-titulos-edfeab9c31.css",
   "assets/css/colors.css": "assets/css/colors-ea5369db7e.css",
+  "assets/css/estilos.css": "assets/css/estilos-6e4c4c3fb4.css",
   "assets/css/font.css": "assets/css/font-e5dbf30eae.css",
   "assets/css/home-aprenda.css": "assets/css/home-aprenda-a1fe6ac7f9.css",
   "assets/css/home-diferenciais.css": "assets/css/home-diferenciais-759e1e2ae8.css",
@@ -37,6 +38,7 @@
   "assets/img/categoria-infraestrutura.svg": "assets/img/categoria-infraestrutura-72b35661c1.svg",
   "assets/img/categoria-mobile.svg": "assets/img/categoria-mobile-076c62b9fa.svg",
   "assets/img/categoria-programacao.svg": "assets/img/categoria-programacao-447bbd5db4.svg",
+  "assets/img/categorias.svg": "assets/img/categorias-5bf85644ac.svg",
   "assets/img/curso-android-studio-ii-integracoes-e-recursos.svg": "assets/img/curso-android-studio-ii-integracoes-e-recursos-fa6a8e5c21.svg",
   "assets/img/curso-angularjs-mvc.svg": "assets/img/curso-angularjs-mvc-1db1babc54.svg",
   "assets/img/curso-cordova-phonegap.svg": "assets/img/curso-cordova-phonegap-9c57ee754b.svg",
@@ -82,6 +84,7 @@
   "assets/js/home.js": "assets/js/home-4ea2c1acc1.js",
   "assets/js/jquery.js": "assets/js/jquery-0687e2803d.js",
   "assets/js/menu.js": "assets/js/menu-c72a3f1078.js",
+  "assets/js/scripts.js": "assets/js/scripts-88efd93745.js",
   "assets/js/svg4everybody.js": "assets/js/svg4everybody-263fa738c0.js",
   "assets/js/video.js": "assets/js/video-db50a451f9.js"
 }

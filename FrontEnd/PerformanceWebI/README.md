@@ -5,6 +5,10 @@
 https://github.com/alura-cursos/performance-web/archive/79fd7470bdf853a3e86528e0bb28b2254e791974.zip 
 https://cloud.google.com/appengine/downloads#Google_App_Engine_SDK_for_PHP
 http://refresh-sf.com/
+
+URL INICIAL: http://original-dot-curso-alura-site.appspot.com/
+URL FINAL: http://finalperf-dot-curso-alura-site.appspot.com/
+
 ```
 
 # Commands Gulp
@@ -36,6 +40,13 @@ https://sourceforge.net/projects/pngnqs9/
 https://pngquant.org/
 https://pngmini.com/
 http://quasimondo.com/ZorroSVG/
+```
+
+# Performance
+```
+http://www.webpagetest.org/
+https://developers.google.com/speed/pagespeed/insights/?hl=pt-BR
+
 ```
 
 # Links
