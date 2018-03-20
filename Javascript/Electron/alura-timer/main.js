@@ -1,12 +1,20 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, Tray, Menu } = require('electron')
+const data = require('./data')
+const templateGenerator  = require('./templates')
 
 let mainWindow = null;
+let tray = null;
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600
   })
+
+  tray = new Tray(__dirname + '/app/img/icon-tray.png');  
+  let template = templateGenerator.geraTrayTemplate(mainWindow)
+  let trayMenu = Menu.buildFromTemplate(template)
+  tray.setContextMenu(trayMenu)
 
   //mainWindow.loadURL('https://www.google.com')
   mainWindow.loadURL(`file://${__dirname}/app/index.html`)
@@ -38,3 +46,14 @@ ipcMain.on('abrir-janela-sobre', () => {
 ipcMain.on('fechar-janela-sobre', () => {
   sobreWindow.close()
 })
+
+ipcMain.on('curso-parado', (event, curso, tempoEstudado) => {
+   console.log(`O curso ${curso} foi estudado ${tempoEstudado}`)
+   data.salvaDados(curso, tempoEstudado )
+})
+
+ipcMain.on('curso-adicionado', (event, novoCurso) => {
+  let novoTemplate = templateGenerator.adicionaCursoNoTray(novoCurso, mainWindow);
+  let novoTrayMenu = Menu.buildFromTemplate(novoTemplate);
+  tray.setContextMenu(novoTrayMenu);
+});
