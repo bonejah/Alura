@@ -20,7 +20,7 @@ let sobreWindow = null;
 
 ipcMain.on('abrir-janela-sobre', () => {
   if (sobreWindow == null) {
-    let sobreWindow = new BrowserWindow({
+      sobreWindow = new BrowserWindow({
       width: 300,
       height: 220,
       alwaysOnTop: true,
