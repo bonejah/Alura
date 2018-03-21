@@ -24,7 +24,6 @@ gulp copy minify
 # ImageMagick
 ```
 http://www.imagemagick.org/script/index.php
-mogrify -resize 50x50 site/assets/img/aluno-*
 ```
 
 #Optimize Image
