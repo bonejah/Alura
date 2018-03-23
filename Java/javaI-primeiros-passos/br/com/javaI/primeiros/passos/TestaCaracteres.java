@@ -1,3 +1,4 @@
+package br.com.javaI.primeiros.passos;
 public class TestaCaracteres {
 	public static void main(String[] args) {
 		char letra = 'a';

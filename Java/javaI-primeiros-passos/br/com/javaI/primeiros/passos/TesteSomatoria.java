@@ -1,3 +1,4 @@
+package br.com.javaI.primeiros.passos;
 public class TesteSomatoria {
 	public static void main(String[] args) {
 		int contador = 0;

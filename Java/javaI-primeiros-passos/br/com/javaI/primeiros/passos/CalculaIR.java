@@ -1,3 +1,4 @@
+package br.com.javaI.primeiros.passos;
 
 public class CalculaIR {
 	public static void main(String[] args) {

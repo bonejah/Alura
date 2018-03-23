@@ -1,3 +1,4 @@
+package br.com.javaI.primeiros.passos;
 public class Fatorial {
 	public static void main(String[] args) {
 		int fatorial = 1;

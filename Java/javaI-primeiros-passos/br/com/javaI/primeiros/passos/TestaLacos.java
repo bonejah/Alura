@@ -1,3 +1,4 @@
+package br.com.javaI.primeiros.passos;
 public class TestaLacos {
 	public static void main(String[] args) {
 		for(int multiplicador = 1; multiplicador <= 10; multiplicador++){
