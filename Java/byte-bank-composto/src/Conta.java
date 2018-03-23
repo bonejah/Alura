@@ -1,10 +1,10 @@
-
 public class Conta {
-	double saldo;
+	private double saldo;
 	int agencia;
 	int numero;
-	String titular;
+	Cliente titular;
 
+	
 	public void deposita(double valor) {
 		this.saldo += valor;
 	}
@@ -26,5 +26,9 @@ public class Conta {
 		} else {
 			return false;
 		}
+	}
+	
+	public double getSaldo() {
+		return this.saldo;
 	}
 }
