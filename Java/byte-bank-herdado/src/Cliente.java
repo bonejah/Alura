@@ -1,30 +1,17 @@
-public class Cliente {
-	private String nome;
-	private String cpf;
-	private String profissao;
-
-	public String getNome() {
-		return nome;
+public class Cliente implements Autenticavel {
+	private AutenticacaoUtil autenticacaoUtil;
+	
+	public Cliente() {
+		this.autenticacaoUtil = new AutenticacaoUtil();
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	@Override
+	public void setSenha(int senha) {
+		this.autenticacaoUtil.setSenha(senha);
 	}
 
-	public String getCpf() {
-		return cpf;
+	@Override
+	public boolean autentica(int senha) {
+		return this.autenticacaoUtil.autentica(senha);
 	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getProfissao() {
-		return profissao;
-	}
-
-	public void setProfissao(String profissao) {
-		this.profissao = profissao;
-	}
-
 }

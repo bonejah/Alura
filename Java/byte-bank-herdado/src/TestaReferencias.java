@@ -4,16 +4,12 @@ public class TestaReferencias {
 		Gerente gerente = new Gerente();
 		gerente.setNome("Marcos");
 		gerente.setSalario(5000.0);
-		
-		Funcionario funcionario = new Funcionario();
-		funcionario.setSalario(2000.0);
-		
+				
 		EditorVideo ed = new EditorVideo();
 		ed.setSalario(2000.0);
 		
 		ControleBonificacao controle = new ControleBonificacao();
 		controle.registra(gerente);
-		controle.registra(funcionario);
 		controle.registra(ed);
 		
 		System.out.println(controle.getSoma());

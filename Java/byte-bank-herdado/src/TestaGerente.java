@@ -13,5 +13,10 @@ public class TestaGerente {
 		System.out.println(autenticou);
 		System.out.println(gerente.getSalario());
 		System.out.println(gerente.getBonificacao());
+		
+		Autenticavel aut = new Gerente();
+		aut.setSenha(222);
+		boolean autentica = aut.autentica(222);
+		System.out.println("Você pode entrar no sistema? " + autentica);
 	}
 }
