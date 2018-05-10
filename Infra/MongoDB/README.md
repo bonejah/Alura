@@ -1,4 +1,4 @@
-# Course MongDB
+# Course MongoDB
 
 * www.mongodb.org
 * http://docs.mongodb.org/v3.0/reference/method/db.collection.find
