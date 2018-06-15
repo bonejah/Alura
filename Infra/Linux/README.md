@@ -29,7 +29,12 @@
 * tail = comando para ler as ultimas linhas de um arquivo
 *  - tail google.txt
 *  - tail -n 3 google.txt
-
+        
+ 1583 bonejah   20   0   11136    312      0 S   0,0  0,0   0:00.00 ssh-agent                       
+ 1586 bonejah   20   0   43596    372     12 S   0,0  0,0   0:00.00 dbus-launch                     
+ 1587 bonejah   20   0   43688   4096   2856 S   0,0  0,1   0:00.61 dbus-daemon                     
+ 1599 bonejah   20   0  274536   6384   5620 S   0,0  0,1   0:00.05 gvfsd                           
+ 1604 bonejah   20   0  419960   7188   6436 S   0,0  0,1   0:00.00 gvfsd-fuse                
 * less = navega pelo texto do arquivo
 * top = mostra a situacao dos processos
 * top -u bruno = mostra somente os processos de uma determinada pessoa
