@@ -89,6 +89,14 @@ Configurando a placa de rede ethernet: execute nmcli d, depois nmtui, e por fim 
 Testando a rede: ping www.google.com
 ``` 
 
+## Licenças
+```
+GPL (Escrita por Richar Stallman) - Pode ser utilizado/reescrito porém sempre será GPL
+BSD - Pode ser utilizado/reescrito e pode ter o tipo da licença modificado
+Apache - Parecido com a BSD
+MOzilla Public License - Parecido com GPL e BSD
+
+```
 
 
 
