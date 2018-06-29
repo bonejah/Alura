@@ -1,27 +1,28 @@
 # Course LPI 
 
-SO: Linux, OSX, Windows
+## SO: Linux, OSX, Windows
 
-Componentes
+## Componentes
 - Kernel: coração do Linux (https://www.kernel.org/)
 - Bibliotecas
 - Utilitários (programas)
 - User Interface: Microfone, camera, monitor, terminal, mouse, etc.
 
 
-Links: 
+## Links 
 Richard Stallman criou a licença GPL (https://en.wikipedia.org/wiki/GNU_General_Public_License)
 Link prova Certificação Linux: http://www.lpi.org/our-certifications/exam-010-objectives/
 Lista de Distribuições: https://en.wikipedia.org/wiki/Comparison_of_Linux_distributions
 
-Instalando o Ubuntu:
-http://www.ubuntu.com/
+## Instalando o Ubuntu:
+* http://www.ubuntu.com/
 
-Instalando VirtualBox:
-https://www.virtualbox.org/
+## Instalando VirtualBox:
+* https://www.virtualbox.org/
 
 
-Programas:
+## Programas
+```
 LibreOffice
 ThunderBird
 Gimp
@@ -29,8 +30,10 @@ IbnkScape
 Blender
 Audacity
 Vlc
+```
 
-Servidores:
+## Servidores
+``` 
 NFS (Network File System) = Protocolo de comunicação utilizado para compartilhamento de arquivos, muito
 utilizando em Unix e Linux.
 Samba = Programa utilizado no Windows para compartilhamento de arquivos em servidores Unix e Linux.
@@ -40,7 +43,10 @@ OpenLDAP (implementação do LDAP) = Servidor de réplica de dados
 Bind = Servidores de nomes de dominios DNS (Domain Name Server)
 Dnsmasq = Servidor de IP (DHCP Server)
 Nginx ou Apache = Servidor Web
+``` 
 
+## Comandos
+``` 
 Apt (Advanced Packaging Tool)
 Busca por um pacote: apt-cache search gcc
 Instala um pacote: apt-get install gcc
@@ -55,13 +61,17 @@ Diretório de pacotes Ubuntu: http://packages.ubuntu.com
 Arquivo sourcess.list
 Diretório: /etc/apt/sources.list
 Comando para ler o conteudo: cat /etc/apt/sources.list
+``` 
 
-Debian
+## Debian
+``` 
 Pacotes com extensão .deb podem ser instalados via comando: 
 dpkg -i mysql-client_5.6.30-0ubuntu0.15.10.1_all.deb (Melhor utilizar o apt-get ao invés do dpkg)
 Lista todos os pacotes da maquina: dpkg --list
+``` 
 
-Fedora (https://getfedora.org/)
+## Fedora (https://getfedora.org/)
+``` 
 Suportam pacotes do tipo rpm.
 Gerenciador de pacotes: yum (antigo) / dnf(novo)
 Comando para listar pacotes instalados: rpm --query --all ou rpm -qa
@@ -70,14 +80,14 @@ Comando para remover um pacote: sudo rpm -e lynx
 Comando para procurar um pacote: yum search mariadb (antigo mysql)
 Comando para verificar informações detalhadas do pacote: yum info mariadb-server
 Manual rpm: man rpm
+``` 
 
-
-CentoOS (https://www.centos.org/ )
+## CentoOS (https://www.centos.org/ )
+``` 
 Instalando um pacote: $ sudo yum install lynx
 Configurando a placa de rede ethernet: execute nmcli d, depois nmtui, e por fim systemctl restart network
 Testando a rede: ping www.google.com
-
-
+``` 
 
 
 
