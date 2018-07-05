@@ -73,4 +73,9 @@ public class ProdutoController {
 		Produto produto = produtos.pegaPorId(id);
 		result.use(Results.json()).from(produto).serialize();
 	}
+	
+	public void remove(Produto produto) {
+		produtos.remove(produto);
+		result.nothing();
+	}
 }
