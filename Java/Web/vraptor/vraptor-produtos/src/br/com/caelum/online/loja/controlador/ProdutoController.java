@@ -2,15 +2,15 @@ package br.com.caelum.online.loja.controlador;
 
 import java.util.List;
 
-import br.com.caelum.online.loja.dao.ProdutoDao;
 import br.com.caelum.online.loja.dominio.Produto;
 import br.com.caelum.online.loja.repositorio.RepositorioDeProdutos;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
-import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.caelum.vraptor.validator.Message;
 import br.com.caelum.vraptor.validator.Validations;
 import br.com.caelum.vraptor.view.Results;
 
@@ -48,7 +48,7 @@ public class ProdutoController {
 		// "preco"));
 		// validator.onErrorUsePageOf(ProdutoController.class).formulario();
 		// }
-
+		
 		validator.checking(new Validations(){{
 	        that(produto.getPreco() > 0.1,"erro", "produto.preco.invalido");
 	    }});
@@ -74,6 +74,7 @@ public class ProdutoController {
 		result.use(Results.json()).from(produto).serialize();
 	}
 	
+	@Path("/remove")
 	public void remove(Produto produto) {
 		produtos.remove(produto);
 		result.nothing();

@@ -9,7 +9,7 @@
 <script type="text/javascript">
 	function remove(id) {
 		$.get('remove?produto.id=' + id, function() {
-		    $('#produto-' + id).remove();
+		    $('#produto-' + id).hide();
 			alert('Produto removido com sucesso');
 		});
 	}
