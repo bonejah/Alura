@@ -4,11 +4,13 @@ import java.util.List;
 
 import br.com.caelum.online.loja.dominio.Produto;
 import br.com.caelum.online.loja.repositorio.RepositorioDeProdutos;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.validator.Message;
 import br.com.caelum.vraptor.validator.Validations;
 import br.com.caelum.vraptor.view.Results;
 
