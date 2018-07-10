@@ -1,2 +1,4 @@
 <%@ attribute name="name" required="true" %>
-<span class="validation-error">${errors.from(name)}</span>
+<span class="validation-error">
+	${erros.from(name)}
+</span>
