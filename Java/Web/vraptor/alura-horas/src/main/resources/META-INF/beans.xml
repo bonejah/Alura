@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <beans 	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -5,4 +6,13 @@
 							http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
 		version="1.1" bean-discovery-mode="all">
 
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+							http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+		version="1.1" bean-discovery-mode="all">
+
+>>>>>>> 0eeea6fd72ded309bc13d6f7bb9c4dea1f1b6e10
 </beans>
