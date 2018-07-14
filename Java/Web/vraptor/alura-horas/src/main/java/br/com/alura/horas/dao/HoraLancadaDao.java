@@ -1,5 +1,6 @@
 package br.com.alura.horas.dao;
 
+
 import java.util.List;
 
 import javax.inject.Inject;

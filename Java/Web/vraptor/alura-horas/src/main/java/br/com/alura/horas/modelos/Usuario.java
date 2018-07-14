@@ -11,23 +11,23 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class Usuario implements Serializable{
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id;
+public class Usuario implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-    @NotEmpty
-    private String nome;
+	@NotEmpty
+	private String nome;
 
-    @NotEmpty
-    private String login;
+	@NotEmpty
+	private String login;
 
-    @NotEmpty
-    private String senha;
+	@NotEmpty
+	private String senha;
 
-    @NotEmpty
-    @Email
-    private String email;
+	@NotEmpty
+	@Email
+	private String email;
 
 	public int getId() {
 		return id;
