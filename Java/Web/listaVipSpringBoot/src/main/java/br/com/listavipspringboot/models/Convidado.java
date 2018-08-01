@@ -1,4 +1,4 @@
-package br.com.listavipspringboot.model;
+package br.com.listavipspringboot.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +14,16 @@ public class Convidado {
 	private String nome;
 	private String email;
 	private String telefone;
+	
+	public Convidado() {
+		super();
+	}
+
+	public Convidado(String nome, String email, String telefone) {
+		this.nome = nome;
+		this.email = email;
+		this.telefone = telefone;
+	}
 
 	public String getNome() {
 		return nome;
