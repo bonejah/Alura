@@ -1,4 +1,4 @@
-package br.com.listavipspringboot.enviadorEmail.enviadorEmail;
+package br.com.enviadorEmail;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

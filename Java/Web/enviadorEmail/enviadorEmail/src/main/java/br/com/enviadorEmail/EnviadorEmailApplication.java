@@ -1,4 +1,4 @@
-package br.com.listavipspringboot.enviadorEmail.enviadorEmail;
+package br.com.enviadorEmail;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

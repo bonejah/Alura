@@ -1,4 +1,4 @@
-package br.com.listavipspringboot.enviadorEmail.service;
+package br.com.enviadorEmail.service;
 
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
@@ -17,7 +17,7 @@ public class EmailService {
             email.setAuthenticator(new DefaultAuthenticator("classalura@gmail.com", "alura12345"));
             email.setSSLOnConnect(true);
 
-            email.setFrom("email");
+            email.setFrom("classalura@gmail.com");
             email.setSubject("Você foi convidado pelo ListaVIP");
             email.setMsg("Olá " + nome + ". Você acaba de ser convidado pelo ListaVIP.");
             email.addTo(emailConvidado);
