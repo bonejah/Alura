@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: eleicaoonline
+Implementation-Version: 1.0.0
+Built-By: alberto
+Implementation-Vendor-Id: br.com.ideiasaleatorias
+Created-By: Apache Maven 3.2.3
+Build-Jdk: 1.8.0_171
+Implementation-URL: http://projects.spring.io/spring-boot/spring-boot-
+ starter-parent/eleicaoonline/
+
