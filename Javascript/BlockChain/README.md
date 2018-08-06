@@ -99,6 +99,7 @@ EXECUTANDO O SAWTOOTH:
 
 SUBINDO O SAWTOOTH:
   docker-compose -f sawtooth-default.yaml up
+  docker-compose -f sawtooth-default.yaml down
 
 APLICAÇÃO NODEJS:
   https://github.com/alberto-alura/curso-introducao-blockchain/releases/tag/versao_inicial    
@@ -116,6 +117,8 @@ APLICAÇÃO NODEJS:
 
   Você deve ver uma saída parecida com essa:
   restify listening at http://[::]:8084
+
+
 
 ```
 

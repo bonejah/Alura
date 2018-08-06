@@ -2,6 +2,7 @@
 
 const { createHash } = require('crypto')
 const { TransactionHandler } = require('sawtooth-sdk/processor/handler')
+const {InvalidTransaction} = require('sawtooth-sdk/processor/exceptions');
 const {Decoder} = require('cbor')
 const {calculateVoteAddress,handlerInfo} = require('./infra');
 
@@ -12,7 +13,7 @@ const getAddress = (key, length = 64) => {
 
 const encode = obj => Buffer.from(JSON.stringify(obj, Object.keys(obj).sort()))
 
-class VoteNHandler extends TransactionHandler {
+class VoteHandler extends TransactionHandler {
   constructor () {
     console.log('Iniciando smart contract para votos ')
     const info = handlerInfo();
@@ -27,6 +28,7 @@ class VoteNHandler extends TransactionHandler {
 
     const blockAddress = calculateVoteAddress(payload)
     const {candidateNumber,ellectionName} = payload;
+
     return context.setState({
       [blockAddress]: encode({candidateNumber,ellectionName})
     });
@@ -34,5 +36,5 @@ class VoteNHandler extends TransactionHandler {
 }
 
 module.exports = {
-  VoteNHandler
+  VoteHandler
 }
