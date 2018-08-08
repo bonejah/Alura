@@ -1,0 +1,22 @@
+package br.com.caelum.financas.modelo;
+
+public class ContaComNumeroEAgencia {
+
+	private String numero;
+	private String agencia;
+
+	public ContaComNumeroEAgencia(String numero, String agencia) {
+		super();
+		this.numero = numero;
+		this.agencia = agencia;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public String getAgencia() {
+		return agencia;
+	}
+
+}

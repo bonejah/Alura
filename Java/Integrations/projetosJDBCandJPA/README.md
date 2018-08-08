@@ -1,1 +1,0 @@
-# Projects using JDBC and JPA
