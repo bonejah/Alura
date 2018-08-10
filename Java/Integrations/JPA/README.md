@@ -49,5 +49,6 @@ Join e produto cartesiano
 	Ao usarmos join fetch, os resultados aparecem duplicados devido ao produto cartesiano. Para evitá-los, utilizamos a palavra-chave distinct;
 	O join fetch dispara um inner join no banco, o que acaba trazendo apenas as contas com movimentação. Por isso usamos left join fetch, que trará todos os dados da entidade que se encontram ao lado esquerdo do join (no caso,
  
+ https://github.com/uaihebert/uaicriteria 
 
 ``

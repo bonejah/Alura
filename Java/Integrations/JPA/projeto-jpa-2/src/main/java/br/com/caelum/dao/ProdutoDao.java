@@ -41,24 +41,29 @@ public class ProdutoDao {
 		Path<Integer> lojaPath = root.<Loja> get("loja").<Integer> get("id");
 		Path<Integer> categoriaPath = root.join("categorias").<Integer> get("id");
 
-		List<Predicate> predicates = new ArrayList<>();
+		//List<Predicate> predicates = new ArrayList<>();
+		Predicate conjuncao = criteriaBuilder.conjunction();
 
 		if (!nome.isEmpty()) {
-			Predicate nomeIgual = criteriaBuilder.like(nomePath, nome);
-			predicates.add(nomeIgual);
+			Predicate nomeIgual = criteriaBuilder.like(nomePath, "%" + nome + "%");
+			//predicates.add(nomeIgual);
+			conjuncao = criteriaBuilder.and(nomeIgual);
 		}
 		if (categoriaId != null) {
 			Predicate categoriaIgual = criteriaBuilder.equal(categoriaPath, categoriaId);
-			predicates.add(categoriaIgual);
+			//predicates.add(categoriaIgual);
+			conjuncao = criteriaBuilder.and(conjuncao, criteriaBuilder.equal(categoriaPath, categoriaId));
 		}
 		if (lojaId != null) {
 			Predicate lojaIgual = criteriaBuilder.equal(lojaPath, lojaId);
-			predicates.add(lojaIgual);
+			//predicates.add(lojaIgual);
+			conjuncao = criteriaBuilder.and(conjuncao, criteriaBuilder.equal(lojaPath, lojaId));
 		}
 
-		query.where((Predicate[]) predicates.toArray(new Predicate[0]));
-
-		TypedQuery<Produto> typedQuery = em.createQuery(query);
+		//query.where((Predicate[]) predicates.toArray(new Predicate[0]));
+		
+		//TypedQuery<Produto> typedQuery = em.createQuery(query);
+		TypedQuery<Produto> typedQuery = em.createQuery(query.where(conjuncao));
 		return typedQuery.getResultList();
 
 	}
