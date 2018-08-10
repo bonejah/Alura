@@ -20,6 +20,9 @@ http://dev.mysql.com/downloads/connector/j/
 
 *Concepts
 ```
+JPA: É uma especificação presente no JavaEE responsável em minimizar a distância entre o mundo OO e relacional.
+Hibernate: O Hibernate é uma das implementações que seguem a especificação JPA. Existem outras implementações como o OpenJPA e o EclipseLink.
+
 Dialeto: Serve como forma de escolhermos recursos do banco que serão usados como por exemplo no MySQL onde podemos utilizar o MyISAM (storage strategy) que não possuem transações e integridade referencial (foreign key constraint).
 
 Estados JPA
