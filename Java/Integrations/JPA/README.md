@@ -50,5 +50,47 @@ Join e produto cartesiano
 	O join fetch dispara um inner join no banco, o que acaba trazendo apenas as contas com movimentaÃ§Ã£o. Por isso usamos left join fetch, que trarÃ¡ todos os dados da entidade que se encontram ao lado esquerdo do join (no caso,
  
  https://github.com/uaihebert/uaicriteria 
+ 
+ 
+C3PO (http://www.mchange.com/projects/c3p0/): 
+ O Hibernate já possui um pool nativo de conexões com o banco, que não deve ser usado em produção. Existem diversas implementações no mercado além de servidores de Aplicação (JBoss WildFly) e Servlet Containers (Apache Tomcat) que possuem implementações sofisticadas de pool de conexões. No nosso caso, vamos utilizar o C3P0 que é [indicado pela própria documentação do Hibernate][1].
+ 
+ Configurando no persistence.xml:
+ Hibernate 3:
+ <property name="hibernate.connection.provider_class"   value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider">
+ <property name="hibernate.c3p0.min_size" value="5" />
+ <property name="hibernate.c3p0.max_size" value="20" />
+ <property name="hibernate.c3p0.timeout" value="180" />
+ 
+ Hibernate 4:
+ <property name="hibernate.connection.provider_class" value="org.hibernate.c3p0.internal.C3P0ConnectionProvider">
+ <property name="hibernate.c3p0.min_size" value="5" /> 
+ <property name="hibernate.c3p0.max_size" value="20" />
+ <property name="hibernate.c3p0.timeout" value="180" />
+ 
+ Pom.xml
+ <dependency>
+    <groupId>c3p0</groupId>
+    <artifactId>c3p0</artifactId>
+    <version>x.x.x</version>
+</dependency>
+ 
+Locks Otimista/Pessimista: 
+ Lock pessimista trava o registro impedindo acesso concorrente;
+ O EntityManager possui um método lock para usar o Lock Pessimista;]
+ Lock otimista não trava o registro mas verifica se a atualização é possível;
+ Lock otimista joga uma exceção no caso de alteração concorrente; 
+ O que fazemos é colocar um atributo de versionamento no modelo . Qualquer alteração feita gerará, automaticamente, o  incremento deste atributo. Caso alguém tente enviar um valor inferior ao que está salvo no banco, receberá uma javax.persistence.OptimisticLockException. 
+ 
+Cache (http://www.ehcache.org/documentation/2.8/configuration/configuration.html):
+ O cache de primeiro nível é o cache que vem por padrão nos EntityManagers. Ele nos impede de carregar duas vezes a mesma entidade do banco e, dessa forma, evita um acesso desnecessário.
+
+ O problema de utilizarmos o cache de primeiro nível da nossa aplicação é que nós já configuramos que seja criado um novo EntityManager a cada requisição. Ou seja, como cada requisição possuí o seu próprio EntityManager e cada um destes o seu próprio cache, os dados do cache acabam se perdendo quando a requisição termina, além de, não serem reaproveitados entre requisições. 
+ 
+Statistics:
+ http://blog.caelum.com.br/cacando-seus-gargalos-com-o-hibernate-statistics/
+ http://docs.jboss.org/hibernate/core/4.3/javadocs/org/hibernate/stat/Statistics.html
+ http://blog.caelum.com.br/os-7-habitos-dos-desenvolvedores-hibernate-e-jpa-altamente-eficazes/
+  
 
 ``

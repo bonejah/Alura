@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -24,11 +25,15 @@ public class ProdutoDao {
 	private EntityManager em;
 
 	public List<Produto> getProdutos() {
-		return em.createQuery("from Produto", Produto.class).getResultList();
+//		return em.createQuery("from Produto", Produto.class).getResultList();
+		
+		// A solução abaixo resolve o problema do Lazy Load, pois o join fetch carrega os relacionamentos
+		 return em.createQuery("select distinct p from Produto p join fetch p.categorias", Produto.class).getResultList();
 	}
 
 	public Produto getProduto(Integer id) {
-		Produto produto = em.find(Produto.class, id);
+		Produto produto = em.find(Produto.class, id); 
+//		Produto produto = em.find(Produto.class, id, LockModeType.PESSIMISTIC_READ); // Trava o registro
 		return produto;
 	}
 
@@ -64,6 +69,7 @@ public class ProdutoDao {
 		
 		//TypedQuery<Produto> typedQuery = em.createQuery(query);
 		TypedQuery<Produto> typedQuery = em.createQuery(query.where(conjuncao));
+		typedQuery.setHint("org.hibernate.cacheable", "true");
 		return typedQuery.getResultList();
 
 	}
