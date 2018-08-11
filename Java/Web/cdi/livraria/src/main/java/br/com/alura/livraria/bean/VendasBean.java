@@ -3,20 +3,17 @@ package br.com.alura.livraria.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-import javax.faces.view.ViewScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.ChartSeries;
 
-import br.com.alura.livraria.dao.DAO;
-import br.com.alura.livraria.modelo.Livro;
 import br.com.alura.livraria.modelo.Venda;
 
 @Named
-@ViewScoped
+@RequestScoped
 public class VendasBean implements Serializable{
 
 
@@ -51,15 +48,15 @@ public class VendasBean implements Serializable{
 
 	public List<Venda> getVendas(long seed) {
 
-		List<Livro> livros = new DAO<Livro>(Livro.class).listaTodos();
+//		List<Livro> livros = new DAO<Livro>(Livro.class).listaTodos();
 		List<Venda> vendas = new ArrayList<Venda>();
 
-		Random random = new Random(seed);
-
-		for (Livro livro : livros) {
-			Integer quantidade = random.nextInt(500);
-			vendas.add(new Venda(livro, quantidade));
-		}
+//		Random random = new Random(seed);
+//
+//		for (Livro livro : livros) {
+//			Integer quantidade = random.nextInt(500);
+//			vendas.add(new Venda(livro, quantidade));
+//		}
 
 		return vendas;
 	}
