@@ -1,27 +1,27 @@
 # Course LPI 
 
-## SO: Linux, OSX, Windows
+## Part 1 - Evolution and Distributions
 
-## Componentes
+### Componentes
 - Kernel: coração do Linux (https://www.kernel.org/)
 - Bibliotecas
 - Utilitários (programas)
 - User Interface: Microfone, camera, monitor, terminal, mouse, etc.
 
 
-## Links 
+### Links 
 Richard Stallman criou a licença GPL (https://en.wikipedia.org/wiki/GNU_General_Public_License)
 Link prova Certificação Linux: http://www.lpi.org/our-certifications/exam-010-objectives/
 Lista de Distribuições: https://en.wikipedia.org/wiki/Comparison_of_Linux_distributions
 
-## Instalando o Ubuntu:
+### Instalando o Ubuntu:
 * http://www.ubuntu.com/
 
-## Instalando VirtualBox:
+### Instalando VirtualBox:
 * https://www.virtualbox.org/
 
 
-## Programas
+### Programas
 ```
 LibreOffice
 ThunderBird
@@ -32,7 +32,7 @@ Audacity
 Vlc
 ```
 
-## Servidores
+### Servidores
 ``` 
 NFS (Network File System) = Protocolo de comunicação utilizado para compartilhamento de arquivos, muito
 utilizando em Unix e Linux.
@@ -45,32 +45,14 @@ Dnsmasq = Servidor de IP (DHCP Server)
 Nginx ou Apache = Servidor Web
 ``` 
 
-## Comandos
-``` 
-Apt (Advanced Packaging Tool)
-Busca por um pacote: apt-cache search gcc
-Instala um pacote: apt-get install gcc
-Remove um pacote: apt-get remove gcc
-Consulta comandos apt: man apt-get
-Atualiza a lista de pacotes: sudo apt-get update
-Atualizando pacotes especificos: sudo apt-get install ffmpeg / sudo apt-get install --only-upgrade ffmpeg 
-Corrigindo dependências: sudo apt-get -f install
-
-Diretório de pacotes Ubuntu: http://packages.ubuntu.com
-
-Arquivo sourcess.list
-Diretório: /etc/apt/sources.list
-Comando para ler o conteudo: cat /etc/apt/sources.list
-``` 
-
-## Debian
+### Debian
 ``` 
 Pacotes com extensão .deb podem ser instalados via comando: 
 dpkg -i mysql-client_5.6.30-0ubuntu0.15.10.1_all.deb (Melhor utilizar o apt-get ao invés do dpkg)
 Lista todos os pacotes da maquina: dpkg --list
 ``` 
 
-## Fedora (https://getfedora.org/)
+### Fedora (https://getfedora.org/)
 ``` 
 Suportam pacotes do tipo rpm.
 Gerenciador de pacotes: yum (antigo) / dnf(novo)
@@ -82,14 +64,17 @@ Comando para verificar informações detalhadas do pacote: yum info mariadb-serv
 Manual rpm: man rpm
 ``` 
 
-## CentoOS (https://www.centos.org/ )
+### CentoOS (https://www.centos.org/ )
 ``` 
 Instalando um pacote: $ sudo yum install lynx
 Configurando a placa de rede ethernet: execute nmcli d, depois nmtui, e por fim systemctl restart network
 Testando a rede: ping www.google.com
 ``` 
 
-## Licenças
+
+## Part 2 - Open Source Software and Licensing
+
+###Licenses
 ```
 GPL (Escrita por Richar Stallman) - Pode ser utilizado/reescrito porém sempre será GPL
 
@@ -131,7 +116,7 @@ Advertising-supported software: Softwares com propagandas.
 Advertising-supported software: Desenvolve-se um software livre sob determinada licença, e as pessoas podem usá-lo. Caso elas queiram certas extensões, terão que pagar por elas
 ```
 
-## Cloud
+### Cloud
 ```
 https://registro.br/
 https://wordpress.org/
@@ -143,7 +128,31 @@ https://aws.amazon.com/pt/free/?sc_channel=PS&sc_campaign=acquisition_BR&sc_publ
 
 ```
 
-## Command Line Basics
+## Part 3 - Command Line Basics
+
+### Command Line Basics
+``` 
+Apt (Advanced Packaging Tool)
+Busca por um pacote: apt-cache search gcc
+Instala um pacote: apt-get install gcc
+Remove um pacote: apt-get remove gcc
+Consulta comandos apt: man apt-get
+Atualiza a lista de pacotes: sudo apt-get update
+Atualizando pacotes especificos: sudo apt-get install ffmpeg / sudo apt-get install --only-upgrade ffmpeg 
+Corrigindo dependências: sudo apt-get -f install
+
+Diretório de pacotes Ubuntu: http://packages.ubuntu.com
+
+Arquivo sourcess.list
+Diretório: /etc/apt/sources.list
+Comando para ler o conteudo: cat /etc/apt/sources.list
+
+pwd: descobre o diretório atual  
+
+date: fornece a data e o horário, inclusive com o time zone,o BRT, Brazilian Time
+```
+
+### Shell
 ```
 Shell: É um interpretador capaz de receber comandos e traduzi-los para tarefas que o sistema irá executar. Bash é o tipo mais
 comum de Shell.
@@ -161,16 +170,55 @@ type: verifica se o comando digitado é um programa/comando:
 
 type if: é uma palavra chave do shell, podemos executar, ainda, um type -t ife ele mostrará apenas a palavra keyword
 
-pwd: descobre o diretório atual  
+Executando o comando no terminal: echo Bruno, bem vindo!
+Saida: Bruno, bem vindo!
 
-date: fornece a data e o horário, inclusive com o time zone, o BRT, Brazilian Time
+Criando variaveis no shell: idade=36 (nome da variavel não pode ter espaços depois do símbolo de =)
+Executando o comando no terminal: echo Bruno tem $idade anos!
+Saida: Bruno tem 36 anos!
+
+O comando export exporta uma variavel para o ambiente:
+echo $nome
+Bruno
+echo $idade
+36
+export nome
+export idade
+bash mostra_idadeexport nome
+
+Comando para mostrar as varíaveis de ambiente: env
+
+Commando para fazer com que a variável nome passe a ser apenas uma variável local do shell: export -n nome
+
+A variável que armazena a configuração do prompt de comandos é a variável PS1. 
 
 
+http://bashrcgenerator.com/
 
+A variável de ambiente que é utilizada pelo Linux para buscar os executáveis quando executamos um comando no shell: PATH
 
+Adicionando um diretório no PATH: PATH=$PATH:/home/bruno
+
+Comando para descobrir qual o caminho do executável que será executado ao executarmos um comando: $ which zip
+
+Para descobrir o exit status do último comando que foi executado no shell basta fazer: $ echo $?
+
+Código de retorno de um programa que foi executado com sucesso: 0 (ZERO)
+
+Comando para listar todos os arquivos com extensão *.txt de um diretóriio: ls *.txt
+
+Executando echo \* Bem vindo \*. a saida será: * Bem vindo *
+, pois o caractere \ escapa o "*"
+
+Para executar dois comandos em sequência, podemos utilizar o ; (ponto e vírgula).Os comandos serão executados independente do resultado do anterior. Exemplo:
+
+$ comando_qualquer ; echo "Bom dia"
+comando_qualquer: command not found
+Bom dia
 
 ```
 
+## Part 4 - Using the command line to get help
 
-
+### ????
 
