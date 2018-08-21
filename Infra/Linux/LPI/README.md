@@ -220,5 +220,113 @@ Bom dia
 
 ## Part 4 - Using the command line to get help
 
-### ????
+### Help
+```
+O comando help mostra ajuda para os comandos integrados (builtin) do Shell
+
+Ex.: help pwd
+
+Para comandos que não são integrados (builtin) ao shell.
+
+Ex.: ls --help
+
+Alguns comandos podem fornecer a opção -h e -? como atalhos para o --help, mas, como no caso do ls, os atalhos nem sempre funcionam.
+
+$ ls --help
+# mostra ajuda
+
+$ ls -h
+# apresenta comportamento inesperado
+
+$ ls -?
+ls: invalid option -- '?'
+Try 'ls --help' for more information.
+```
+### Man
+```
+http://linuxcommand.org/man_pages/ls1.html
+
+Comando para acessar o manual do comando ls:
+Ex.: man ls
+
+Para realizar uma busca dentro de um manual basta utilizar a /(barra), e em seguida digitar o termo da pesquisa.
+Ex.: /-l + ENTER
+
+Para navegar entre as ocorrências devemos pressionar a tecla "n".
+
+Para realizar buscas nos nomes das páginas de manual e em suas descrições utilizamos:
+Ex.: $ man -k compiler
+```
+
+### Info e o tex
+```
+Ex.: $ info echo
+
+O info utiliza o editor emacs para exibir suas páginas.
+```
+
+### HOWTOs
+```
+http://www.tldp.org/
+
+Os HOWTOs geralmente trazem formas de como fazer determinadas atividades que nem sempre se restringem a um único comando. Os HOWTOs vão funcionar como guias, com os quais poderemos resolver alguns problemas do dia a dia.
+
+Diretório onde encontram-se a documentação de diversas coisas.
+ls /usr/share/doc
+```
+
+### Localizando arquivos com o locate
+```
+Locate: comando utilizado para localizar arquivos 
+
+Comando para atualizar a base de dados onde o locate procura os arquivos: $ sudo updatedb
+
+Comando "$ locate -e" só retorna os arquivos que existem no momento em que o comando foi executado.
+```
+
+## Part 5 - Directories and Listing Files and managing files
+
+```
+Representação do diretório raiz no Linux: /
+
+Linux é case sensite em relação aos nomes dos arquivos e diretórios, - bem como em relação ao que é feito no shell (LS, por exemplo, não funciona) - é possível criar os dois arquivos citados no mesmo diretório. Se apenas um letra fosse maiúscula já seria possível.
+
+Caminho absoluto: 
+começam com /, indicando que estamos iniciando na raiz. Um exemplo de caminho absoluto seria /home/lucas/curriculo.txt.
+
+Caminho relativo: 
+Indicam que estamos iniciando no diretório atual,ou seja, o caminho é relativo ao diretório atual. Um Exemplo de caminho relativo seria Documents/curriculo.txt.
+
+Diretório atual é representado por .(ponto)
+
+O caractere ~ (til) representa o diretório pessoal do usuário.
+
+Comando "$ ls -laSr" lista os arquivos com informações detalhadas, incluindo ocultos, ordenados pelo tamanho, do menor para o maior.
+
+Comando "mkdir" cria um diretório
+Comando "mkdir -p" cria e garante que todos os demais diretórios irão existir.
+Exe.: $ mkdir -p curriculos/2013/janeiro
+Exe.: $ mkdir -p ferias/201{3,4,5}/{julho,dezembro}
+
+Comando "rmdir" remove apenas diretórios vazios
+
+Comando para excluir esses três diretórios de uma só vez (desde que estejam vazios).
+Exe.: $ rmdir -p curriculos/2015/trimestre01/
+
+Comando "touch" altera a data de modificação de um arquivo para a data e hora atuais do sistema. O conteúdo do arquivo em si não é modificado, é como se apenas "tocássemos" no arquivo. Caso o arquivo não exista, o comportamento padrão é criar o arquivo.
+
+Comando "rm" remove diretórios por padrão, o comando "rm -r" removerá o diretório com seus arquivos e subdiretórios.
+```
+
+## Part 6 -Archiving Files on the Command Line
+
+```
+
+
+
+```
+
+
+
+
 
