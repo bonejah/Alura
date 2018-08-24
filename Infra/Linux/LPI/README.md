@@ -320,13 +320,145 @@ Comando "rm" remove diretórios por padrão, o comando "rm -r" removerá o diret
 
 ## Part 6 -Archiving Files on the Command Line
 
+
+### TAR
+```
+Arquivar com o tar vamos utilizar as seguintes opções:
+
+-c: indica que estamos criando um novo arquivo
+-v: verbose, para exibir detalhes sobre o que o comando está fazendo
+-f: para indicarmos o arquivo que desejamos criar
+
+Considerando que estamos no diretório loja, e que possui apenas os três arquivos citados anteriormente, para evitar problemas futuros, vamos criar o arquivo .tar no diretório anterior:
+
+$ tar -cvf ../loja.tar *
+bemvindo2.html
+bemvindo.html
+contato.html
+Quando utilizamos o -v podemos ver quais arquivos estão sendo incluídos no arquivo criado.
+
+Outra opção seria, considerando que o diretório loja está dentro do diretório atual, arquivarmos o diretório loja:
+
+$ tar -cvf loja.tar loja/
+O arquivo final pode ficar maior que a soma dos tamanhos dos arquivos que incluímos:
+
+$ ls -l loja.tar loja/
+-rw-rw-r-- 1 lucas lucas 10240 Jul 22 11:21 loja.tar
+
+loja/:
+total 8
+-rw-rw-r-- 1 lucas lucas 41 Jul 22 10:21 bemvindo2.html
+-rw-rw-r-- 1 lucas lucas 45 Jul 22 10:51 bemvindo.html
+-rw-rw-r-- 1 lucas lucas  0 Jul 22 10:19 contato.html
+Isso ocorre porque o tar mantem dados como permissões dos arquivos e datas de modificação.
+
+Para listar os arquivos utilizamos a opção -t do comando tar. Como sempre devemos utilizar o -f para indicar qual é o arquivo.
+
+$ tar -tf loja.tar 
+bemvindo2.html
+bemvindo.html
+contato.html
+Podemos também combinar o-t com o -v (verbose) e obter uma lista ainda mais detalhada.
+
+Lembre-se que o tar arquiva mantendo as permissões dos arquivos e datas de acesso:
+
+$ tar -tvf loja.tar 
+-rw-rw-r-- lucas/lucas      41 2016-07-22 10:21 bemvindo2.html
+-rw-rw-r-- lucas/lucas      45 2016-07-22 10:51 bemvindo.html
+-rw-rw-r-- lucas/lucas       0 2016-07-22 10:19 contato.html
+
+
+Para extrair os arquivos do .tar:
+$ tar -xvf loja.tar
+
+Para adicionar arquivos ao tar criado:
+$ tar -uvf ../loja.tar *
+
+Listando para ver a mudança:
+$ tar -tf ../loja.tar
+bemvindo2.html
+bemvindo.html
+contato.html
+bemvindo.html
+
+Para descompactar um arquivo comprimido com gzip:
+$ tar -xvzf loja.tar.gz 
+
+Para descompactar um arquivo comprimido com bzip2:
+$ tar -xvjf loja.tar.bz
+
 ```
 
+### FIND
+```
+Comando utilizado para encontrar algo, exemplo para encontrar arquivos que comecem com log no dir atual:
+$ find -name "log*"
 
+Buscando apenas pelos links simbólicos no diretório /etc e que contenham a palavra "language" em qualquer parte do seu nome:
+$ find /etc -type l -name "*language*"
+
+Encontrando os arquivos que contém "log" ou "2016" em qualquer parte do nome. E que, além disso, foram acessados na última semana:
+$ find -name "*log*" -o -name "*2016*" -atime -7
+
+Utilize o find para buscar todos os arquivos que tem em seu nome as palavras "log" e "2016" e em seguida crie um zip com esses arquivos:
+$ find -name "*log*" -name "*2016*" | zip -@ logs.zip
 
 ```
 
+## Part 7 -  Searching and Extracting Data from Files
 
+## WC
+```
+O wc (word count) exibe o número de linhas, o número de palavras e o número de bytes que um arquivo possui: 
 
+$ wc post-do-blog.txt 
+ 110  851 5517 post-do-blog.txt
 
+Imprimindo a qtde. de caracteres mais longa do arquivo:
+$ wc -wlL post-do-blog.txt
 
+Imprimindo a quantidade de palavras, temos o -w, e para a quantidade de linhas o -l:
+$ wc -wlL post-do-blog.txt 
+ 110  851  341 post-do-blog.txt
+
+Imprimindo os contadores em uma ordem pré-definida:
+$ wc -Llw post-do-blog.txt 
+110  851  341 post-do-blog.txt
+```
+
+## MORE and LESS
+```
+Comando utilizado para navegar no arquivo
+MORE -> ENTER: para avançar uma linha no arquivo.
+MORE -> Barra de espaços: para navegar entre as páginas
+MORE -> Tecla b: para voltar as páginas
+```
+
+## CAT
+```
+Comando utilizado para concatenar arquivos
+
+Exemplo concatenando 2 arquivos  e salvando em outro arquivo:
+$ cat post-do-blog.txt programa.c > arquivos-concatenados.txt
+
+Adicionando o texto "Operação concluida com sucesso" no arquivo criado anteriormente:
+$ echo "Operação concluída com sucesso" >> arquivos-concatenados.txt
+```
+
+## CUT and SORT
+```
+O comando cut no arquivo /etc/passwd para exibir o nome dos usuários e seus diretórios home, separados por ponto e vírgula:
+$ cut -f 1,6 -d: --output-delimiter=";" /etc/passwd
+
+Para ordenar, basta utilizar o sort. Podemos combinar todas essas saídas utilizando o | (pipe):
+$ cut -f 1 -d: /etc/passwd | sort | less
+```
+
+## GREP 
+```
+Para buscar por ocorrências de um termo em um arquivo com o grep é muito simples:
+$ grep palavra_a_ser_encontrada arquivo
+
+O grep leva em considerações maiúsculas e minúsculas. Então se buscarmos por "alura" e no texto existir "Alura", a palavra não será encontrada. Para ignorar isso (ignorar o case), utilizamos a opção -i:
+$ grep -n -i alura post-do-blog.txt
+```
