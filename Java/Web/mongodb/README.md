@@ -16,7 +16,9 @@ https://docs.mongodb.com/ecosystem/
 https://docs.mongodb.com/manual/reference/operator/update-field/
 http://mongodb.github.io/mongo-java-driver/3.4/
 
-
+Codecs Mongo
+https://mongodb.github.io/morphia/
+http://mongojack.org/
 
 ```
 
