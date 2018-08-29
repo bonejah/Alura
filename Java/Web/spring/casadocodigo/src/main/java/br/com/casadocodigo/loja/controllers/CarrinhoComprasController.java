@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.casadocodigo.loja.daos.ProdutoDAO;
+import br.com.casadocodigo.loja.dao.ProdutoDAO;
 import br.com.casadocodigo.loja.models.CarrinhoCompras;
 import br.com.casadocodigo.loja.models.CarrinhoItem;
 import br.com.casadocodigo.loja.models.Produto;
@@ -18,36 +18,38 @@ import br.com.casadocodigo.loja.models.TipoPreco;
 @RequestMapping("/carrinho")
 @Scope(value=WebApplicationContext.SCOPE_REQUEST)
 public class CarrinhoComprasController {
-	
+
 	@Autowired
 	private ProdutoDAO produtoDao;
 	
 	@Autowired
 	private CarrinhoCompras carrinho;
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public ModelAndView itens(){
-	    return new ModelAndView("/carrinho/itens");
-	}
-	
 	@RequestMapping("/add")
-	public ModelAndView add(Integer produtoId, TipoPreco tipo) {
+	public ModelAndView add(Integer produtoId, TipoPreco tipoPreco) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
-		CarrinhoItem carrinhoItem = criaItem(produtoId, tipo);
+		CarrinhoItem carrinhoItem = criaItem(produtoId, tipoPreco);
 		carrinho.add(carrinhoItem);
 		return modelAndView;
 	}
 	
-	private CarrinhoItem criaItem(Integer produtoId, TipoPreco tipo) {
-		Produto produto = produtoDao.find(produtoId);
-		CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipo);
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public ModelAndView itens() {
+//	    if(true) throw new RuntimeException("Excessão Genérica Acontecendo!!!!");
+		return new ModelAndView("carrinho/itens");
+	}
+
+	private CarrinhoItem criaItem(Integer produtoId, TipoPreco tipoPreco) {
+		Produto produto = this.produtoDao.find(produtoId);
+		CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipoPreco);
 		return carrinhoItem;
 	}
 	
 	@RequestMapping("/remover")
 	public ModelAndView remover(Integer produtoId, TipoPreco tipoPreco) {
-	        carrinho.remover(produtoId,tipoPreco);
-	        return new ModelAndView("redirect:/carrinho");
+		carrinho.remover(produtoId, tipoPreco);
+		return new ModelAndView("redirect:/carrinho");
 	}
-
+	
 }
