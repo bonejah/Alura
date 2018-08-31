@@ -1,5 +1,8 @@
 package br.com.alura.estoque.modelo;
 
+import br.com.alura.alurator.conversor.anotacao.NomeTagXml;
+
+@NomeTagXml("produto")
 public class Produto {
 	private String nome;
 	private double valor;

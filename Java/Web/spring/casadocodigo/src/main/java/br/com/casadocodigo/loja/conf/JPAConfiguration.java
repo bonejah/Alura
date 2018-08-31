@@ -18,8 +18,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JPAConfiguration {
 	
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, 
-				Properties additionalProperties) {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource 
+				/*,Properties additionalProperties*/) {
 		
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		
@@ -28,8 +28,10 @@ public class JPAConfiguration {
 
 		factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
 		
-		factoryBean.setDataSource(dataSource);
-		factoryBean.setJpaProperties(additionalProperties);
+		factoryBean.setDataSource(dataSource());
+//		factoryBean.setDataSource(dataSource); --> Comentado para usar em PROD
+		factoryBean.setJpaProperties(additionalProperties());
+//		factoryBean.setJpaProperties(additionalProperties);  --> Comentado para usar em PROD
 		
 		return factoryBean;
 	}
@@ -48,13 +50,13 @@ public class JPAConfiguration {
 	@Profile("dev")
 	private DriverManagerDataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/casadocodigo");
 		dataSource.setUsername("root");
 		dataSource.setPassword("");
-		dataSource.setUrl("jdbc:mysql://localhost/casadocodigo");
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		return dataSource;
 	}
-
+	
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
 		return new JpaTransactionManager(emf);
