@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 
 import br.com.casadocodigo.loja.daos.AutorDao;
 import br.com.casadocodigo.loja.daos.LivroDao;
+import br.com.casadocodigo.loja.infra.FileSaver;
 import br.com.casadocodigo.loja.models.Autor;
 import br.com.casadocodigo.loja.models.Livro;
 
@@ -36,7 +37,8 @@ public class AdminLivrosBean {
 	@Transactional
 	public String salvar() throws IOException {
 		livroDao.salvar(livro);
-		capaLivro.write("/Users/brunolima/casadocodigo/livros/" + capaLivro.getSubmittedFileName());
+		FileSaver fileSaver = new FileSaver();
+		livro.setCapaPath(fileSaver.write(capaLivro, "livros"));
 		context.getExternalContext().getFlash().setKeepMessages(true);
 		context.addMessage(null, new FacesMessage("Livro salvo com sucesso"));
 		this.livro = new Livro();

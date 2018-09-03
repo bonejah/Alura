@@ -49,6 +49,8 @@ public class Livro {
 	@Size(min = 1, max = 4) // número mínimo de elementos na lista
 	@NotNull // A lista não pode ser nula
 	private List<Autor> autores = new ArrayList<>();
+	
+	private String capaPath;
 
 	public String getTitulo() {
 		return titulo;
@@ -97,11 +99,20 @@ public class Livro {
 	public void setAutores(List<Autor> autores) {
 		this.autores = autores;
 	}
+	
+	public String getCapaPath() {
+		return capaPath;
+	}
+
+	public void setCapaPath(String capaPath) {
+		this.capaPath = capaPath;
+	}
 
 	@Override
 	public String toString() {
 		return "Livro [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", preco=" + preco
-				+ ", numeroPaginas=" + numeroPaginas + ", autores=" + autores + "]";
+				+ ", numeroPaginas=" + numeroPaginas + ", dataPublicacao=" + dataPublicacao + ", autores=" + autores
+				+ ", capaPath=" + capaPath + "]";
 	}
 
 }
