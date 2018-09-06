@@ -1,11 +1,16 @@
 package br.com.casadocodigo.loja.models;
 
-public class CarrinhoItem {
+import java.io.Serializable;
+
+public class ItemVendido implements Serializable {
+	
+	private static final long serialVersionUID = 8043751706518865990L;
 
 	private Livro livro;
+	
 	private Integer quantidade;
 
-	public CarrinhoItem(Livro livro) {
+	public ItemVendido(Livro livro) {
 		this.livro = livro;
 		this.quantidade = 1;
 	}
@@ -43,7 +48,7 @@ public class CarrinhoItem {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CarrinhoItem other = (CarrinhoItem) obj;
+		ItemVendido other = (ItemVendido) obj;
 		if (livro == null) {
 			if (other.livro != null)
 				return false;

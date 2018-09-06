@@ -17,6 +17,8 @@ faces-setup --facesVersion 2.2
 Install CDI via console Forge
 cdi-setup --cdiVersion 1.1
 
+https://jsonp.java.net/
+
 
 
 ```
