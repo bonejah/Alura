@@ -1,40 +1,37 @@
 package br.com.casadocodigo.loja.beans;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 import br.com.casadocodigo.loja.daos.LivroDao;
-import br.com.casadocodigo.loja.models.CarrinhoCompras;
-import br.com.casadocodigo.loja.models.ItemVendido;
+import br.com.casadocodigo.loja.models.CarrinhoCompra;
+import br.com.casadocodigo.loja.models.CarrinhoItem;
 import br.com.casadocodigo.loja.models.Livro;
 
 @Model
-public class CarrinhoComprasBean implements Serializable {
-	
-	private static final long serialVersionUID = 8233440565382840399L;
+public class CarrinhoComprasBean {
 
-	@Inject
-	private CarrinhoCompras carrinho;
-	
 	@Inject
 	private LivroDao livroDao;
 
+	@Inject
+	private CarrinhoCompra carrinho;
+
 	public String add(Integer id) {
-		System.out.println("Valor id: " + id);
 		Livro livro = livroDao.buscarPorId(id);
-		ItemVendido item = new ItemVendido(livro);
+		CarrinhoItem item = new CarrinhoItem(livro);
 		carrinho.add(item);
+
 		return "carrinho?faces-redirect=true";
 	}
-	
-	public List<ItemVendido> getItens() {
-	    return carrinho.getItens();
+
+	public List<CarrinhoItem> getItens() {
+		return carrinho.getItens();
 	}
-	
-	public void remover(ItemVendido item) {
+
+	public void remover(CarrinhoItem item) {
 		carrinho.remover(item);
 	}
 }
