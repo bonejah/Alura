@@ -6,7 +6,7 @@
 			<p style="color: red;font-weight:bold">${mensagem}</p>
 		</div>
 		<form id="login-form" action="${s:mvcUrl('AC#loginAdmin').build()}"
-			method="post" role="form" style="display: block;">
+			method="post" role="form" style="display: block; ">
 			<div class="modal-body">
 				<div class="form-group">
 					<input type="text" class="form-control input-lg"
