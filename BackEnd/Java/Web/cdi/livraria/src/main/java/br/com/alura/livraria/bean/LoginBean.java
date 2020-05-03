@@ -25,8 +25,6 @@ public class LoginBean implements Serializable {
 	private MessageHelper helper;
 
 	private Map<String, Object> sessionMap;
-
-
 	
 	@Inject
 	public LoginBean(UsuarioDao usuarioDao,@ScopeMap(Scope.SESSION) Map<String, Object> sessionMap, MessageHelper helper){
