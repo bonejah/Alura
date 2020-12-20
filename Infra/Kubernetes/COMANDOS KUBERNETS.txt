@@ -1,0 +1,62 @@
+Kubernetes (k8s)
+
+Comandos Minikube
+
+Para iniciar o Minikube: minikube start
+
+Para iniciar o Minikube com uma versão especifica do Kubernetes: minikube start --
+kubernetes-version="v1.16"
+
+Para acessar o dashboard do Kubernetes em execução: minikube dashboard
+
+Para ver o status do Minikube: minikube status
+
+Para parar o cluster: minikube stop
+
+Para se conectar pelo SSH com o nó master do cluster: minikube ssh
+
+E para remover o cluster: minikube delete 
+
+E para remover todos os clusters e perfis: minikube delete --all
+
+
+Arquitetura Kubernets:
+Master (Servidor Master) -> Node/Minion (Máquinas gerenciadas pelo serviço Master) -> Pods (Menor componente dentro do arquivo Kubernets, lugar onde os containers ficam armazenados)
+
+##para listar os pods
+kubectl get pods
+
+##tbm funcionar para deployments e services, por exemplo:
+kubectl get services
+
+##para detalhes de um pod
+kubectl describe pod <nome-pod>
+
+##o comando describe tbm funciona para deployment e service, por exemplo:
+kubectl describe service <nome>
+
+##para criar pod, deployment ou service a partir de um arquivo yml
+kubectl create -f <nome-arquivo-yml>
+
+##para remover pod, deployment ou service a partir de um arquivo yml
+kubectl delete -f <nome-arquivo-yml>
+
+##para remover um pod
+kubectl delete pod <nome-pod>
+
+##para remover um deployment
+kubectl delete deployment <nome-deployment>
+
+##para remover um service
+kubectl delete service <nome-service>
+
+
+Deployment é um controller stateless e não compartilha nenhuma informação entre Pods
+StatefulSet permite compartilhar informações entre Pods
+para tal devemos definir um volumeMounts, volumes e um PersistentVolumeClaim
+	o volumeMounts define a pasta concreta de montagem e dá um nome para o volume
+	o item volumes associa nome do volume com uma permissão
+	o PersistentVolumeClaim define as permissões e o tamanho do recurso
+
+Link do arquivos do curso: https://github.com/alura-cursos/curso-kubernetes/tree/aula5
+
