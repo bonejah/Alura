@@ -62,6 +62,9 @@
 * docker start -a -i id_container : inicia um especifico container utilizando o terminal do container 
 * docker rm id_container : remove um container especifico
 * docker container prune : limpa todos os containers inativos
+* docker image prune: limpa as imagens docker pendentes
+* docker image prune -a: remove as imagens que não estão sendo utilizadas
+* docker system prune --volumes: remove imagens, containers e redes
 * docker images : mostra as imagens
 * docker rmi id_container : remove a imagem de um container
 
